@@ -1,2 +1,2 @@
 # Wii-U-File-Formats
-File format documentation for Wii U games
+https://github.com/Kinnay/Wii-U-File-Formats/wiki
