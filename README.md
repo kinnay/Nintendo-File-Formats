@@ -1,2 +1,2 @@
-# Wii-U-File-Formats
-https://github.com/Kinnay/Wii-U-File-Formats/wiki
+Nintendo-File-Formats
+https://github.com/Kinnay/Nintendo-File-Formats/wiki
