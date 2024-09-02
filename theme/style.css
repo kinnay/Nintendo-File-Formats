@@ -1,0 +1,7 @@
+
+h2, h3 { margin-block-start: 1.5em; }
+h4, h5 { margin-block-start: 1em; }
+
+table {
+	margin: 0;
+}

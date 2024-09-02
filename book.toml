@@ -1,0 +1,11 @@
+[book]
+title = "Nintendo File Formats"
+description = "Documentation for file formats seen in Nintendo games"
+authors = ["Yannik Marchand"]
+language = "en"
+
+[build]
+create-missing = false
+
+[output.html]
+additional-css = ["theme/style.css"]
