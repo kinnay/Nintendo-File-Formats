@@ -1,4 +1,4 @@
-## [NSMBU](/formats.md#nsmbu) > Save Data (rp_savedata.dat)
+## [NSMBU](../../formats.md#nsmbu) > Save Data (rp_savedata.dat)
 
 | Offset | Size | Description |
 | --- | --- | --- |

@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > Layout Image (FLIM)
+## [NW](../../formats.md#nw) > Layout Image (FLIM)
 
 BFLIM files start with the image data. A footer is stored behind the image data. This probably makes it easier to align the image data in memory. The footer is found by examining the last 4 bytes of the file, which contain the size of the image data.
 

@@ -1,4 +1,4 @@
-## [AL / LP](/formats.md#al--lp) > Binary YAML
+## [AL / LP](../../formats.md#al--lp) > Binary YAML
 
 These files are similar to regular YAML files, but are encoded in binary form. They usually have the file extension `.byml` or `.byaml`.
 

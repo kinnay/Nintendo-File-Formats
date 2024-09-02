@@ -1,4 +1,4 @@
-The Nintendo Switch SDK provides basic binary file parsing functions under the `nn::util` namespace. This is used by various Switch libraries, such as the [Bezel engine](/formats.md#nw).
+The Nintendo Switch SDK provides basic binary file parsing functions under the `nn::util` namespace. This is used by various Switch libraries, such as the [Bezel engine](../../formats.md#nw).
 
 In general, the files have the following structure:
 

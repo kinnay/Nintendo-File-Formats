@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > [Sound Files](./sound.md) > Stream File (FSTM)
+## [NW](../../formats.md#nw) > [Sound Files](./sound.md) > Stream File (FSTM)
 
 This file contains stream sound data. Instead of embedding them in the [BFSAR file](./bfsar.md), many games store streams sounds in a separate file. This page describes file format version `0x30000`.
 

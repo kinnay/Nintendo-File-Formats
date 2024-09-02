@@ -1,4 +1,4 @@
-## [AAL](/formats.md#aal) > Custom Curve (BACTC)
+## [AAL](../../formats.md#aal) > Custom Curve (BACTC)
 
 This page describes version 1 of the file format.
 

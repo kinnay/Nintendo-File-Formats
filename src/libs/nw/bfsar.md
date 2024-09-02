@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > [Sound](./sound.md) > Sound Archive (FSAR)
+## [NW](../../formats.md#nw) > [Sound](./sound.md) > Sound Archive (FSAR)
 
 A BFSAR file is an archive with all kinds of sound-related files.
 

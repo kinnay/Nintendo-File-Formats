@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Properties
+## [DKC:TF](../../formats.md#dkctf) > Properties
 
 ### Property Format
 | Type | Description |

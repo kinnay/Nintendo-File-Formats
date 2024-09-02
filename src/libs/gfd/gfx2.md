@@ -1,4 +1,4 @@
-## [GFD](/formats.md#gfd) > Texture / Shader (Gfx2)
+## [GFD](../../formats.md#gfd) > Texture / Shader (Gfx2)
 
 This file contains textures or shaders and usually has the filename extension 'gtx' or 'gsh'. The file starts with a [header](#file-header), which is followed by one or more [blocks](#block). A special [block type](#block-types) indicates the end of the file.
 

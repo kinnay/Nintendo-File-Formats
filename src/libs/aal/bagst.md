@@ -1,4 +1,4 @@
-## [AAL](/formats.md#aal) > Audio Group Settings (BAGST)
+## [AAL](../../formats.md#aal) > Audio Group Settings (BAGST)
 
 This is an audio group file.
 

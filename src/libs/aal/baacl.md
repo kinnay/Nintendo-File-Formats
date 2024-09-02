@@ -1,4 +1,4 @@
-## [AAL](/formats.md#aal) > Attenuation Culling (BAACL)
+## [AAL](../../formats.md#aal) > Attenuation Culling (BAACL)
 
 This page describes version 1 and 2 of the file format.
 

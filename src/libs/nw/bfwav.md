@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > [Sound](./sound.md) > Wave File (FWAV)
+## [NW](../../formats.md#nw) > [Sound](./sound.md) > Wave File (FWAV)
 
 This file contains wave sound data. It is usually stored in a [wave archive](./bfwar.md).
 

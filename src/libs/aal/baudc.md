@@ -1,4 +1,4 @@
-## [AAL](/formats.md#aal) > Unit Distance Curve (BAUDC)
+## [AAL](../../formats.md#aal) > Unit Distance Curve (BAUDC)
 
 This file is referenced by an [audio attenuator](./baatn.md) and contains a unit distance curve.
 

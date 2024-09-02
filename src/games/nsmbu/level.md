@@ -1,4 +1,4 @@
-## [NSMBU](/formats.md#nsmbu) > Level Files
+## [NSMBU](../../formats.md#nsmbu) > Level Files
 
 NSMBU levels are Yaz0 compressed SARC archives. They contain another SARC archive with the same name as the outer archive, and optionally some actor and tileset files. If an actor file isn't found in the level archive it is loaded from the 'actor' folder. Tileset files are loaded from the 'unit' folder if they aren't found in the level archive.
 

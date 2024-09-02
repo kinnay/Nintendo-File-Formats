@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > [Sound Files](./sound.md) > Bank File (FBNK)
+## [NW](../../formats.md#nw) > [Sound Files](./sound.md) > Bank File (FBNK)
 
 This file contains instrument definitions. Every instrument references a [wave file](./bfwav.md) in a [wave archive](./bfwar.md). Bank files are used by [sequence sounds](./bfseq.md).
 

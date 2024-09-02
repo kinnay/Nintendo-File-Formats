@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Components
+## [DKC:TF](../../formats.md#dkctf) > Components
 
 A level consists of components, each of which belongs to an entity (CEntityGOC). Most components have their attributes stored in a [struct](structs.md).
 

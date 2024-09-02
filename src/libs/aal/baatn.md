@@ -1,4 +1,4 @@
-## [AAL](/formats.md#aal) > Audio Attenuator (BAATN)
+## [AAL](../../formats.md#aal) > Audio Attenuator (BAATN)
 
 This is an audio attenuator file.
 

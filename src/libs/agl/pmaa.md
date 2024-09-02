@@ -1,4 +1,4 @@
-## [AGL](/formats.md#agl) > Graphics Parameters (PMAA)
+## [AGL](../../formats.md#agl) > Graphics Parameters (PMAA)
 
 A PMAA file contain a parameter tree for various graphical effects. This page describes version 1 of the file format.
 

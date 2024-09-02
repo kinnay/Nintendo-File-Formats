@@ -1,4 +1,4 @@
-## [ELINK](/formats.md#xlink) > Effect Links
+## [ELINK](../../formats.md#xlink) > Effect Links
 
 This file format was reverse engineered by [KillzXGaming](https://github.com/kinnay/Nintendo-File-Formats/issues/5).
 

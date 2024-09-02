@@ -1,4 +1,4 @@
-## [SMM 2](/formats.md#smm2) > Level Files
+## [SMM 2](../../formats.md#smm2) > Level Files
 
 All level files have the same size in Super Mario Maker 2:
 

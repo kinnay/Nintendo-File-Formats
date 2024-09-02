@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Structs
+## [DKC:TF](../../formats.md#dkctf) > Structs
 
 Many structs have a name that starts with SLdr. The code that parses these structs was probably automatically generated from a C++ header or data definition language. Unfortunately, only the CRC32 hash of each field name is stored in the file, and it's hard to infer the name of a field from its hash. Not all fields of a struct must be stored in the file: if a field is not present a default value is used.
 

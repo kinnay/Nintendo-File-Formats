@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Enums
+## [DKC:TF](../../formats.md#dkctf) > Enums
 
 This page lists enums used by more than one file format.
 

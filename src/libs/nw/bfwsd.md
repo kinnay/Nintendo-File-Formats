@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > [Sound](./sound.md) > Wave Sound (FWSD)
+## [NW](../../formats.md#nw) > [Sound](./sound.md) > Wave Sound (FWSD)
 
 | Block id | Description |
 | --- | --- |

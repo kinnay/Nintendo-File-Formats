@@ -1,4 +1,4 @@
-## [AGL](/formats.md#agl) > Binary Shader Archive (SHARCFB)
+## [AGL](../../formats.md#agl) > Binary Shader Archive (SHARCFB)
 
 A SHARCFB file contains compiled shaders. This page describes version 8 of the file format.
 

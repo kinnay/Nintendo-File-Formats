@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > Sound File Overview
+## [NW](../../formats.md#nw) > Sound File Overview
 
 This page describes some general data structures seen in a [BFSAR file](./bfsar.md) and its subfiles. Each sound file is divided into one or more blocks, which are all aligned to 32 bytes.
 

@@ -1,4 +1,4 @@
-## [AAL](/formats.md#aal) > Audio Resource List
+## [AAL](../../formats.md#aal) > Audio Resource List
 
 A .barslist file contains an audio resource list.
 

@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Loose Data (LDTA)
+## [DKC:TF](../../formats.md#dkctf) > Loose Data (LDTA)
 
 | Type | Description |
 | --- | --- |

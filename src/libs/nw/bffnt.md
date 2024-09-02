@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > Font File (FFNT)
+## [NW](../../formats.md#nw) > Font File (FFNT)
 
 | Offset | Size | Description |
 | --- | --- | --- |

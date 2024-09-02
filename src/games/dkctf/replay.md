@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Replay File
+## [DKC:TF](../../formats.md#dkctf) > Replay File
 
 ## Header
 | Type | Description |

@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > Bezel Archive (BEA)
+## [NW](../../formats.md#nw) > Bezel Archive (BEA)
 
 This is an archive format used by the Bezel engine. The file format is based on the Nintendo Switch [binary file format](../switch/binary.md).
 

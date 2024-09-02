@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > [Sound Files](./sound.md) > Group File (FGRP)
+## [NW](../../formats.md#nw) > [Sound Files](./sound.md) > Group File (FGRP)
 
 This file contains a group of subfiles in a [BFSAR archive](./bfsar.md). When a file isn't stored in the [file block](./bfsar.md#file-block) of the [BFSAR file](./bfsar.md) or externally, the group files are scanned until it is found (or not found anywhere).
 

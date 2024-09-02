@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Character File (CHAR)
+## [DKC:TF](../../formats.md#dkctf) > Character File (CHAR)
 
 | Type | Description |
 | --- | --- |

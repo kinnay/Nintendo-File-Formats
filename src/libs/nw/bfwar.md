@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > [Sound](./sound.md) > Wave Archive (FWAR)
+## [NW](../../formats.md#nw) > [Sound](./sound.md) > Wave Archive (FWAR)
 
 This file contains a bunch of [wave files](./bfwav.md) that can be used by [wave sounds](./bfwsd.md) and [banks](./bfbnk.md).
 

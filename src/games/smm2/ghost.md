@@ -1,4 +1,4 @@
-## [SMM 2](/formats.md#smm2) > Ninji Ghosts
+## [SMM 2](../../formats.md#smm2) > Ninji Ghosts
 
 Ninji ghosts are downloaded from the [server](https://github.com/Kinnay/NintendoClients/wiki) with the [GetEventCourseGhost](https://github.com/Kinnay/NintendoClients/wiki/Data-Store-Protocol-(SMM-2)) method. Ninji ghosts are zlib compressed and may use up to 0x8000 bytes.
 

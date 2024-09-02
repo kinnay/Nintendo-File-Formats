@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Texture File (TXTR)
+## [DKC:TF](../../formats.md#dkctf) > Texture File (TXTR)
 
 Meta data: [NTextureFormat::SMetaData](#ntextureformatsmetadata)
 

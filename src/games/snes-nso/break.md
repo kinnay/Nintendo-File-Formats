@@ -1,4 +1,4 @@
-[SNES Online](/formats.md#snes-nso) > Break Files
+[SNES Online](../../formats.md#snes-nso) > Break Files
 ---
 
 A break file contains the emulator state from which a game can be resumed. Everything is encoded in little-endian byte order.

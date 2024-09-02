@@ -1,4 +1,4 @@
-## [LMS](/formats.md#lms) > [Overview](overview.md) > Flow Chart (MSBF)
+## [LMS](../../formats.md#lms) > [Overview](overview.md) > Flow Chart (MSBF)
 
 This file is identified by the magic number `MsgFlwBn`.
 

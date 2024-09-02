@@ -1,4 +1,4 @@
-## [AAL](/formats.md#aal) > Loop Asset List (BLAL)
+## [AAL](../../formats.md#aal) > Loop Asset List (BLAL)
 
 This file contains a loop asset list.
 

@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > Particle File
+## [NW](../../formats.md#nw) > Particle File
 
 This file contains resources for particle effects. This page describes version 0x41 of the file format.
 

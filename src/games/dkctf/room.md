@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Level File (ROOM)
+## [DKC:TF](../../formats.md#dkctf) > Level File (ROOM)
 
 | Type | Description |
 | --- | --- |

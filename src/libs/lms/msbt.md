@@ -1,4 +1,4 @@
-## [LMS](/formats.md#lms) > [Overview](overview.md) > Message File (MSBT)
+## [LMS](../../formats.md#lms) > [Overview](overview.md) > Message File (MSBT)
 
 This file is identified by the magic number `MsgStdBn`. It contains text strings that are looked up by label.
 

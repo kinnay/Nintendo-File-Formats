@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Material File (MTRL)
+## [DKC:TF](../../formats.md#dkctf) > Material File (MTRL)
 
 Meta data: [NMaterialFormat::SMetaData](#nmaterialformatsmetadata)
 

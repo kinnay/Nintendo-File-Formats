@@ -1,4 +1,4 @@
-[MK8](/formats.md#mk8) > Replay Files
+[MK8](../../formats.md#mk8) > Replay Files
 ---
 
 Everything is encoded with big-endian byte order.

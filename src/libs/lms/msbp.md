@@ -1,4 +1,4 @@
-## [LMS](/formats.md#lms) > [Overview](overview.md) > Project File (MSBP)
+## [LMS](../../formats.md#lms) > [Overview](overview.md) > Project File (MSBP)
 
 This file is identified by the magic number `MsgPrjBn`. This file defines various metadata for [MSBT files](msbt.md).
 

@@ -1,4 +1,4 @@
-## [LMS](/formats.md#lms) > File Format Overview
+## [LMS](../../formats.md#lms) > File Format Overview
 
 This page describes the general structure of files loaded by the LMS library. The files start with a [header](#file-header) which is followed by different kinds of [blocks](#block-header). All blocks are aligned to 16 bytes. The space between two blocks is padded with 0xAB bytes.
 

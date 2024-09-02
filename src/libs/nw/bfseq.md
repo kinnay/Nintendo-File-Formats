@@ -1,4 +1,4 @@
-## [NW](/formats.md#nw) > [Sound](./sound.md) > Sequence Sound (FSEQ)
+## [NW](../../formats.md#nw) > [Sound](./sound.md) > Sequence Sound (FSEQ)
 
 This file contains a sequence sound. A sequence sound specifies which notes should be played at what time using instruments from a [bank file](./bfbnk.md).
 

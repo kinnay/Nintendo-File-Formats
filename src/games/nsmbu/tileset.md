@@ -1,4 +1,4 @@
-## [NSMBU](/formats.md#tilesets) > Tilesets
+## [NSMBU](../../formats.md#tilesets) > Tilesets
 
 NSMBU tilesets are SARC archives. Self-contained tileset files in the unit folder are Yaz0 compressed. The archive contains the following files (replace '%' by the name of the tileset):
 

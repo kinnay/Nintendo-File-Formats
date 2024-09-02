@@ -1,4 +1,4 @@
-## [AAL](/formats.md#aal) > Roll Off Curve (BAROC)
+## [AAL](../../formats.md#aal) > Roll Off Curve (BAROC)
 
 This page describes version 1 and 2 of the file format.
 

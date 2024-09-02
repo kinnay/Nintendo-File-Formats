@@ -1,4 +1,4 @@
-## [AAL](/formats.md#aal) > Audio Resource (BARS)
+## [AAL](../../formats.md#aal) > Audio Resource (BARS)
 
 A BARS file is an audio resource. BARS files are referenced by [BARSLIST files](./barslist.md).
 

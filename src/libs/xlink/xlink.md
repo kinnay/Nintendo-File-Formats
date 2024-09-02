@@ -1,4 +1,4 @@
-## [XLINK](/formats.md#xlink) > Sound / Effect Links
+## [XLINK](../../formats.md#xlink) > Sound / Effect Links
 
 This format is used by `.bslnk` and `.belnk` files.
 

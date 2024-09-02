@@ -1,4 +1,4 @@
-[SNES Online](/formats.md#snes-nso) > SFROM Files
+[SNES Online](../../formats.md#snes-nso) > SFROM Files
 ---
 
 An SFROM file contains the code and data of an emulated SNES game. It has the following structure:

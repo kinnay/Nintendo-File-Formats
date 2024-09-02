@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Archive (PAK)
+## [DKC:TF](../../formats.md#dkctf) > Archive (PAK)
 
 | Type | Description |
 | --- | --- |

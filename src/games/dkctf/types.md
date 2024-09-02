@@ -1,4 +1,4 @@
-## [DKC:TF](/formats.md#dkctf) > Types
+## [DKC:TF](../../formats.md#dkctf) > Types
 
 In DKC:TF, some types appear in multiple different file formats. This page lists the most common types.
 
