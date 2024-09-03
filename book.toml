@@ -9,3 +9,10 @@ create-missing = false
 
 [output.html]
 additional-css = ["theme/style.css"]
+git-repository-url = "https://github.com/kinnay/Nintendo-File-Formats"
+
+[output.html.print]
+enable = false
+
+[output.html.fold]
+enable = true
