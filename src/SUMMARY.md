@@ -4,9 +4,9 @@
 [File Formats](formats.md)
 
 - [AAL]()
-	- [BAMTA](libs/aal/bamta.md)
-	- [BARS](libs/aal/bars.md)
 	- [BARSLIST](libs/aal/barslist.md)
+	- [BARS](libs/aal/bars.md)
+	- [BAMTA](libs/aal/bamta.md)
 	- [BAATN](libs/aal/baatn.md)
 	- [BAROC](libs/aal/baroc.md)
 	- [BACTC](libs/aal/bactc.md)
