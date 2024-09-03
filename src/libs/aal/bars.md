@@ -23,7 +23,7 @@ These are absolute offsets.
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 4 | Offset to [audio meta file](./bamta.md) |
-| 0x4 | 4 | Offset to asset file ([bfwav](../nw/bfwav.md) or [bfstp](../nw/bfstp.md)) |
+| 0x0 | 4 | Offset to [audio meta file](./bameta.md) |
+| 0x4 | 4 | Offset to asset file ([bfwav](../nw/bfwav.md), [bfstp](../nw/bfstp.md) or [bwav](bwav.md)) |
 
 If a resource does not have an asset file, the offset to the asset file is -1.

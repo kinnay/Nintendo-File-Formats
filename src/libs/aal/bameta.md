@@ -1,4 +1,4 @@
-## [AAL](../../formats.md#aal) > Audio Metadata (BAMTA)
+## [AAL](../../formats.md#aal) > Audio Metadata (BAMETA)
 
 This file is part of a [BARS](./bars.md) file and contains metadata about an audio resource.
 

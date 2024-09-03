@@ -5,7 +5,7 @@ This is a first-party audio framework that uses [nw::snd / nn::atk](#nw) interna
 
 * [BARSLIST files (audio resource lists)](libs/aal/barslist.md)
 * [BARS files (audio resources)](libs/aal/bars.md)
-* [BAMTA files (audio metadata)](libs/aal/bamta.md)
+* [BAMETA files (audio metadata)](libs/aal/bameta.md)
 * [BAATN files (audio attenuators)](libs/aal/baatn.md)
 * [BAROC files (roll off curves)](libs/aal/baroc.md)
 * [BACTC files (custom curves)](libs/aal/bactc.md)
@@ -13,6 +13,7 @@ This is a first-party audio framework that uses [nw::snd / nn::atk](#nw) interna
 * [BAACL files (attenuation culling)](libs/aal/baacl.md)
 * [BAGST files (audio group settings)](libs/aal/bagst.md)
 * [BLAL files (loop asset list)](libs/aal/blal.md)
+* [BWAV files (wave sounds)](libs/aal/bwav.md)
 
 ## AGL
 This is a first-party library that mostly deals with shaders and textures.
