@@ -89,6 +89,9 @@ The libraries use [AAL](#aal) and [nw::eft / nn::vfx](#nw) internally.
 
 XLINK files have the file extension `.bslnk` or `.belnk`.
 
+## Animal Crossing: New Horizons {#acnh}
+* [BCSV files](games/acnh/bcsv.md)
+
 ## Donkey Kong Country: Tropical Freeze (Wii U) {#dkctf}
 * [PAK files (archives)](games/dkctf/pak.md)
 * [ROOM files (game areas)](games/dkctf/room.md)

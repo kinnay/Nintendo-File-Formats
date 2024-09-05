@@ -59,6 +59,8 @@
 	- [XLINK](libs/xlink/xlink.md)
 - [Switch]()
 	- [Binary](libs/switch/binary.md)
+- [AC:NH]()
+	- [BCSV](games/acnh/bcsv.md)
 - [DKC:TF]()
 	- [PAK](games/dkctf/pak.md)
 	- [ROOM](games/dkctf/room.md)
