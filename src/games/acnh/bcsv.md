@@ -1,42 +1,46 @@
 [AC:NH](../../formats.md#acnh) > BCSV
 ---
 
+A BCSV file contains a table of information in a compact binary format.
+
+A BCSV file contains three parts:
+* [File header](#header)
+* [Column information](#column-info)
+* [Data rows](#rows)
+
 Everything is encoded in little-endian byte order.
+
+## Header
 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 4 | Number of rows |
 | 0x4 | 4 | Size of each row |
 | 0x8 | 2 | Number of columns |
-| 0xA | 1 | Flag 1 |
-| 0xB | 1 | Flag 2 |
+| 0xA | 1 | Has extended header |
+| 0xB | 1 | Unknown flag |
 
-If flag 1 is set:
+If the extended header flag is set:
 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0xC | 4 | Magic number (`BCSV` in reverse) |
 | 0x10 | 2 | Version number |
 | 0x12 | 10 | Padding |
-| 0x1C | | [Column info](#column-info) |
-| | | [Rows](#rows) |
 
-If flag 1 is not set:
-
-| Offset | Size | Description |
-| --- | --- | --- |
-| 0xC | | [Column info](#column-info) |
-| | | [Rows](#rows) |
-
-### Column Info
+## Column Info 
 This section contains the following data for each column:
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 4 | CRC32 hash of column name |
+| 0x0 | 4 | Hash of column name and type |
 | 0x4 | 4 | Offset to cell data in row |
 
-### Rows
+The hash is the CRC32 of `<name> <type>`, for example `UniqueID u16`.
+
+Unfortunately, the actual column names are not stored in the file, which makes them difficult to recover. Similarly, it is difficult to determine the type, but it can sometimes be guessed by checking the data size.
+
+## Rows
 Every row contains the following data:
 
 | Offset | Size | Description |
