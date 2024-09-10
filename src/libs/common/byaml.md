@@ -39,12 +39,9 @@ If a table is empty, the offest in the header is 0.
 | v2 | Unsigned integers were added (**0xD3**). |
 | v3 | 64-bit values were added (**0xD4 - 0xD6**). |
 | v4 | Binary data was added again (**0xA1**), but without binary data table (**0xC3**). |
-| v5 | Type **0xA2** was added. |
-| v6 | Unknown |
-| v7 | Unknown |
-| v8 | Unknown |
-| v9 | Unknown |
-| v10 | Unknown |
+| v5 | Binary data with param (**0xA2**) was added. |
+| v6 or v7 | Ordered dictionaries (**0xC4**) were added. |
+| v8 to v10 | Unknown |
 
 ## Node Types
 | ID | Type | Version |
@@ -54,6 +51,7 @@ If a table is empty, the offest in the header is 0.
 | 0xA2 | Binary data with param | 5+ |
 | 0xC0 | [Array](#array) | Any |
 | 0xC1 | [Dictionary](#dictionary) | Any |
+| 0xC4 | [Ordered dictionary](#ordered-dictionary) | (6 or 7)+ |
 | 0xD0 | Bool | Any |
 | 0xD1 | Integer | Any |
 | 0xD2 | Float | Any |
@@ -75,7 +73,6 @@ The following node types need more research:
 | ID | Type |
 | --- | --- |
 | 0x20 | Unknown |
-| 0xC4 | Unknown |
 | 0xC5 | Unknown |
 
 ## Node Values
@@ -87,7 +84,7 @@ To store values, arrays and dictionaries reserve 32 bits per element. Because no
 | 0xA0 | An index into the string table (see [header](#header)). |
 | 0xA1 | An absolute offset to a binary blob. The blob is prefixed by a 32-bit integer that holds its size. MK8 stores an index into the binary data table instead (see [header](#header)). |
 | 0xA2 | An absolute offset to a binary blob. The blob is prefixed by a 32-bit integer that holds its size and another 32-bit integer with application-specific information. |
-| 0xC0&nbsp;&#x2011;&nbsp;0xC1 | An absolute offset to the node. |
+| 0xC0&nbsp;&#x2011;&nbsp;0xC4 | An absolute offset to the node. |
 | 0xD0&nbsp;&#x2011;&nbsp;0xD3 | Simply the value. |
 | 0xD4&nbsp;&#x2011;&nbsp;0xD6 | An absolute offset to the value. |
 | 0xFF | Doesn't matter, always 0. |
@@ -110,10 +107,10 @@ A dictionary contains key / value pairs. The pairs must be sorted by their keys,
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 1 | [Node type](#node-types) (0xC1) |
-| 0x1 | 3 | Number of pairs (N) |
-| 0x4 | 8 x N | Pair table |
+| 0x1 | 3 | Number of element (N) |
+| 0x4 | 8 x N | Element table |
 
-Every pair is stored as follows:
+Every element is stored as follows:
 
 | Offset | Size | Description |
 | --- | --- | --- |
@@ -144,3 +141,26 @@ The address table and strings must both be sorted, because a binary search algor
 The address table contains offsets to the binary data, relative to the start of the binary table node. It also contains an offset that points to the end of the binary table (right behind the last binary blob).
 
 The address table must be sorted, because the size of a binary blob is calculated from the difference between two offsets.
+
+## Ordered Dictionary
+Dictionary elements are always stored in alphabetical order. To restore the original order, ordered dictionaries store an array of indices behind the element table.
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 1 | [Node type](#node-types) (0xC4) |
+| 0x1 | 3 | Number of elements (N) |
+| 0x4 | 8 x N | Element table |
+| | | Index table |
+
+Every element is stored as follows:
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 3 | Index into dictionary key table (see [header](#header)) |
+| 0x3 | 1 | [Node type](#node-types) |
+| 0x4 | 4 | [Value](#node-values) |
+
+The index table contains a list of indices into the element table. The size of each index depends on the number of elements (N):
+* If there are less than 256 elements, the index table contains one byte per element.
+* If there are less than 65536 elements, the index table contains two bytes per element.
+* Otherwise, the index table contains 4 bytes per element.
