@@ -16,3 +16,6 @@ enable = false
 
 [output.html.fold]
 enable = true
+
+[output.html.redirect]
+"/libs/al/byaml.html" = "/libs/common/byaml.html"
