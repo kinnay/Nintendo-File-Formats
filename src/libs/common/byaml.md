@@ -46,6 +46,8 @@ If a table is empty, the offest in the header is 0.
 ## Node Types
 | ID | Type | Version |
 | --- | --- | --- |
+| 0x20&nbsp;&#x2011;&nbsp;0x2F | Hash map | (6 or 7)+ |
+| 0x30&nbsp;&#x2011;&nbsp;0x3F | Ordered hash map | (6 or 7)+ |
 | 0xA0 | String | Any |
 | 0xA1 | Binary data | 4+ and MK8 |
 | 0xA2 | Binary data with param | 5+ |
@@ -67,13 +69,6 @@ The following node types may not be contained in an array or dictionary. They ar
 | --- | --- | --- |
 | 0xC2 | [String table](#string-table) | Any |
 | 0xC3 | [Binary data table](#binary-data-table) | MK8 |
-
-The following node types need more research:
-
-| ID | Type |
-| --- | --- |
-| 0x20 | Unknown |
-| 0xC5 | Unknown |
 
 ## Node Values
 
