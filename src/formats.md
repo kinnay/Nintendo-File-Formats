@@ -1,5 +1,10 @@
 # File Formats
 
+## Misc
+The BYAML file format has been seen in various game engines, including AL, LunchPack and ModuleSystem.
+
+* [BYAML files (binary yaml)](libs/common/byaml.md)
+
 ## AAL
 This is a first-party audio framework that uses [nw::snd / nn::atk](#nw) internally.
 
@@ -22,15 +27,6 @@ This is a first-party library that mostly deals with shaders and textures.
 * SHARC files (shader archives)
 
 The PMAA file format covers many different extensions such as `.baglenv` and `.bagldof`.
-
-## AL / LP
-AL is the engine behind Super Mario 3D World and Super Mario Odyssey.
-
-LunchPack is an engine that is used in many other first-party games, such as Super Mario Maker, Splatoon, and even Nintendo Labo. It was first seen in Nintendo Land, whose code name is 'Lunch'. This is probably where the library got its name.
-
-AL is the first library that implemented the BYAML file format. Later, the code that implements the BYAML file format was moved into the LunchPack engine.
-
-* [BYAML files (binary yaml)](libs/al/byaml.md)
 
 ## GFD
 This is a tiny Wii U library that loads textures and shaders from gtx/gsh files.

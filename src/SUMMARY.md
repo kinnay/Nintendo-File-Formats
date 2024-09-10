@@ -3,6 +3,8 @@
 [Welcome](welcome.md)
 [File Formats](formats.md)
 
+- [Common]()
+	- [BYAML](libs/common/byaml.md)
 - [AAL]()
 	- [BARSLIST](libs/aal/barslist.md)
 	- [BARS](libs/aal/bars.md)
@@ -19,8 +21,6 @@
 	- [PMAA](libs/agl/pmaa.md)
 	- [SHARCFB](libs/agl/sharcfb.md)
 	- [SHARC]()
-- [AL / LP]()
-	- [BYAML](libs/al/byaml.md)
 - [GFD]()
 	- [Gfx2](libs/gfd/gfx2.md)
 - [LMS]()

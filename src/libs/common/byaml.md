@@ -1,35 +1,36 @@
-## [AL / LP](../../formats.md#al--lp) > Binary YAML
+## [Misc](../../formats.md#misc) > Binary YAML
 
 These files are similar to regular YAML files, but are encoded in binary form. They usually have the file extension `.byml` or `.byaml`.
 
-Dictionary nodes may contain cycles, i.e. they are not necessarily a tree.
+A BYAML file contains a graph of nodes. Every node has a type and value. There are sequence types, such as arrays and dictionaries, and basic types such as strings and integers. The root node must always be an array or dictionary.
+
+BYAML files are used to store all kinds of data, such as configuration data and levels.
+
+> **Note:** a BYAML file may contain cycles. This means that an array or dictionary may contain a node that the parser has seen earlier. Because of this, parsers must be careful not to end up in an infinite loop.
 
 ## Header
-Offsets in the header are 0 if the table that they refer to is empty.
-
-The binary data table is only seen in Mario Kart 8. In other games, binary data is stored as a string.
+In most games, the header looks as follows:
 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | Magic number / BOM (`BY`: big endian, `YB`: little endian)
 | 0x2 | 2 | [Version number](#changelog) |
-
-Old version:
-
-| Offset | Size | Description |
-| --- | --- | --- |
-| 0x4 | 4 | Offset to [dictionary key table](#string-table) |
-| 0x8 | 4 | Offset to [string table](#string-table) |
-| 0xC | 4 | Offset to [binary data table](#binary-table) |
-| 0x10 | 4 | Offset to root node ([array](#array) or [dictionary](#dictionary)) |
-
-New version:
-
-| Offset | Size | Description |
-| --- | --- | --- |
 | 0x4 | 4 | Offset to [dictionary key table](#string-table) |
 | 0x8 | 4 | Offset to [string table](#string-table) |
 | 0xC | 4 | Offset to root node ([array](#array) or [dictionary](#dictionary)) |
+
+Only in Mario Kart 8, an additional binary data table is used:
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 2 | Magic number / BOM (`BY`: big endian, `YB`: little endian)
+| 0x2 | 2 | [Version number](#changelog) |
+| 0x4 | 4 | Offset to [dictionary key table](#string-table) |
+| 0x8 | 4 | Offset to [string table](#string-table) |
+| 0xC | 4 | Offset to [binary data table](#binary-data-table) |
+| 0x10 | 4 | Offset to root node ([array](#array) or [dictionary](#dictionary)) |
+
+If a table is empty, the offest in the header is 0.
 
 ## Changelog
 | Version | Changes |
@@ -41,13 +42,16 @@ New version:
 | v5 | Type **0xA2** was added. |
 | v6 | Unknown |
 | v7 | Unknown |
+| v8 | Unknown |
+| v9 | Unknown |
+| v10 | Unknown |
 
 ## Node Types
 | ID | Type | Version |
 | --- | --- | --- |
 | 0xA0 | String | Any |
-| 0xA1 | Binary data | (1) and 4+ |
-| 0xA2 | Binary data with param | 5 |
+| 0xA1 | Binary data | 4+ and MK8 |
+| 0xA2 | Binary data with param | 5+ |
 | 0xC0 | [Array](#array) | Any |
 | 0xC1 | [Dictionary](#dictionary) | Any |
 | 0xD0 | Bool | Any |
@@ -59,24 +63,34 @@ New version:
 | 0xD6 | Double | 3+ |
 | 0xFF | Null | Any |
 
-The following node types may not be used in an array or dictionary. They are only used by the [header](#header).
+The following node types may not be contained in an array or dictionary. They are only used by the [header](#header):
 
 | ID | Type | Version |
 | --- | --- | --- |
 | 0xC2 | [String table](#string-table) | Any |
-| 0xC3 | [Binary table](#binary-table) | (1) |
+| 0xC3 | [Binary data table](#binary-data-table) | MK8 |
 
-Arrays and dictionaries reserve 32 bits per element. Because not all node types fit into 32 bits, they are stored as follows:
+The following node types need more research:
+
+| ID | Type |
+| --- | --- |
+| 0x20 | Unknown |
+| 0xC4 | Unknown |
+| 0xC5 | Unknown |
+
+## Node Values
+
+To store values, arrays and dictionaries reserve 32 bits per element. Because not all node types fit into 32 bits, they are stored as follows:
 
 | Type | Value |
 | --- | --- |
 | 0xA0 | An index into the string table (see [header](#header)). |
-| 0xA1 | (v1): An index into the binary data table (see [header](#header)).<br>v4: An absolute offset to a binary blob. The blob is prefixed by a 32-bit integer that holds its size. |
-| 0xA2 | An absolute offset to a binary blob. The blob is prefixed by a 32-bit integer that holds its size and another 32-bit integer with unknown purpose. |
-| 0xC0 and 0xC1 | An absolute offset to the node. |
-| 0xD0 - 0xD3 | Simply the value. |
-| 0xD4 - 0xD6 | An absolute offset to the value. |
-| 0xFF | Doesn't matter, always 0 |
+| 0xA1 | An absolute offset to a binary blob. The blob is prefixed by a 32-bit integer that holds its size. MK8 stores an index into the binary data table instead (see [header](#header)). |
+| 0xA2 | An absolute offset to a binary blob. The blob is prefixed by a 32-bit integer that holds its size and another 32-bit integer with application-specific information. |
+| 0xC0&nbsp;&#x2011;&nbsp;0xC1 | An absolute offset to the node. |
+| 0xD0&nbsp;&#x2011;&nbsp;0xD3 | Simply the value. |
+| 0xD4&nbsp;&#x2011;&nbsp;0xD6 | An absolute offset to the value. |
+| 0xFF | Doesn't matter, always 0. |
 
 ## Array
 If the number of elements is not a multiple of 4, additional null bytes are inserted between the type table and the data table such that the data table is aligned to 4 bytes.
@@ -86,11 +100,9 @@ If the number of elements is not a multiple of 4, additional null bytes are inse
 | 0x0 | 1 | [Node type](#node-types) (0xC0) |
 | 0x1 | 3 | Number of elements (N) |
 | 0x4 | N | Type table |
-| | 4 x N | Data table |
+| | 4 x N | Value table |
 
-The type table contains one byte per element that indicates its [node type](#node-types).
-
-The data table contains either an absolute offset to the node (for container nodes), or simply the value of the array element (for primitive nodes).
+The type table contains one byte per element that indicates its [node type](#node-types). The format of a value depends on the node type ([see here](#node-values)).
 
 ## Dictionary
 A dictionary contains key / value pairs. The pairs must be sorted by their keys, because a binary search algorithm is used to look them up.
@@ -107,9 +119,7 @@ Every pair is stored as follows:
 | --- | --- | --- |
 | 0x0 | 3 | Index into dictionary key table (see [header](#header)) |
 | 0x3 | 1 | [Node type](#node-types) |
-| 0x4 | 4 | Value |
-
-Just like [array elements](#array-elements), the value is either a primitive or an absolute offset to a container node.
+| 0x4 | 4 | [Value](#node-values) |
 
 ## String Table
 | Offset | Size | Description |
@@ -123,7 +133,7 @@ The address table contains offsets to the strings, relative to the start of the 
 
 The address table and strings must both be sorted, because a binary search algorithm is used to find them.
 
-## Binary Table
+## Binary Data Table
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 1 | [Node type](#node-types) (0xC3) |
