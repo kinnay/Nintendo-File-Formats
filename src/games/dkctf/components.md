@@ -205,7 +205,7 @@ This component draws a world model.
 
 | Type | Description |
 | --- | --- |
-| [SLdrRenderWorld](DKCTF-Ldr-Types-(Q-Z)#sldrrenderworld) | Info |
+| [SLdrRenderWorld](structs.md#sldrrenderworld) | Info |
 | NBakedLighting::SDIMScriptData | DIM script data |
 
 ## CActorCollisionGOC
@@ -213,7 +213,7 @@ This component controls actor collisions.
 
 | Type | Description |
 | --- | --- |
-| [SLdrActorCollision](DKCTF-Ldr-Types-(A-C)#sldractorcollision) | Info |
+| [SLdrActorCollision](structs.md#sldractorcollision) | Info |
 
 <br>
 
@@ -268,7 +268,7 @@ This component describes the movement behavior of an actor.
 
 | Type | Description |
 | --- | --- |
-| [SLdrSplineMotion](DKCTF-Ldr-Types-(Q-Z)#sldrsplinemotion) | Info |
+| [SLdrSplineMotion](structs.md#sldrsplinemotion) | Info |
 
 <br>
 
@@ -281,7 +281,7 @@ This component describes an enemy.
 
 | Type | Description |
 | --- | --- |
-| [SLdrCreature](DKCTF-Ldr-Types-(A-C)#sldrcreature) | Info |
+| [SLdrCreature](structs.md#sldrcreature) | Info |
 
 <br>
 
@@ -304,7 +304,7 @@ This component draws a static or animated model.
 
 | Type | Description |
 | --- | --- |
-| [SLdrRender](DKCTF-Ldr-Types-(Q-Z)#sldrrender) | Info |
+| [SLdrRender](structs.md#sldrrender) | Info |
 
 ## CPlayerGOC
 
