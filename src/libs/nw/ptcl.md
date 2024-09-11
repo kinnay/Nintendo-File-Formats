@@ -258,7 +258,7 @@ The offsets are relative to the start of the shader section.
 | 0x14 | 4 | Offset to [shader info](#shader-info) list |
 
 ### Shader Files
-This section simply contains a bunch of [GSH files](Gfx2-File-Format).
+This section simply contains a bunch of [GSH files](../gfd/gfx2.md).
 
 ### Shader Info
 One per shader. The shader file offset is relative to the first shader file.

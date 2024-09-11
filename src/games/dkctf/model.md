@@ -1,4 +1,4 @@
-## [DKC:TF](./formats.md#dkctf) > Model File (CMDL/SMDL/WMDL)
+## [DKC:TF](../../formats.md#dkctf) > Model File (CMDL/SMDL/WMDL)
 
 Meta data: [NModelFormat::SMetaData](#nmodelformatsmetadata)
 

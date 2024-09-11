@@ -1,4 +1,4 @@
-## [NW](../formats#nw) > [Sound](./sound.md) > Stream Prefetch File (FSTP)
+## [NW](../../formats.md#nw) > [Sound](./sound.md) > Stream Prefetch File (FSTP)
 
 | Block id | Description |
 | --- | --- |
