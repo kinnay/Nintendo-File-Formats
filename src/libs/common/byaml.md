@@ -40,7 +40,7 @@ If a table is empty, the offest in the header is 0.
 | v3 | 64-bit values were added (**0xD4 - 0xD6**). |
 | v4 | Binary data was added again (**0xA1**), but without binary data table (**0xC3**). |
 | v5 | Binary data with param (**0xA2**) was added. |
-| v6 or v7 | Ordered dictionaries (**0xC4**) were added. |
+| v6 or v7 | Hashmaps (**0x20 - 0x3F**) and ordered dictionaries (**0xC4**) were added. |
 | v8 to v10 | Unknown |
 
 ## Node Types
