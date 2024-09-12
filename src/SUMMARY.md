@@ -19,6 +19,8 @@
 	- [BWAV](libs/aal/bwav.md)
 - [AGL]()
 	- [PMAA](libs/agl/pmaa.md)
+		- [V1](libs/agl/pmaa/v1.md)
+		- [V2](libs/agl/pmaa/v2.md)
 	- [SHARCFB](libs/agl/sharcfb.md)
 	- [SHARC]()
 - [GFD]()
