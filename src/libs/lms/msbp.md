@@ -72,9 +72,11 @@ This block defines control tags for [MSBT files](msbt.md).
 ### Tag Group
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Number of tags |
-| 0x2 | 2 per tag | Tag indexes (in TAG2 block) |
+| 0x0 | 2 | Group index in block |
+| 0x2 | 2 | Number of tags |
+| 0x4 | 2 per tag | Tag indexes (in TAG2 block) |
 | | | Null-terminated tag group name |
+| |0 to 3 | Align next tag group with 4 byte interval |
 
 ## TAG2 Block
 | Offset | Size | Description |
@@ -89,6 +91,7 @@ This block defines control tags for [MSBT files](msbt.md).
 | 0x0 | 2 | Number of tag parameters |
 | 0x2 | 2 per parameter | Tag parameter indexes (in TGP2 block) |
 | | | Null-terminated tag name |
+| |0 to 3 | Align next tag with 4 byte interval |
 
 ## TGP2 Block
 | Offset | Size | Description |
