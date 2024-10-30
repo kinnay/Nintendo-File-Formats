@@ -110,6 +110,7 @@ If type is not 9:
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x1 | | Null terminated parameter name |
+| |0 to 3 | Align next param with 4 byte interval |
 
 If type is 9:
 
@@ -119,6 +120,7 @@ If type is 9:
 | 0x2 | 2 | Number of tag list items |
 | 0x4 | 2 per list item | List item indexes (in TGL2 block) |
 | | | Null terminated parameter name |
+| |0 to 3 | Align next param with 4 byte interval |
 
 ## TGL2 Block
 | Offset | Size | Description |
@@ -126,7 +128,7 @@ If type is 9:
 | 0x0 | 2 | Number of list items |
 | 0x2 | 2 | Padding |
 | 0x4 | 4 per list item | Offsets to list item names |
-| | | Null-terminated list item names |
+| | | Null-terminated list item names<br><i>(Unknown if requires 4 byte interval alignment</i>) |
 
 ## SYL3 Block
 | Offset | Size | Description |
