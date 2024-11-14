@@ -1,13 +1,13 @@
 ## [LMS](../../formats.md#lms) > [Overview](overview.md) > Message File (MSBT)
 
-This file is identified by the magic number `MsgStdBn`. It contains text strings that are looked up by label.
+This file is identified by the magic number `MsgStdBn`. It contains text strings that are looked up by label. This page describes version 3 of the file format.
 
 | Type | Description |
 | --- | --- |
-| LBL1 | [Message labels](#message-labels) |
-| TXT2 | [Message strings](#txt2-block) |
-| ATR1 | [Attributes](#atr1-block) |
-| TSY1 | [Text style](#tsy1-block) |
+| `LBL1` | [Message labels](#message-labels) |
+| `TXT2` | [Message strings](#txt2-block) |
+| `ATR1` | [Attributes](#atr1-block) |
+| `TSY1` | [Text style](#tsy1-block) |
 
 ## LBL1 Block
 This block contains [labels](overview.md#hash-tables) for the TXT2, ATR1 and TSY1 blocks.
@@ -18,15 +18,15 @@ This block contains the actual text strings.
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 4 | Number of messages |
-| 0x4 | 4 per message | Offsets to message strings | 
+| 0x4 | 4 per message | Offsets to message strings |
 | | | Null-terminated message strings |
 
 A message string may contain control tags, which may for example change the style of the text. A control tag always starts with character 0xE, which is followed by:
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Tag group |
-| 0x2 | 2 | Tag type |
+| 0x0 | 2 | Tag group id |
+| 0x2 | 2 | Tag index |
 | 0x4 | 2 | Size of parameters |
 | 0x6 | | Parameters |
 

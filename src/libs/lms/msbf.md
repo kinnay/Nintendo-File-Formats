@@ -4,6 +4,6 @@ This file is identified by the magic number `MsgFlwBn`.
 
 | Type | Description |
 | --- | --- |
-| FLW3 | ? |
-| FEN1 | ? |
-| REF1 | ? |
+| `FLW3` | ? |
+| `FEN1` | ? |
+| `REF1` | ? |
