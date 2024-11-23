@@ -81,6 +81,7 @@ ELINK and SLINK were first-party libraries that control particle and sound effec
 The libraries use [AAL](#aal) and [nw::eft / nn::vfx](#nw) internally.
 
 * [ELINK files (effect links)](libs/xlink/elink.md)
+* [SLINK files (sound links)](libs/xlink/slink.md)
 * [XLINK files (sound / effect links)](libs/xlink/xlink.md)
 
 XLINK files have the file extension `.bslnk` or `.belnk`.

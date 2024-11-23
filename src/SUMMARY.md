@@ -58,6 +58,7 @@
 	- [Yaz0](libs/sead/yaz0.md)
 - [XLINK]()
 	- [ELINK](libs/xlink/elink.md)
+	- [SLINK](libs/xlink/slink.md)
 	- [XLINK](libs/xlink/xlink.md)
 - [Switch]()
 	- [Binary](libs/switch/binary.md)
