@@ -56,9 +56,9 @@ Every sound is referenced by exactly one [call table](#call-table).
 | 0x0 | 4 | Index |
 | 0x4 | 4 | Reserved for call table pointer |
 | 0x8 | 4 | Property name 1 (offset into string table) |
-| 0xC | 4 | Reserved for property id 1 |
+| 0xC | 4 | Property id 1 |
 | 0x10 | 4 | Property name 2 (offset into string table) |
-| 0x14 | 4 | Reserved for property id 2 |
+| 0x14 | 4 | Property id 2 |
 | 0x18 | 4 | Sound name in [BFSAR](../nw/bfsar.md) (offset into string table) |
 | 0x1C | 4 | Reserved for [item id](../nw/sound.md#item-id) |
 | 0x20 | 4 | Filename (offset into string table) |
@@ -78,7 +78,7 @@ Every sound is referenced by exactly one [call table](#call-table).
 | 0x54 | 4 | Name of bone to follow (offset into string table) |
 | 0x58 | 1 | Is hold |
 | 0x59 | 1 | Is follow |
-| 0x5A | 1 | Ignore properties |
+| 0x5A | 1 | Use property id instead of name |
 | 0x5B | 1 | Unknown |
 
 ### Action

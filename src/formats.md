@@ -103,6 +103,7 @@ XLINK files have the file extension `.bslnk` or `.belnk`.
 
 ## Mario Kart 8 (Wii U) {#mk8}
 * [Replay files](games/mk8/replay.md)
+* BSIS files (random audio id set)
 
 ## New Super Mario Bros. U {#nsmbu}
 * [Level files](games/nsmbu/level.md)
