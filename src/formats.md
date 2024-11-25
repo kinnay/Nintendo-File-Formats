@@ -50,7 +50,7 @@ NintendoWare is a middleware library for audio, ui, and model rendering.
 
 `nw::lyt` / `nn::ui2d`:
 * [BFFNT files (fonts)](libs/nw/bffnt.md)
-* BFLYT files (layouts) 
+* [BFLYT files (layouts)](libs/nw/bflyt.md)
 * [BFLIM files (layout images)](libs/nw/bflim.md)
 * BFLAN files (layout animations) 
 
@@ -108,6 +108,8 @@ XLINK files have the file extension `.bslnk` or `.belnk`.
 ## New Super Mario Bros. U {#nsmbu}
 * [Level files](games/nsmbu/level.md)
 * [Tileset files](games/nsmbu/tileset.md)
+* [Replay files](games/nsmbu/replay.md)
+* [Challenge info](games/nsmbu/challenges.md)
 * [Save data (rp_savedata.dat)](games/nsmbu/savedata.md)
 
 ## Super Mario Maker 2 {#smm2}
