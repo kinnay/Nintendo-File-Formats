@@ -46,7 +46,7 @@ NintendoWare is a middleware library for audio, ui, and model rendering.
 * [PTCL files (particle effects)](libs/nw/ptcl.md)
 
 `nw::g3d` / `nn::g3d`:
-* BFRES files (model archives)
+* [BFRES files (model archives)](libs/nw/bfres.md)
 
 `nw::lyt` / `nn::ui2d`:
 * [BFFNT files (fonts)](libs/nw/bffnt.md)

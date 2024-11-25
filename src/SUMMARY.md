@@ -34,7 +34,7 @@
 	- [Effect]()
 		- [PTCL](libs/nw/ptcl.md)
 	- [Model]()
-		- [BFRES]()
+		- [BFRES](libs/nw/bfres.md)
 	- [Layout]()
 		- [BFFNT](libs/nw/bffnt.md)
 		- [BFLYT]()
