@@ -12,6 +12,8 @@ This page describes version 0x45 of the file format. Everything is encoded in bi
 | | | String table |
 | | | Resources |
 
+The string table contains null-terminated strings. In official files, the strings are sorted alphabetically. The empty string is the first string in the table. Unused strings have been found in official files as well.
+
 When a field is marked as 'reserved', its value does not matter. These fields are overwritten at runtime. Unless indicated otherwise, reserved fields are set to 0 in official files.
 
 ## Resource
