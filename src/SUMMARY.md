@@ -60,6 +60,8 @@
 	- [ELINK](libs/xlink/elink.md)
 	- [SLINK](libs/xlink/slink.md)
 	- [XLINK](libs/xlink/xlink.md)
+- [Wii U]()
+	- [GX2](libs/wiiu/gx2.md)
 - [Switch]()
 	- [Binary](libs/switch/binary.md)
 - [AC:NH]()
