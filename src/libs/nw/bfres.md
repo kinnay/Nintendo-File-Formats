@@ -11,6 +11,8 @@ The general file structure is as follows:
 
 All offsets are relative to themselves.
 
+> **Note:** resources in a BFRES file may be spread across the archive. For example, the image data of a texture is usually stored at a different place in the archive than the header of the texture.
+
 ## Header
 | Offset | Size | Description |
 | --- | --- | --- |
@@ -30,7 +32,7 @@ The metadata comes right after the [header](#header).
 | 0x18 | 4 | Size of [string table](#string-table) |
 | 0x1C | 4 | Offset to [string table](#string-table) |
 | 0x20 | 4 | Offset to model dictionary |
-| 0x24 | 4 | Offset to texture dictionary |
+| 0x24 | 4 | Offset to [texture](bftex.md) dictionary |
 | 0x28 | 4 | Offset to skeletal animation dictionary |
 | 0x2C | 4 | Offset to shader param animation dictionary |
 | 0x30 | 4 | Offset to color animation dictionary |
