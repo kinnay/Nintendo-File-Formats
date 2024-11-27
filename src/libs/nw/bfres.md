@@ -41,18 +41,18 @@ The metadata comes right after the [header](#header).
 | 0x44 | 4 | Offset to shape animation dictionary |
 | 0x48 | 4 | Offset to scene animation dictionary |
 | 0x4C | 4 | Offset to additional file dictionary |
-| 0x50 | 4 | Number of model objects |
-| 0x52 | 4 | Number of texture objects |
-| 0x54 | 4 | Number of skeletal animation objects |
-| 0x56 | 4 | Number of shader param animation objects |
-| 0x58 | 4 | Number of color animation objects |
-| 0x5A | 4 | Number of texture SRT animation objects |
-| 0x5C | 4 | Number of shader param animation objects |
-| 0x5E | 4 | Number of bone visibility animation objects |
-| 0x60 | 4 | Number of material visibility animation objects |
-| 0x62 | 4 | Number of shape animation objects |
-| 0x64 | 4 | Number of scene animation objects |
-| 0x66 | 4 | Number of additional files |
+| 0x50 | 2 | Number of model objects |
+| 0x52 | 2 | Number of texture objects |
+| 0x54 | 2 | Number of skeletal animation objects |
+| 0x56 | 2 | Number of shader param animation objects |
+| 0x58 | 2 | Number of color animation objects |
+| 0x5A | 2 | Number of texture SRT animation objects |
+| 0x5C | 2 | Number of shader param animation objects |
+| 0x5E | 2 | Number of bone visibility animation objects |
+| 0x60 | 2 | Number of material visibility animation objects |
+| 0x62 | 2 | Number of shape animation objects |
+| 0x64 | 2 | Number of scene animation objects |
+| 0x66 | 2 | Number of additional files |
 | 0x68 | 4 | Padding |
 
 ## Additional File Info
