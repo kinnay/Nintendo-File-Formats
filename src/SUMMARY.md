@@ -35,7 +35,6 @@
 		- [PTCL](libs/nw/ptcl.md)
 	- [Model]()
 		- [BFRES](libs/nw/bfres.md)
-		- [BFTEX](libs/nw/bftex.md)
 	- [Layout]()
 		- [BFFNT](libs/nw/bffnt.md)
 		- [BFLYT](libs/nw/bflyt.md)

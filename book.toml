@@ -19,3 +19,4 @@ enable = true
 
 [output.html.redirect]
 "/libs/al/byaml.html" = "/libs/common/byaml.html"
+"/libs/nw/bftex.html" = "/libs/nw/bfres.html"

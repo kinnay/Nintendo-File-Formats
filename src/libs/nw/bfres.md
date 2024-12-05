@@ -5,13 +5,14 @@ A BFRES archive contains various resources for 3D objects, such as models, textu
 The general file structure is as follows:
 * [Header](#header)
 * [Metadata](#metadata)
-* [Additional file info](#additional-file-info)
+* [File info](#file-info)
 * [Dictionaries](#dictionary)
-* Resources and [string table](#string-table)
+* Resources
+* [String table](#string-table)
+* Texture data
+* File data
 
-All offsets are relative to themselves.
-
-> **Note:** resources in a BFRES file may be spread across the archive. For example, the image data of a texture is usually stored at a different place in the archive than the header of the texture.
+All offsets are relative to themselves and may be negative.
 
 ## Header
 | Offset | Size | Description |
@@ -31,18 +32,18 @@ The metadata comes right after the [header](#header).
 | 0x14 | 4 | Offset to archive name |
 | 0x18 | 4 | Size of [string table](#string-table) |
 | 0x1C | 4 | Offset to [string table](#string-table) |
-| 0x20 | 4 | Offset to model dictionary |
-| 0x24 | 4 | Offset to [texture](bftex.md) dictionary |
-| 0x28 | 4 | Offset to skeletal animation dictionary |
-| 0x2C | 4 | Offset to shader param animation dictionary |
-| 0x30 | 4 | Offset to color animation dictionary |
-| 0x34 | 4 | Offset to texture SRT animation dictionary |
-| 0x38 | 4 | Offset to shader param animation dictionary |
-| 0x3C | 4 | Offset to bone visibility animation dictionary |
-| 0x40 | 4 | Offset to material visibility animation dictionary |
-| 0x44 | 4 | Offset to shape animation dictionary |
-| 0x48 | 4 | Offset to scene animation dictionary |
-| 0x4C | 4 | Offset to additional file dictionary |
+| 0x20 | 4 | Offset to [model](#model) [dictionary](#dictionary) |
+| 0x24 | 4 | Offset to [texture](#texture) [dictionary](#dictionary) |
+| 0x28 | 4 | Offset to skeletal animation [dictionary](#dictionary) |
+| 0x2C | 4 | Offset to shader param animation [dictionary](#dictionary) |
+| 0x30 | 4 | Offset to color animation [dictionary](#dictionary) |
+| 0x34 | 4 | Offset to texture SRT animation [dictionary](#dictionary) |
+| 0x38 | 4 | Offset to shader param animation [dictionary](#dictionary) |
+| 0x3C | 4 | Offset to bone visibility animation [dictionary](#dictionary) |
+| 0x40 | 4 | Offset to material visibility animation [dictionary](#dictionary) |
+| 0x44 | 4 | Offset to shape animation [dictionary](#dictionary) |
+| 0x48 | 4 | Offset to scene animation [dictionary](#dictionary) |
+| 0x4C | 4 | Offset to [file](#file-info) [dictionary](#dictionary) |
 | 0x50 | 2 | Number of model objects |
 | 0x52 | 2 | Number of texture objects |
 | 0x54 | 2 | Number of skeletal animation objects |
@@ -54,16 +55,18 @@ The metadata comes right after the [header](#header).
 | 0x60 | 2 | Number of material visibility animation objects |
 | 0x62 | 2 | Number of shape animation objects |
 | 0x64 | 2 | Number of scene animation objects |
-| 0x66 | 2 | Number of additional files |
+| 0x66 | 2 | Number of files |
 | 0x68 | 4 | Padding |
 
-## Additional File Info
-This section contains the following for every additional file:
+## File Info
+This section contains information for additional files that may be stored in a BFRES archive:
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 4 | Offset to additional file |
-| 0x4 | 4 | Size of additional file |
+| 0x0 | 4 | Offset to file |
+| 0x4 | 4 | Size of file |
+
+These entries are referenced by the file [dictionary](#dictionary) (see [metadata](#metadata)).
 
 ## Dictionary
 A dictionary contains a [patricia trie](https://en.wikipedia.org/wiki/Radix_tree) that makes it possible to find an object in the BFRES archive by name. It is stored as follows:
@@ -89,6 +92,68 @@ The search always starts at the first node. In the first node, the bit position 
 In every node, one of the indices refers to the node itself. When that index is followed, the search is stopped and the object name is compared.
 
 The dictionary must always be arranged so that the bits are inspected from right to left (high to low).
+
+Given a byte string, the correct bit can be extracted as follows:
+
+```python
+def get_bit(name, index):
+	return (name[index // 8] >> (index % 8)) & 1
+```
+
+If the bit index is longer than the given name, then 0 is used.
+
+## User Data
+Various objects in a BFRES archive support user data. This can be used to store additional data in the object for any purpose.
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 4 | Offset to user data name |
+| 0x4 | 2 | Number of values (N) |
+| 0x6 | 1 | [Value type](#user-data-type) |
+| 0x7 | 1 | Padding |
+| 0x8 | 4 * N | Values |
+
+### User Data Type
+| ID | Type |
+| --- | --- |
+| 0 | Integer |
+| 1 | Float |
+| 2 | String |
+| 3 | Wide string |
+| 4 | Raw data |
+
+## Model
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 4 | Magic number (`FMDL`) |
+| 0x4 | 4 | Offset to model name |
+| 0x8 | 4 | Offset to model path |
+| 0xC | 4 | Offset to skeleton |
+| 0x10 | 4 | Offset to vertex buffer array |
+| 0x14 | 4 | Offset to shape [dictionary](#dictionary) |
+| 0x18 | 4 | Offset to material [dictionary](#dictionary) |
+| 0x1C | 4 | Offset to user data [dictionary](#dictionary) |
+| 0x20 | 2 | Number of vertex buffers |
+| 0x22 | 2 | Number of shapes |
+| 0x24 | 2 | Number of materials |
+| 0x26 | 2 | Number of user data entries |
+| 0x28 | 4 | Number of vertices |
+| 0x2C | 4 | Reserved (always 0) |
+
+## Texture
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 4 | Magic number (`FTEX`) |
+| 0x4 | 156 | [Texture](../wiiu/gx2.md#gx2texture) |
+| 0xA0 | 4 | Reserved (always 0) |
+| 0xA4 | 4 | Unknown |
+| 0xA8 | 4 | Offset to texture name |
+| 0xAC | 4 | Offset to texture path |
+| 0xB0 | 4 | Offset to image data |
+| 0xB4 | 4 | Offset to mipmap data |
+| 0xB8 | 4 | Offset to [user data](#user-data) [dictionary](#dictionary) |
+| 0xBC | 2 | Number of [user data](#user-data) entries |
+| 0xBE | 2 | Padding |
 
 ## String Table
 Most text strings, such as object names, are stored in the string table. Every string is null-terminated and padded so that its size is a multiple of 4 bytes. Every string is also prefixed by a 4-byte integer that specifies its size without the null terminator and padding.
