@@ -1,6 +1,6 @@
 ## [LMS](../../formats.md#lms) > [Overview](overview.md) > Flow Chart (MSBF)
 
-This file is identified by the magic number `MsgFlwBn`. The format is responsible for handling of event actions defined by nodes.
+This file is identified by the magic number `MsgFlwBn`. The format is responsible for handling of actions defined by nodes.
 
 | Type | Description |
 | --- | --- |
@@ -105,7 +105,7 @@ Short data is specifc to the game and subtype of the node.
 | 0x6 | 2 | Unused  |
 | 0x8 | 2 | Unused  |
 
-0xFFFF marks the end of a flowchart.
+0xFFFF marks the end of a flowchart for any node that isn't a branch node.
 
 ## Branch Table
 Nodes that are branch will jump to a specifc case based on a condition.
