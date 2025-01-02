@@ -4,21 +4,21 @@ This file is identified by the magic number `MsgFlwBn`. The format is responsibl
 
 | Type | Description |
 | --- | --- |
-| `FLW3` | [Nodes](#flw3-Block) |
-| `FEN1` | [Flowchart Labels](#ref1-Block) |
+| `FLW3` | [Nodes](##flw3-block) |
+| `FEN1` | [Flowchart Labels](##ref1-block) |
 | `REF1` | ? |
 
 ## FLW3 Block
-This section is responsible for holding all the [nodes](#Nodes).
+This section is responsible for holding all the [nodes](#nodes).
 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2  | Node count |
-| 0x2 | 2  | Branch table node count  (See [branch table](#branch-table)) |
+| 0x2 | 2  | Branch table ID count |
 | 0x4 | 12 | Padding |
-| 0x10 | 16 per node | [Nodes](#Nodes)
-|      | 2 per ID | [Branch table](#branch-table)
-|      |         | [String table](#string-table)
+| 0x10 | 16 per node | [Nodes](#nodes)
+| | 2 per ID | [Branch table](#branch-table) |
+| | | [String table](#string-table)
 
 ### Nodes
 Actions defined within the FLW3 Section are done via nodes. 
@@ -89,18 +89,18 @@ Short data is specifc to the game and subtype of the node.
 | --- | --- | --- |
 | 0x0 | 2 | Unused  |
 | 0x2 | 2 | Next node index |
-| 0x4 | 2 | Unused   |
-| 0x6 | 2 | Unused   |
-| 0x8 | 2 | Unused   |
+| 0x4 | 2 | Unused |
+| 0x6 | 2 | Unused |
+| 0x8 | 2 | Unused |
 
 ### Jump Node
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | Unused  |
 | 0x2 | 2 | Next node index |
-| 0x4 | 2 | Unused  |
-| 0x6 | 2 | Unused  |
-| 0x8 | 2 | Unused  |
+| 0x4 | 2 | Unused |
+| 0x6 | 2 | Unused |
+| 0x8 | 2 | Unused |
 
 0xFFFF marks the end of a flowchart for any node that isn't a branch node.
 
@@ -109,12 +109,12 @@ Nodes that are branch will jump to a specifc case based on a condition.
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 |    | List of node IDs |
+| 0x0 || List of node IDs |
 
 ### String Table 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 |    | List of null-terminated strings. Only referenced by Event nodes with type of 0x5. |
+| 0x0 | | List of null-terminated strings. Only referenced by Event nodes with type of 0x5. |
 
 ## FEN1 Block
 This block contains the flowchart [labels](overview.md#hash-tables). The index of a flowchart is the location of it's Entry Node.
