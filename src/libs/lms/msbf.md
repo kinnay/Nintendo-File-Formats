@@ -29,7 +29,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | 0x1 | 1|  [Subtype](#sub-types) |
 | 0x2 | 2 | Reserved |
 | 0x4 | 2 | Subtype value |
-| 0x6 | 10 | Collection of 5 shorts |
+| 0x6 | 10 | Node specifc data |
 
 #### Node Types
 | Value | Type | Description |
@@ -50,7 +50,7 @@ Implementations of type specifc data vary between game. These types are only val
 | 2 | Unknown | 
 | 3 | Unknown |
 | 4 | Unknown |
-| 5 | Offset from start of block to null-terminated string in the [string table](#string-table) | |
+| 5 | Offset from start of block to string in [string table](#string-table). Specific to Event and Branch nodes. |
 | 6 | Unknown |
 
 ### Message Node
@@ -114,7 +114,7 @@ Nodes that are branch will jump to a specifc case based on a condition.
 ### String Table 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | | List of null-terminated strings. Only referenced by Event nodes with type of 0x5. |
+| 0x0 | | List of null-terminated strings. |
 
 ## FEN1 Block
 This block contains the flowchart [labels](overview.md#hash-tables). The index of a flowchart is the location of it's Entry Node.
