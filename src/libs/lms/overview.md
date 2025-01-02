@@ -5,7 +5,7 @@ This page describes the general structure of files loaded by the LMS library. Th
 The following file formats are used by LMS:
 * [MSBT files (messages)](msbt.md)
 * [MSBP files (projects)](msbp.md)
-* [MSBF files (flow charts)](msbf.md)
+* [MSBF files (flowcharts)](msbf.md)
 
 ## File Header
 | Offset | Size | Description |

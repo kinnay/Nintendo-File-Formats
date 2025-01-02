@@ -1,15 +1,15 @@
 ## [LMS](../../formats.md#lms) > [Overview](overview.md) > Flow Chart (MSBF)
 
-This file is identified by the magic number `MsgFlwBn`. The format is responsible for holding flowcharts.
+This file is identified by the magic number `MsgFlwBn`. The format holds flowcharts.
 
 | Type | Description |
 | --- | --- |
-| `FLW3` | [Nodes](##flw3-block) |
-| `FEN1` | [Flowchart Labels](##ref1-block) |
+| `FLW3` | [Nodes](#flw3-block) |
+| `FEN1` | [Flowchart Labels](#ref1-block) |
 | `REF1` | ? |
 
 ## FLW3 Block
-This section is responsible for holding all the [nodes](#nodes).
+This section holds all the [nodes](#nodes).
 
 | Offset | Size | Description |
 | --- | --- | --- |
@@ -117,4 +117,4 @@ Nodes that are branch will jump to a specifc case based on a condition.
 | 0x0 | | List of null-terminated strings. |
 
 ## FEN1 Block
-This block contains the flowchart [labels](overview.md#hash-tables). The index of a flowchart is the location of it's Entry Node.
+This block contains the flowchart [labels](overview.md#hash-tables). The index of a flowchart is the location of its entry [node](#nodes).
