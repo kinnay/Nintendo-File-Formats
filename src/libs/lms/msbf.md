@@ -25,33 +25,33 @@ Actions defined within the FLW3 Section are done via nodes.
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x00 | 1 | [Node type](#node-types) |
-| 0x01 | 1|  [Subtype](#sub-types) |
-| 0x02 | 2 | Reserved |
-| 0x04 | 2 | Subtype value |
-| 0x06 | 10 | Collection of 5 shorts |
+| 0x0 | 1 | [Node type](#node-types) |
+| 0x1 | 1|  [Subtype](#sub-types) |
+| 0x2 | 2 | Reserved |
+| 0x4 | 2 | Subtype value |
+| 0x6 | 10 | Collection of 5 shorts |
 
 #### Node Types
 | Value | Type | Description |
 | --- | --- | --- |
-| 0x01 | [Message](#message-node) | Prompts a message from a MSBT. |
-| 0x02 | [Branch](#branch-node) | Branches into different nodes based on a condition. |
-| 0x03 | [Event](#event-node) | Pompts an action or event. | 
-| 0x04 | [Entry](#entry-node) | Node that acts as a starting point. |
-| 0x05 | [Jump](#jump-node) | Jumps to a different node. |
+| 1 | [Message](#message-node) | Prompts a message from a MSBT. |
+| 2 | [Branch](#branch-node) | Branches into different nodes based on a condition. |
+| 3 | [Event](#event-node) | Pompts an action or event. | 
+| 4 | [Entry](#entry-node) | Node that acts as a starting point. |
+| 5 | [Jump](#jump-node) | Jumps to a different node. |
 
 #### Subtypes
 Implementations of type specifc data vary between game. These types are only valid for Branch and Event nodes.
 
 | Value | Description |
 | --- | --- |
-| 0x00 | Unknown |
-| 0x01 | Unknown |
-| 0x02 | Unknown | 
-| 0x03 | Unknown |
-| 0x04 | Unknown |
-| 0x05 | Offset from start of block to null-terminated string in the [string table](#string-table) | |
-| 0x06 | Unknown |
+| 0 | Unknown |
+| 1 | Unknown |
+| 2 | Unknown | 
+| 3 | Unknown |
+| 4 | Unknown |
+| 5 | Offset from start of block to null-terminated string in the [string table](#string-table) | |
+| 6 | Unknown |
 
 ### Message Node
 | Offset | Size | Description |
@@ -109,12 +109,12 @@ Nodes that are branch will jump to a specifc case based on a condition.
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x00 |    | List of node IDs |
+| 0x0 |    | List of node IDs |
 
 ### String Table 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x00 |    | List of null-terminated strings. Only referenced by Event nodes with type of 0x5. |
+| 0x0 |    | List of null-terminated strings. Only referenced by Event nodes with type of 0x5. |
 
 ## FEN1 Block
 This block contains the flowchart [labels](overview.md#hash-tables). The index of a flowchart is the location of it's Entry Node.
