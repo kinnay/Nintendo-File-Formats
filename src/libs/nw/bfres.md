@@ -89,9 +89,7 @@ Every dictionary node is stored as follows:
 
 The search always starts at the first node. In the first node, the bit position is always -1 and the left index is always followed. Then, whether the left or right index is followed depends on the inspected bit in the object name.
 
-In every node, one of the indices refers to the node itself. When that index is followed, the search is stopped and the object name is compared.
-
-The dictionary must always be arranged so that the bits are inspected from right to left (high to low).
+The search ends when a node is reached that has a higher bit position than the previous position. For this reason, the dictionary must always be arranged so that the bits are inspected from right to left (high to low).
 
 Given a byte string, the correct bit can be extracted as follows:
 
