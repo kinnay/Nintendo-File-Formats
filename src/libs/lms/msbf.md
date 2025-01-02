@@ -1,15 +1,12 @@
 ## [LMS](../../formats.md#lms) > [Overview](overview.md) > Flow Chart (MSBF)
 
-This file is identified by the magic number `MsgFlwBn`. The format is responsible for handling of actions defined by nodes.
+This file is identified by the magic number `MsgFlwBn`. The format is responsible for holding flowcharts.
 
 | Type | Description |
 | --- | --- |
 | `FLW3` | [Nodes](#flw3-Block) |
 | `FEN1` | [Flowchart Labels](#ref1-Block) |
 | `REF1` | ? |
-
-## FEN1 Block
-This block contains the flowchart [labels](overview.md#hash-tables). The index of a flowchart is the location of it's Entry Node.
 
 ## FLW3 Block
 This section is responsible for holding all the [nodes](#Nodes).
@@ -23,7 +20,7 @@ This section is responsible for holding all the [nodes](#Nodes).
 |      | 2 per ID | [Branch table](#branch-table)
 |      |         | [String table](#string-table)
 
-## Nodes
+### Nodes
 Actions defined within the FLW3 Section are done via nodes. 
 
 | Offset | Size | Description |
@@ -34,7 +31,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | 0x04 | 2 | Subtype value |
 | 0x06 | 10 | Collection of 5 shorts |
 
-### Node Types
+#### Node Types
 | Value | Type | Description |
 | --- | --- | --- |
 | 0x01 | [Message](#message-node) | Prompts a message from a MSBT. |
@@ -107,15 +104,17 @@ Short data is specifc to the game and subtype of the node.
 
 0xFFFF marks the end of a flowchart for any node that isn't a branch node.
 
-## Branch Table
+### Branch Table
 Nodes that are branch will jump to a specifc case based on a condition.
 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x00 |    | List of node IDs |
 
-
-## String Table 
+### String Table 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x00 |    | List of null-terminated strings. Only referenced by Event nodes with type of 0x5. |
+
+## FEN1 Block
+This block contains the flowchart [labels](overview.md#hash-tables). The index of a flowchart is the location of it's Entry Node.
