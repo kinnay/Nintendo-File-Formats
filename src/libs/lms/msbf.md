@@ -40,7 +40,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | 0x04 | [Entry](#entry-node) | Node that acts as a starting point. |
 | 0x05 | [Jump](#jump-node) | Jumps to a different node. |
 
-### Subtypes
+#### Subtypes
 Implementations of type specifc data vary between game. These types are only valid for Branch and Event nodes.
 
 | Value | Description |
