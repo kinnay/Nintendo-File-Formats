@@ -116,3 +116,22 @@ The first and last character code in the section header are ignored.
 | 0x6 | 2 | Character code 2 |
 | 0x8 | 2 | Glyph index 2 |
 | ... | ... | ... |
+
+## Kerning Section
+Offsets the horizontal position of glyphs. Positive is right, negative is left. (Pixel Based)
+Kerning for Glyphs not listed default to 0.
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 4 | Identifier ("KRNG") |
+| 0x4 | 4 | Section size |
+| 0x8 | | Kerning Data |
+
+### Kerning Data
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x2 | 2 | Character Code 1 |
+| 0x4 | 2 | Horizontal Offset for Glyph 1 |
+| 0x6 | 2 | Character Code 2 |
+| 0x8 | 2 | Horizontal Offset for Glyph 2 |
+| ... | ... | ... |
