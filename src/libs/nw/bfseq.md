@@ -10,7 +10,7 @@ This file contains a sequence sound. A sequence sound specifies which notes shou
 ## Data Block
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 4 | Identifier ("INFO") |
+| 0x0 | 4 | Identifier ("DATA") |
 | 0x4 | 4 | Block size |
 | 0x8 | | Data |
 
