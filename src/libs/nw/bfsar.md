@@ -106,23 +106,23 @@ Every optional field takes up exactly 4 bytes (if present). The user param field
 
 #### Sound 3D Info
 | Offset | Size | Description |
-|--------| --- | --- |
-| 0x0    | 4 | Flags |
-| 0x4    | 4 | Unknown float |
-| 0x8    | 1 | Unknown |
-| 0x9    | 1 | Unknown |
-| 0xA    | 2    | Padding  |
+| --- | --- | --- |
+| 0x0 | 4 | Flags |
+| 0x4 | 4 | Unknown float |
+| 0x8 | 1 | Unknown |
+| 0x9 | 1 | Unknown |
+| 0xA | 2    | Padding  |
 
 #### Stream Sound Info
-| Offset | Size | Description                                                   |
-|-------|------|---------------------------------------------------------------|
-| 0x0   | 2    | Bitmask defining which tracks are valid                       |
-| 0x2   | 2    | Number of channels (up to 16)                                 |
-| 0x4   | 8    | [Reference] to [track info table](#track-info-table) (0x0101) |
-| 0x8   | 4    | Unknown float                                                 |
-| 0x10  | 8    | [Reference] to send value (0xAABBBBCC) (0x220F)               |
-| 0x18  | 8    | [Reference] to stream sound extension (0x2210)                |
-| 0x20  | 4    | File index of this stream's prefetch file                     |
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 2 | Bitmask defining which tracks are valid |
+| 0x2 | 2 | Number of channels (up to 16) |
+| 0x4 | 8 | [Reference] to [track info table](#track-info-table) (0x0101) |
+| 0x8 | 4 | Unknown float |
+| 0x10 | 8 | [Reference] to send value (0xAABBBBCC) (0x220F) |
+| 0x18 | 8 | [Reference] to stream sound extension (0x2210) |
+| 0x20 | 4 | File index of this stream's prefetch file |
 
 #### Track Info Table
 | Offset | Size | Description |
@@ -131,17 +131,17 @@ Every optional field takes up exactly 4 bytes (if present). The user param field
 | 0x4 | | [Track info](#track-info) [references] (0x220E) |
 
 #### Track Info
-| Offset | Size | Description                                                       |
-|--------|------|-------------------------------------------------------------------|
-| 0x0    | 1    | Unknown                                                           |
-| 0x1    | 1    | Unknown                                                           |
-| 0x2    | 1    | Unknown                                                           |
-| 0x3    | 1    | Unknown                                                           |
-| 0x4    | 8    | [Reference] to [track channel info](#track-channel-info) (0x0100) |
-| 0xC    | 8    | [Reference] to send value (0x220F)                                |
-| 0x14   | 1    | Unknown                                                           |
-| 0x15   | 1    | Unknown                                                           |
-| 0x16   | 2    | Padding                                                           |
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 1 | Unknown |
+| 0x1 | 1 | Unknown |
+| 0x2 | 1 | Unknown |
+| 0x3 | 1 | Unknown |
+| 0x4 | 8 | [Reference] to [track channel info](#track-channel-info) (0x0100) |
+| 0xC | 8 | [Reference] to send value (0x220F) |
+| 0x14 | 1 | Unknown |
+| 0x15 | 1 | Unknown |
+| 0x16 | 2 | Padding |
 
 #### Track Channel Info
 | Offset | Size | Description |
@@ -287,17 +287,17 @@ This structure describes a single file. A file can be stored either internally o
 #### Internal File Info
 If this file is stored in a [group file](./bfgrp.md) instead of the [file block](#file-block), offset and filesize are set to -1.
 
-| Offset | Size | Description                                              |
-|--------| --- |----------------------------------------------------------|
-| 0x0    | 8 | [Reference] into [file block](#file-block) body (0x1F00) |
-| 0x8    | 4 | File size                                                |
-| 0xC    | 8 | [Reference] to [group table](#group-table) body (0x0100) |
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 8 | [Reference] into [file block](#file-block) body (0x1F00) |
+| 0x8 | 4 | File size |
+| 0xC | 8 | [Reference] to [group table](#group-table) body (0x0100) |
 
 ##### Group Table
-| Offset | Size | Description             |
-|--------|-----|-------------------------|
-| 0x0    | 4   | Number of Entries       |
-| 0x4    |     | Item Ids of group files |
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 4 | Number of Entries |
+| 0x4 |   | Item Ids of group files |
 
 #### External File Info
 | Offset | Size | Description |
