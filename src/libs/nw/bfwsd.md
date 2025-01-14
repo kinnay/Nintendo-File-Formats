@@ -36,7 +36,7 @@ Every optional field takes up exactly 4 bytes (if present).
 | --- | --- |
 | 0x1 | 0x0000XXYY: XX = Surround pan, YY = Pan |
 | 0x2 | Pitch (float) |
-| 0x3 | 0x00XXYYZZ: XX: Biquad value, YY: Biquad type, ZZ: Low pass filter frequency |
+| 0x4 | 0x00XXYYZZ: XX = Biquad value, YY = Biquad type, ZZ = Low pass filter frequency |
 | 0x100 | Send value (4x1 byte) offset |
 | 0x200 | Offset to [reference] to [adshr curve](./sound.md#adshr-curve) (0x0000) |
 

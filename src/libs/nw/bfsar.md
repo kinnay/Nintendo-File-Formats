@@ -307,17 +307,17 @@ If this file is stored in a [group file](./bfgrp.md) instead of the [file block]
 ### Sound Archive Player Info
 This structure defines limits that are used to determine how much memory should be allocated.
 
-| Offset | Size | Description                                    |
-|--------|------|------------------------------------------------|
-| 0x0    | 2    | Number of sequence sounds                      |
-| 0x2    | 2    | Number of sequence tracks                      |
-| 0x4    | 2    | Number of stream sounds                        |
-| 0x6    | 2    | Unknown                                        |
-| 0x8    | 2    | Number of stream channels                      |
-| 0xA    | 2    | Number of wave sounds                          |
-| 0xC    | 2    | Unknown                                        |
-| 0xE    | 1    | Stream Buffer Times                            |
-| 0xF    | 1    | Boolean to specify if the waves are "advanced" |
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 2 | Number of sequence sounds |
+| 0x2 | 2 | Number of sequence tracks |
+| 0x4 | 2 | Number of stream sounds |
+| 0x6 | 2 | Unknown |
+| 0x8 | 2 | Number of stream channels |
+| 0xA | 2 | Number of wave sounds |
+| 0xC | 2 | Unknown |
+| 0xE | 1 | Stream Buffer Times |
+| 0xF | 1 | Boolean to specify if the waves are "advanced" |
 
 ## File Block
 This block contains the actual subfiles of the BFSAR file. All files are aligned to 32 bytes.
