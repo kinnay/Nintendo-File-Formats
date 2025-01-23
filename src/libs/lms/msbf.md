@@ -5,7 +5,7 @@ This file is identified by the magic number `MsgFlwBn`. The format holds flowcha
 | Type | Description |
 | --- | --- |
 | `FLW3` | [Nodes](#flw3-block) |
-| `FEN1` | [Flowchart Labels](#ref1-block) |
+| `FEN1` | [Flowchart Labels](#fen1-block) |
 | `REF1` | ? |
 
 ## FLW3 Block
@@ -26,7 +26,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 1 | [Node type](#node-types) |
-| 0x1 | 1|  [Subtype](#sub-types) |
+| 0x1 | 1|  [Subtype](#sub-types) (`0xFF` if not Branch or Event node)|
 | 0x2 | 2 | Reserved |
 | 0x4 | 2 | Subtype value |
 | 0x6 | 10 | Node specifc data |
@@ -41,17 +41,16 @@ Actions defined within the FLW3 Section are done via nodes.
 | 5 | [Jump](#jump-node) | Jumps to a different node. |
 
 #### Subtypes
-Implementations of type specifc data vary between game. These types are only valid for Branch and Event nodes.
-
+Subtypes define values that modify how an Event or Branch node is run. Subtype implemenation varies per game. 
 | Value | Description |
 | --- | --- |
-| 0 | Unknown |
-| 1 | Unknown |
-| 2 | Unknown | 
-| 3 | Unknown |
-| 4 | Unknown |
-| 5 | Offset from start of block to string in [string table](#string-table). Specific to Event and Branch nodes. |
-| 6 | Unknown |
+| 0 | Game specifc |
+| 1 | Game specifc |
+| 2 | Game specifc | 
+| 3 | Game specifc |
+| 4 | Game specifc |
+| 5 | Offset from start of block to string in [string table](#string-table). |
+| 6 | Game specifc |
 
 ### Message Node
 | Offset | Size | Description |
@@ -66,7 +65,7 @@ Implementations of type specifc data vary between game. These types are only val
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | Short 1  |
-| 0x2 | 2 | 0xFFFF (always as next node index) |
+| 0x2 | 2 | `0xFFFF` (always as next node index) |
 | 0x4 | 2 | Short 3 |
 | 0x6 | 2 | Branch table case count |
 | 0x8 | 2 | Starting index into the branch table |
@@ -82,7 +81,7 @@ Short data is specifc to the game and subtype of the node.
 | 0x6 | 2 | Short 4  |
 | 0x8 | 2 | Short 5  |
 
-Short data is specifc to the game and subtype of the node.
+How each short is utilized varies per game.
 
 ### Entry Node
 | Offset | Size | Description |
