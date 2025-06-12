@@ -26,7 +26,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 1 | [Node type](#node-types) |
-| 0x1 | 1|  [Parameter type](#parameter-types) (Only for [Branch Nodes](#branch-node) & [Event Nodes](#event-node))|
+| 0x1 | 1|  [Parameter type](#parameter-types) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
 | 0x2 | 2 | Reserved |
 | 0x4 | 4 | Parameter value |
 | 0x6 | 8 | Node data |
@@ -51,7 +51,7 @@ Parameter types dictate how parameter values may be passed into the node if it t
 | 3 | Unknown |
 | 4 | Unknown |
 | 5 | String value. Stored as an offset from start of block to the string in the [string table](#string-table). |
-| 6 | Unknown |
+| 6 | Raw value, used as is. |
 
 ### Message Node
 | Offset | Size | Description |
