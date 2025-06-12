@@ -41,12 +41,12 @@ Actions defined within the FLW3 Section are done via nodes.
 | 5 | [Jump](#jump-node) | Jumps to a different flowchart. |
 
 #### Parameter Types
-Parameter types dictate how values may be passed into the node if it takes arguments. There may be more than one value passed into a node.
+Parameter types dictate how parameter values may be passed into the node if it takes arguments. There may be more than one value passed into a node.
 
 | Value | Description |
 | --- | --- |
-| 0 | Unknown |
-| 1 | Values are stored as two seperate shorts. |
+| 0 | Raw value, used as is. |
+| 1 | Stored as two seperate shorts. |
 | 2 | Unknown | 
 | 3 | Unknown |
 | 4 | Unknown |
