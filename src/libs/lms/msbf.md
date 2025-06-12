@@ -26,7 +26,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 1 | [Node type](#node-types) |
-| 0x1 | 1|  [Parameter type](#parameter-types) (Only valid for [Branch Nodes](#branch-node) or [Event Nodes](#event-node))|
+| 0x1 | 1|  [Parameter type](#parameter-types) (Only for [Branch Nodes](#branch-node) & [Event Nodes](#event-node))|
 | 0x2 | 2 | Reserved |
 | 0x4 | 4 | Parameter value |
 | 0x6 | 8 | Node data |
@@ -46,7 +46,7 @@ Parameter types dictate how values may be passed into the node if it takes argum
 | Value | Description |
 | --- | --- |
 | 0 | Unknown |
-| 1 | Value is stored as two seperate short values. |
+| 1 | Values are stored as two seperate shorts. |
 | 2 | Unknown | 
 | 3 | Unknown |
 | 4 | Unknown |
