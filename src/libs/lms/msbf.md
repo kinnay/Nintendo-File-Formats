@@ -45,13 +45,13 @@ Parameter types dictate how parameter values may be passed into the node if it t
 
 | Value | Description |
 | --- | --- |
-| 0 | Raw value, used as is. |
+| 0 | 4 byte integer. |
 | 1 | Stored as two seperate shorts. |
 | 2 | Unknown | 
 | 3 | Unknown |
 | 4 | Unknown |
 | 5 | String value. Stored as an offset from start of block to the string in the [string table](#string-table). |
-| 6 | Raw value, used as is. |
+| 6 | 4 byte integer. |
 
 ### Message Node
 | Offset | Size | Description |
