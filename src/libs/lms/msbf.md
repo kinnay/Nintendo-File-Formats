@@ -26,85 +26,74 @@ Actions defined within the FLW3 Section are done via nodes.
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 1 | [Node type](#node-types) |
-| 0x1 | 1|  [Subtype](#sub-types) (`0xFF` if not Branch or Event node)|
+| 0x1 | 1|  [Parameter type](#parameter-types) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
 | 0x2 | 2 | Reserved |
-| 0x4 | 2 | Subtype value |
-| 0x6 | 10 | Node specifc data |
+| 0x4 | 4 | Parameter value |
+| 0x8 | 8 | Node data |
 
 #### Node Types
 | Value | Type | Description |
 | --- | --- | --- |
-| 1 | [Message](#message-node) | Prompts a message from a MSBT. |
-| 2 | [Branch](#branch-node) | Branches into different nodes based on a condition. |
-| 3 | [Event](#event-node) | Pompts an action or event. | 
-| 4 | [Entry](#entry-node) | Node that acts as a starting point. |
-| 5 | [Jump](#jump-node) | Jumps to a different node. |
+| 1 | [Message](#message-node) | Prompts a message from a MSBT file |
+| 2 | [Branch](#branch-node) | Branches to a different node depending on a specific condition. |
+| 3 | [Event](#event-node) | Executes a specific action or game event. | 
+| 4 | [Entry](#entry-node) | Node that acts as a starting point for a flowchart |
+| 5 | [Jump](#jump-node) | Jumps  to a different flowchart |
 
-#### Subtypes
-Subtypes define values that modify how an Event or Branch node is run. Subtype implemenation varies per game. 
+#### Parameter Types
+Parameter types dictate how parameter values may be passed into the node if it takes arguments. There may be more than one value passed into a node.
+
 | Value | Description |
 | --- | --- |
-| 0 | Game specifc |
-| 1 | Game specifc |
-| 2 | Game specifc | 
-| 3 | Game specifc |
-| 4 | Game specifc |
-| 5 | Offset from start of block to string in [string table](#string-table). |
-| 6 | Game specifc |
+| 0 | 4 byte integer |
+| 1 | Pair of 2 byte integers |
+| 2 | Unknown | 
+| 3 | Unknown |
+| 4 | Unknown |
+| 5 | String value. Stored as an offset from start of block to the string in the [string table](#string-table) |
+| 6 | 4 byte integer |
 
 ### Message Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Unused  |
 | 0x2 | 2 | Next node index |
-| 0x4 | 2 | MSBT file index  |
-| 0x6 | 2 | TXT2 message index |
+| 0x4 | 2 | [MSBT](msbt.md) file index |
+| 0x6 | 2 | Message index into [TXT2](msbt.md#txt2-block) |
 | 0x8 | 2 | Unused |
 
 ### Branch Node 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Short 1  |
-| 0x2 | 2 | `0xFFFF` (always as next node index) |
-| 0x4 | 2 | Short 3 |
+| 0x2 | 2 | `0xFFFF`|
+| 0x4 | 2 | Node Identifier |
 | 0x6 | 2 | Branch table case count |
 | 0x8 | 2 | Starting index into the branch table |
-
-Short data is specifc to the game and subtype of the node.
 
 ### Event Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Short 1  |
 | 0x2 | 2 | Next node index |
-| 0x4 | 2 | Short 3  |
-| 0x6 | 2 | Short 4  |
-| 0x8 | 2 | Short 5  |
+| 0x4 | 2 | Node identifier |
+| 0x6 | 4 | Unused |
 
-How each short is utilized varies per game.
+The node identifier allows a game to link the node to a specific action or condition. 
 
 ### Entry Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Unused  |
 | 0x2 | 2 | Next node index |
-| 0x4 | 2 | Unused |
-| 0x6 | 2 | Unused |
-| 0x8 | 2 | Unused |
+| 0x4 | 6 | Unused |
 
 ### Jump Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Unused  |
-| 0x2 | 2 | Next node index |
-| 0x4 | 2 | Unused |
-| 0x6 | 2 | Unused |
-| 0x8 | 2 | Unused |
+| 0x2 | 2 | Flowchart index|
+| 0x4 | 6 | Unused |
 
-0xFFFF marks the end of a flowchart for any node that isn't a branch node.
+The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. The next node for a jump node must refer to the index of the Entry node fpr another flowchart.
 
 ### Branch Table
-Nodes that are branch will jump to a specifc case based on a condition.
+Nodes that are branch will jump to a specifc case based on a condition. These function like Switch statements.
 
 | Offset | Size | Description |
 | --- | --- | --- |
@@ -113,7 +102,7 @@ Nodes that are branch will jump to a specifc case based on a condition.
 ### String Table 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | | List of null-terminated strings. |
+| 0x0 || List of null-terminated strings | 
 
 ## FEN1 Block
-This block contains the flowchart [labels](overview.md#hash-tables). The index of a flowchart is the location of its entry [node](#nodes).
+This block contains the flowchart [labels](overview.md#hash-tables). The index of a flowchart is the location of its Entry [node](#nodes).
