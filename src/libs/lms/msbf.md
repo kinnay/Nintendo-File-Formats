@@ -34,31 +34,31 @@ Actions defined within the FLW3 Section are done via nodes.
 #### Node Types
 | Value | Type | Description |
 | --- | --- | --- |
-| 1 | [Message](#message-node) | Prompts a message from a MSBT. |
-| 2 | [Branch](#branch-node) | Branches into different nodes based on a condition. |
-| 3 | [Event](#event-node) | Prompts an action or event. | 
-| 4 | [Entry](#entry-node) | Node that acts as a starting point. |
-| 5 | [Jump](#jump-node) | Jumps to a different flowchart. |
+| 1 | [Message](#message-node) | Prompts a message from a MSBT file |
+| 2 | [Branch](#branch-node) | Branches to a different node depending on a specific condition. |
+| 3 | [Event](#event-node) | Executes a specific action or game event. | 
+| 4 | [Entry](#entry-node) | Node that acts as a starting point for a flowchart |
+| 5 | [Jump](#jump-node) | Jumps  to a different flowchart |
 
 #### Parameter Types
 Parameter types dictate how parameter values may be passed into the node if it takes arguments. There may be more than one value passed into a node.
 
 | Value | Description |
 | --- | --- |
-| 0 | 4 byte integer. |
-| 1 | Stored as two seperate shorts. |
+| 0 | 4 byte integer |
+| 1 | Pair of 2 byte integers |
 | 2 | Unknown | 
 | 3 | Unknown |
 | 4 | Unknown |
-| 5 | String value. Stored as an offset from start of block to the string in the [string table](#string-table). |
-| 6 | 4 byte integer. |
+| 5 | String value. Stored as an offset from start of block to the string in the [string table](#string-table) |
+| 6 | 4 byte integer |
 
 ### Message Node
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x2 | 2 | Next node index |
-| 0x4 | 2 | [MSBT](./msbt.md) file index |
-| 0x6 | 2 | Message index into [TXT2](./msbt.md#txt2-block) |
+| 0x4 | 2 | [MSBT](msbt.md) file index |
+| 0x6 | 2 | Message index into [TXT2](msbt.md#txt2-block) |
 | 0x8 | 2 | Unused |
 
 ### Branch Node 
@@ -87,10 +87,10 @@ The node identifier allows a game to link the node to a specific action or condi
 ### Jump Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x2 | 2 | Next node index |
+| 0x2 | 2 | Next flowchart |
 | 0x4 | 6 | Unused |
 
-The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. The next node for a jump node must refer to an Entry node.
+The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. The next node for a jump node must refer to the Entry node of another flowchart.
 
 ### Branch Table
 Nodes that are branch will jump to a specifc case based on a condition. These function like Switch statements.
@@ -102,7 +102,7 @@ Nodes that are branch will jump to a specifc case based on a condition. These fu
 ### String Table 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | | List of encoded strings. |
+| 0x0 || List of strings | 
 
 ## FEN1 Block
 This block contains the flowchart [labels](overview.md#hash-tables). The index of a flowchart is the location of its Entry [node](#nodes).
