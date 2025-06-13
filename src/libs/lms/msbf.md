@@ -29,7 +29,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | 0x1 | 1|  [Parameter type](#parameter-types) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
 | 0x2 | 2 | Reserved |
 | 0x4 | 4 | Parameter value |
-| 0x6 | 8 | Node data |
+| 0x8 | 8 | Node data |
 
 #### Node Types
 | Value | Type | Description |
@@ -102,7 +102,7 @@ Nodes that are branch will jump to a specifc case based on a condition. These fu
 ### String Table 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 || List of strings | 
+| 0x0 || List of null-terminated strings | 
 
 ## FEN1 Block
 This block contains the flowchart [labels](overview.md#hash-tables). The index of a flowchart is the location of its Entry [node](#nodes).
