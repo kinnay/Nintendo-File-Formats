@@ -35,8 +35,8 @@ Actions defined within the FLW3 Section are done via nodes.
 | Value | Type | Description |
 | --- | --- | --- |
 | 1 | [Message](#message-node) | Prompts a message from a MSBT file |
-| 2 | [Branch](#branch-node) | Branches to a different node depending on a specific condition. |
-| 3 | [Event](#event-node) | Executes a specific action or game event. | 
+| 2 | [Branch](#branch-node) | Branches to a different node depending on a specific condition |
+| 3 | [Event](#event-node) | Executes a specific action or game event | 
 | 4 | [Entry](#entry-node) | Node that acts as a starting point for a flowchart |
 | 5 | [Jump](#jump-node) | Jumps  to a different flowchart |
 
@@ -87,7 +87,7 @@ The node identifier allows a game to link the node to a specific action or condi
 ### Jump Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Flowchart index|
+| 0x0 | 2 | Flowchart index |
 | 0x2 | 6 | Unused |
 
 The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. The next node for a jump node must refer to the index of the entry node for another flowchart.
