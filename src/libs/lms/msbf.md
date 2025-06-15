@@ -45,13 +45,13 @@ Parameter types dictate how parameter values may be passed into the node if it t
 
 | Value | Description |
 | --- | --- |
-| 0 | 4 byte integer |
-| 1 | 2 byte integer pair |
-| 2 | 2 byte integer followed by a pair of 1 byte integers | 
-| 3 | Pair of 1 byte integers followed by a 2 byte integer |
-| 4 | Array of 1 byte integers |
+| 0 | Int32 value |
+| 1 | Pair of Int16 values |
+| 2 | Int16 value followed by a pair of Int8 values | 
+| 3 | Pair of Int8 values followed by a Int16 value |
+| 4 | Array of Int8 values |
 | 5 | String value. Stored as an offset from start of block to the string in the [string table](#string-table) |
-| 6 | 4 byte integer |
+| 6 | Int32 value |
 
 ### Message Node
 | Offset | Size | Description |
