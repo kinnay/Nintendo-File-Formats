@@ -56,39 +56,39 @@ Parameter types dictate how parameter values may be passed into the node if it t
 ### Message Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x2 | 2 | Next node index |
-| 0x4 | 2 | [MSBT](msbt.md) file index |
-| 0x6 | 2 | Message index into [TXT2](msbt.md#txt2-block) |
-| 0x8 | 2 | Unused |
+| 0x0 | 2 | Next node index |
+| 0x2 | 2 | [MSBT](msbt.md) file index |
+| 0x4 | 2 | Message index into [TXT2](msbt.md#txt2-block) |
+| 0x6 | 2 | Unused |
 
 ### Branch Node 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x2 | 2 | `0xFFFF`|
-| 0x4 | 2 | Node Identifier |
-| 0x6 | 2 | Branch table case count |
-| 0x8 | 2 | Starting index into the branch table |
+| 0x0 | 2 | `0xFFFF`|
+| 0x2 | 2 | Node Identifier |
+| 0x4 | 2 | Branch table case count |
+| 0x6 | 2 | Starting index into the branch table |
 
 ### Event Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x2 | 2 | Next node index |
-| 0x4 | 2 | Node identifier |
-| 0x6 | 4 | Unused |
+| 0x0 | 2 | Next node index |
+| 0x2 | 2 | Node identifier |
+| 0x4 | 4 | Unused |
 
 The node identifier allows a game to link the node to a specific action or condition. 
 
 ### Entry Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x2 | 2 | Next node index |
-| 0x4 | 6 | Unused |
+| 0x0 | 2 | Next node index |
+| 0x2 | 6 | Unused |
 
 ### Jump Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x2 | 2 | Flowchart index|
-| 0x4 | 6 | Unused |
+| 0x0 | 2 | Flowchart index|
+| 0x2 | 6 | Unused |
 
 The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. The next node for a jump node must refer to the index of the entry node for another flowchart.
 
