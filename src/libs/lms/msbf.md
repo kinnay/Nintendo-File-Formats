@@ -46,10 +46,10 @@ Parameter types dictate how parameter values may be passed into the node if it t
 | Value | Description |
 | --- | --- |
 | 0 | 4 byte integer |
-| 1 | Pair of 2 byte integers |
-| 2 | Unknown | 
-| 3 | Unknown |
-| 4 | Unknown |
+| 1 | 2 byte integer pair |
+| 2 | 2 byte integer followed by a pair of 1 byte integers | 
+| 3 | Pair of 1 byte integers followed by a 2 byte integer |
+| 4 | Array of 1 byte integers |
 | 5 | String value. Stored as an offset from start of block to the string in the [string table](#string-table) |
 | 6 | 4 byte integer |
 
