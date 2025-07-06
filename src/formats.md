@@ -86,6 +86,9 @@ The libraries use [AAL](#aal) and [nw::eft / nn::vfx](#nw) internally.
 
 XLINK files have the file extension `.bslnk` or `.belnk`.
 
+## Nintendo Switch
+* [BDF files](libs/switch/bdf.md)
+
 ## Animal Crossing: New Horizons {#acnh}
 * [BCSV files](games/acnh/bcsv.md)
 

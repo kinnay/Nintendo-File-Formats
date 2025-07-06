@@ -64,6 +64,7 @@
 	- [GX2](libs/wiiu/gx2.md)
 - [Switch]()
 	- [Binary](libs/switch/binary.md)
+	- [BDF](libs/switch/bdf.md)
 - [AC:NH]()
 	- [BCSV](games/acnh/bcsv.md)
 - [DKC:TF]()
