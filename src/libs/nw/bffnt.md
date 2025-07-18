@@ -118,20 +118,30 @@ The first and last character code in the section header are ignored.
 | ... | ... | ... |
 
 ## Kerning Section
-Offsets the horizontal position of glyphs. Positive is right, negative is left. (Pixel Based)
-Kerning for Glyphs not listed default to 0.
+Stores an array of Kerning pairs.
 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 4 | Identifier ("KRNG") |
 | 0x4 | 4 | Section size |
-| 0x8 | | Kerning Data |
+| 0x8 | 2 | Number of Kerning FirstWord Entries |
+| 0xA| | Kerning FirstWord Data |
+| | | Kerning SecondWord Data |
 
-### Kerning Data
+### Kerning FirstWord Data
+The offset starts at 0x08 of the KRNG section.  
+Actual offset to SecondWord is 2x what's stored. 
+
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x2 | 2 | Character Code 1 |
-| 0x4 | 2 | Horizontal Offset for Glyph 1 |
-| 0x6 | 2 | Character Code 2 |
-| 0x8 | 2 | Horizontal Offset for Glyph 2 |
+| 0x2 | 2 | Character code |
+| 0x4 | 2 | Offset to its SecondWord entries |
 | ... | ... | ... |
+
+### Kerning SecondWord Data
+Positive offset moves the character to the right, negative to the left. (Pixel Based)  
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 2 | Character code |
+| 0x1 | 2 | Character offset |
