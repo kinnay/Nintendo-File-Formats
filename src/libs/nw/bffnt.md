@@ -1,5 +1,7 @@
 ## [NW](../../formats.md#nw) > Font File (FFNT)
 
+All offsets are relative to the start of the file. Offsets to sections point to the data after the generic header (the first 8 bytes).
+
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 4 | Magic number ("FFNT") |
@@ -87,7 +89,7 @@ Assigns glyphs to a range of character codes.
 | 0xA | 2 | Last character code |
 | 0xC | 2 | Mapping type |
 | 0xE | 2 | Padding |
-| 0x10 | 4 | Size of mapping data |
+| 0x10 | 4 | Offset to next code map section |
 | 0x14 | | Mapping data |
 
 ### Code Map Type 0
