@@ -21,8 +21,8 @@ Contains general information about the font.
 | 0x0 | 4 | Identifier ("FINF") |
 | 0x4 | 4 | Section size |
 | 0x8 | 1 | Font type |
-| 0x9 | 1 | Width |
-| 0xA | 1 | Height |
+| 0x9 | 1 | Height |
+| 0xA | 1 | Width |
 | 0xB | 1 | Ascent |
 | 0xC | 2 | Line feed |
 | 0xE | 2 | Invalid char symbol index |
