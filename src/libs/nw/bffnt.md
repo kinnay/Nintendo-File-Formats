@@ -108,7 +108,7 @@ If a glyph index is 0xFFFF it indicates an invalid character.
 | ... | 2 | Glyph index of last character code |
 
 ### Code Map Type 2
-The first and last character code in the section header are ignored.
+The first and last character code in the section header are used when searching for a CMAP section containing the glyph. Entries are sorted by ascending character code.
 
 | Offset | Size | Description |
 | --- | --- | --- |
