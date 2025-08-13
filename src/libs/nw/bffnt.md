@@ -30,9 +30,9 @@ Contains general information about the font.
 | 0x11 | 1 | Unknown |
 | 0x12 | 1 | Unknown |
 | 0x13 | 1 | Character code |
-| 0x14 | 4 | Offset to texture section |
-| 0x18 | 4 | Offset to width section |
-| 0x1C | 4 | Offset to code map section |
+| 0x14 | 4 | Offset of texture section |
+| 0x18 | 4 | Offset of width section |
+| 0x1C | 4 | Offset of code map section |
 
 ## Texture Section
 A font may consist of multiple texture sheets. The texture data of each sheet is stored directly after each other. Every cell contains a single glyph texture.
@@ -68,7 +68,7 @@ Contains width information for a range of glyphs.
 | 0x4 | 4 | Section size |
 | 0x8 | 2 | First glyph index |
 | 0xA | 2 | Last glyph index |
-| 0xC | 4 | Size of width data |
+| 0xC | 4 | Offset of next width section |
 | 0x10 | | Width data |
 
 ### Width Entry
@@ -89,7 +89,7 @@ Assigns glyphs to a range of character codes.
 | 0xA | 2 | Last character code |
 | 0xC | 2 | Mapping type |
 | 0xE | 2 | Padding |
-| 0x10 | 4 | Offset to next code map section |
+| 0x10 | 4 | Offset of next code map section |
 | 0x14 | | Mapping data |
 
 ### Code Map Type 0
