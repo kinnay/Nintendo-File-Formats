@@ -26,9 +26,9 @@ Contains general information about the font.
 | 0xB | 1 | Ascent |
 | 0xC | 2 | Line feed |
 | 0xE | 2 | Invalid char symbol index |
-| 0x10 | 1 | Unknown |
-| 0x11 | 1 | Unknown |
-| 0x12 | 1 | Unknown |
+| 0x10 | 1 | Default left distance |
+| 0x11 | 1 | Default cell width |
+| 0x12 | 1 | Default character width |
 | 0x13 | 1 | Character code |
 | 0x14 | 4 | Offset of texture section |
 | 0x18 | 4 | Offset of width section |
