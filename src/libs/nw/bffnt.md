@@ -1,5 +1,7 @@
 ## [NW](../../formats.md#nw) > Font File (FFNT)
 
+All offsets are relative to the start of the file. Offsets to sections point to the data after the generic header (the first 8 bytes).
+
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 4 | Magic number ("FFNT") |
@@ -19,18 +21,18 @@ Contains general information about the font.
 | 0x0 | 4 | Identifier ("FINF") |
 | 0x4 | 4 | Section size |
 | 0x8 | 1 | Font type |
-| 0x9 | 1 | Width |
-| 0xA | 1 | Height |
+| 0x9 | 1 | Height |
+| 0xA | 1 | Width |
 | 0xB | 1 | Ascent |
 | 0xC | 2 | Line feed |
 | 0xE | 2 | Invalid char symbol index |
-| 0x10 | 1 | Unknown |
-| 0x11 | 1 | Unknown |
-| 0x12 | 1 | Unknown |
+| 0x10 | 1 | Default left distance |
+| 0x11 | 1 | Default cell width |
+| 0x12 | 1 | Default character width |
 | 0x13 | 1 | Character code |
-| 0x14 | 4 | Offset to texture section |
-| 0x18 | 4 | Offset to width section |
-| 0x1C | 4 | Offset to code map section |
+| 0x14 | 4 | Offset of texture section |
+| 0x18 | 4 | Offset of width section |
+| 0x1C | 4 | Offset of code map section |
 
 ## Texture Section
 A font may consist of multiple texture sheets. The texture data of each sheet is stored directly after each other. Every cell contains a single glyph texture.
@@ -66,7 +68,7 @@ Contains width information for a range of glyphs.
 | 0x4 | 4 | Section size |
 | 0x8 | 2 | First glyph index |
 | 0xA | 2 | Last glyph index |
-| 0xC | 4 | Size of width data |
+| 0xC | 4 | Offset of next width section |
 | 0x10 | | Width data |
 
 ### Width Entry
@@ -87,7 +89,7 @@ Assigns glyphs to a range of character codes.
 | 0xA | 2 | Last character code |
 | 0xC | 2 | Mapping type |
 | 0xE | 2 | Padding |
-| 0x10 | 4 | Size of mapping data |
+| 0x10 | 4 | Offset of next code map section |
 | 0x14 | | Mapping data |
 
 ### Code Map Type 0
@@ -106,7 +108,7 @@ If a glyph index is 0xFFFF it indicates an invalid character.
 | ... | 2 | Glyph index of last character code |
 
 ### Code Map Type 2
-The first and last character code in the section header are ignored.
+The first and last character code in the section header are used when searching for a CMAP section containing the glyph. Entries are sorted by ascending character code.
 
 | Offset | Size | Description |
 | --- | --- | --- |
