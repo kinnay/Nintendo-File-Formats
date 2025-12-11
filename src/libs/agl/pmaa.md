@@ -106,7 +106,7 @@ The following value types are found in PMAA file:
 | 17 | 4 | u32 | unsigned int |
 | 18 | | buffer_u32 |
 | 19 | | buffer_binary |
-| 20 | | stringRef | sead::SafeStringBase<char> |
+| 20 | | stringRef | sead::SafeStringBase&gt;char&gt; |
 
 #### String Types
 These are null-terminated strings with a given maximum length. In some games, all strings use the maximum number of bytes (see [notes](#notes)). In other games, the strings use only the necessary number of bytes, even if this causes the rest of the file to be misaligned.
