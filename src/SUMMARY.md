@@ -96,4 +96,4 @@
 	- [ROM](games/snes-nso/rom.md)
 	- [Break](games/snes-nso/break.md)
 - [Xenoblade 2]()
-	- [Audio](games//xenoblade2/xenoblade2.md)
+	- [Audio](games/xb2/xenoblade2.md)

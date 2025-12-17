@@ -124,4 +124,4 @@ XLINK files have the file extension `.bslnk` or `.belnk`.
 * [Break files](games/snes-nso/break.md)
 
 ## Xenoblade 2 {#xenoblade2}
-* [Audio files](games/xenoblade2/xenoblade2.md)
+* [Audio files](games/xb2/audio.md)
