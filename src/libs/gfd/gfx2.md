@@ -42,6 +42,8 @@ The file format is closely tied to the GX2 framework, which is the graphics libr
 | 11 | [Texture header](#texture-blocks) |
 | 12 | [Texture image data](#texture-blocks) |
 | 13 | [Texture mipmap data](#texture-blocks) |
+| 14 | Compute [shader header](#shader-blocks) |
+| 15 | Compute [shader program](#shader-blocks) |
 
 ### Texture Blocks
 The texture header block contains a [`GX2Texture`](../wiiu/gx2.md#gx2texture) structure. The image and mipmap data blocks contain raw texture data, and are stored immediately behind the texture header block that they belong to. The mipmap block is optional.
