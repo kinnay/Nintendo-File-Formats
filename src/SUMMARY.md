@@ -95,3 +95,5 @@
 - [SNES (NSO)]()
 	- [ROM](games/snes-nso/rom.md)
 	- [Break](games/snes-nso/break.md)
+
+[Credits](credits.md)
