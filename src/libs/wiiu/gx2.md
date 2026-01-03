@@ -10,6 +10,7 @@ Structures:
 * [GX2Surface](#gx2surface)
 * [GX2Texture](#gx2texture)
 * [GX2VertexShader](#gx2vertexshader)
+* [GX2ComputeShader](#gx2computeshader)
 * [GX2PixelShader](#gx2pixelshader)
 * [GX2GeometryShader](#gx2geometryshader)
 * [GX2UniformBlock](#gx2uniformblock)
@@ -130,6 +131,22 @@ Enums:
 | 0x8C | 4 | Has stream out |
 | 0x90 | 4 * 4 | Stream out stride |
 | 0xA0 | 16 | [R buffer](#gx2rbuffer) |
+
+## GX2ComputeShader
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 4 * 12 | Registers |
+| 0x30 | 4 | Program size |
+| 0x34 | 4 | Program pointer |
+| 0x38 | 4 | Unknown |
+| 0x3C | 4 | Unknown |
+| 0x40 | 4 * 8 | Unknown |
+| 0x60 | 4 | Work group size X |
+| 0x64 | 4 | Work group size Y |
+| 0x68 | 4 | Work group size Z |
+| 0x6C | 4 | Work group size |
+| 0x70 | 4 | Shared memory size |
+| 0x74 | 16 | [R buffer](#gx2rbuffer) |
 
 ## GX2UniformBlock
 | Offset | Size | Description |
