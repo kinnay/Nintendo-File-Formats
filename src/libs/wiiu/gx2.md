@@ -13,6 +13,7 @@ Structures:
 * [GX2ComputeShader](#gx2computeshader)
 * [GX2PixelShader](#gx2pixelshader)
 * [GX2GeometryShader](#gx2geometryshader)
+* [GX2ComputeShader](#gx2computeshader)
 * [GX2UniformBlock](#gx2uniformblock)
 * [GX2UniformVar](#gx2uniformvar)
 * [GX2UniformInitialValue](#gx2uniforminitialvalue)
