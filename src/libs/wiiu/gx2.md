@@ -10,7 +10,6 @@ Structures:
 * [GX2Surface](#gx2surface)
 * [GX2Texture](#gx2texture)
 * [GX2VertexShader](#gx2vertexshader)
-* [GX2ComputeShader](#gx2computeshader)
 * [GX2PixelShader](#gx2pixelshader)
 * [GX2GeometryShader](#gx2geometryshader)
 * [GX2ComputeShader](#gx2computeshader)
