@@ -138,14 +138,21 @@ Enums:
 | 0x0 | 4 * 12 | Registers |
 | 0x30 | 4 | Program size |
 | 0x34 | 4 | Program pointer |
-| 0x38 | 4 | Unknown |
-| 0x3C | 4 | Unknown |
-| 0x40 | 4 * 8 | Unknown |
+| 0x38 | 4 | Number of [uniform blocks](#gx2uniformblock) |
+| 0x3C | 4 | Pointer to [uniform blocks](#gx2uniformblock) |
+| 0x40 | 4 | Number of [uniform vars](#gx2uniformvar) |
+| 0x44 | 4 | Pointer to [uniform vars](#gx2uniformvar) |
+| 0x48 | 4 | Number of [initial values](#gx2uniforminitialvalue) |
+| 0x4C | 4 | Pointer to [initial values](#gx2uniforminitialvalue) |
+| 0x50 | 4 | Number of [loop vars](#gx2loopvar) |
+| 0x54 | 4 | Pointer to [loop vars](#gx2loopvar) |
+| 0x58 | 4 | Number of [sampler vars](#gx2samplervar) |
+| 0x5C | 4 | Pointer to [sampler vars](#gx2samplervar) |
 | 0x60 | 4 | Work group size X |
 | 0x64 | 4 | Work group size Y |
 | 0x68 | 4 | Work group size Z |
-| 0x6C | 4 | Work group size |
-| 0x70 | 4 | Shared memory size |
+| 0x6C | 4 | Over 64 mode |
+| 0x70 | 4 | Number of waves per SIMD |
 | 0x74 | 16 | [R buffer](#gx2rbuffer) |
 
 ## GX2UniformBlock
