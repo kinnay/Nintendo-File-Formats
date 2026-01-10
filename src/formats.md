@@ -115,9 +115,9 @@ XLINK files have the file extension `.bslnk` or `.belnk`.
 * [Challenge info](games/nsmbu/challenges.md)
 * [Save data (rp_savedata.dat)](games/nsmbu/savedata.md)
 
-## Super Mario Maker 1 {#smm1}
-* [Level files](games/smm1/level.md)
-* [Save data (save.dat)](games/smm1/savedata.md)
+## Super Mario Maker {#smm}
+* [Level files](games/smm/level.md)
+* [Save data (save.dat)](games/smm/savedata.md)
 
 ## Super Mario Maker 2 {#smm2}
 * [Level files](games/smm2/level.md)
