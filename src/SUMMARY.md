@@ -73,6 +73,7 @@
 		- [8000000000000210](libs/switch/systemsave/8000000000000210.md)
 - [AC:NH]()
 	- [BCSV](games/acnh/bcsv.md)
+	- [Save data](games/acnh/savedata.md)
 - [DKC:TF]()
 	- [PAK](games/dkctf/pak.md)
 	- [ROOM](games/dkctf/room.md)

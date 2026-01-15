@@ -92,6 +92,7 @@ XLINK files have the file extension `.bslnk` or `.belnk`.
 
 ## Animal Crossing: New Horizons {#acnh}
 * [BCSV files](games/acnh/bcsv.md)
+* [Save data](games/acnh/savedata.md)
 
 ## Donkey Kong Country: Tropical Freeze (Wii U) {#dkctf}
 * [PAK files (archives)](games/dkctf/pak.md)
