@@ -128,3 +128,6 @@ XLINK files have the file extension `.bslnk` or `.belnk`.
 ## SNES - Nintendo Switch Online {#snes-nso}
 * [ROM files](games/snes-nso/rom.md)
 * [Break files](games/snes-nso/break.md)
+
+## Xenoblade 2 {#xb2}
+* [Audio files](games/xb2/audio.md)
