@@ -88,9 +88,11 @@ XLINK files have the file extension `.bslnk` or `.belnk`.
 
 ## Nintendo Switch
 * [BDF files](libs/switch/bdf.md)
+* [System save data](libs/switch/systemsave.md)
 
 ## Animal Crossing: New Horizons {#acnh}
 * [BCSV files](games/acnh/bcsv.md)
+* [Save data](games/acnh/savedata.md)
 
 ## Donkey Kong Country: Tropical Freeze (Wii U) {#dkctf}
 * [PAK files (archives)](games/dkctf/pak.md)
@@ -114,6 +116,10 @@ XLINK files have the file extension `.bslnk` or `.belnk`.
 * [Replay files](games/nsmbu/replay.md)
 * [Challenge info](games/nsmbu/challenges.md)
 * [Save data (rp_savedata.dat)](games/nsmbu/savedata.md)
+
+## Super Mario Maker {#smm}
+* [Level files](games/smm/level.md)
+* [Save data (save.dat)](games/smm/savedata.md)
 
 ## Super Mario Maker 2 {#smm2}
 * [Level files](games/smm2/level.md)

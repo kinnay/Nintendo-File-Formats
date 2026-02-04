@@ -10,6 +10,7 @@ create-missing = false
 [output.html]
 additional-css = ["theme/style.css"]
 git-repository-url = "https://github.com/kinnay/Nintendo-File-Formats"
+mathjax-support = true
 
 [output.html.print]
 enable = false

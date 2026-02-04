@@ -42,6 +42,8 @@ The file format is closely tied to the GX2 framework, which is the graphics libr
 | 11 | [Texture header](#texture-blocks) |
 | 12 | [Texture image data](#texture-blocks) |
 | 13 | [Texture mipmap data](#texture-blocks) |
+| 14 | Compute [shader header](#shader-blocks) |
+| 15 | Compute [shader program](#shader-blocks) |
 
 ### Texture Blocks
 The texture header block contains a [`GX2Texture`](../wiiu/gx2.md#gx2texture) structure. The image and mipmap data blocks contain raw texture data, and are stored immediately behind the texture header block that they belong to. The mipmap block is optional.
@@ -49,7 +51,7 @@ The texture header block contains a [`GX2Texture`](../wiiu/gx2.md#gx2texture) st
 ### Shader Blocks
 The shader program blocks contain raw shader data and are stored immediately behind the shader header block that they belong to.
 
-The shader header block is a bit complicated. In essence, it contains a [`GX2VertexShader`](../wiiu/gx2.md#gx2vertexshader), [`GX2PixelShader`](../wiiu/gx2.md#gx2pixelshader) or [`GX2GeometryShader`](../wiiu/gx2.md#gx2geometryshader) structure (depending on the block type). However, these structure contain several pointers, and, for obvious reasons, it is impossible to store raw pointers in a file.
+The shader header block is a bit complicated. In essence, it contains a [`GX2VertexShader`](../wiiu/gx2.md#gx2vertexshader), [`GX2PixelShader`](../wiiu/gx2.md#gx2pixelshader), [`GX2GeometryShader`](../wiiu/gx2.md#gx2geometryshader) or [`GX2ComputeShader`](../wiiu/gx2.md#gx2computeshader) structure (depending on the block type). However, these structure contain several pointers, and, for obvious reasons, it is impossible to store raw pointers in a file.
 
 The shader header block is layed out as follows:
 
