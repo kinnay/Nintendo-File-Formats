@@ -39,7 +39,7 @@ The audio duration **(in ms)** can be guessed by these formulas :
 | 0x38   | 4    | 00 00 00 00 | 0 |
 | 0x3c   | 4    | 00 00 00 00 | 0 |
 ||||
-| 0x40   | 4    | ...         |  |
+| 0x40   | 4    | 00 FA 00 00 or 00 77 01 00 | 64 000 or 96 000 |
 | 0x44   | 4    | 20 4E 00 00 | 20 000 = ??? |
 | 0x48   | 4    | 00 00 00 00 | 0 |
 | 0x4c   | 4    | ?? ?? ?? ?? | Number of frames (without the first and last 4 bytes of seek table so it's X-2) |
@@ -69,7 +69,7 @@ The difference between 2 offsets consecutives give the byte length of an audio p
 | ---    | ---  | ---         | --- |
 | 0x00   | 4    | 01 00 00 80 | magic |
 | 0x04   | 4    | 18 00 00 00 | ??? |
-| 0x08   | 4    | 00 01 00 00 OR 00 02 00 00 | Mono / Stereo |
+| 0x08   | 4    | 00 01 00 00 or 00 02 00 00 | Mono / Stereo |
 | 0x0c   | 4    | 80 BB 00 00 | 48 000 sample rate |
 | 0x10   | 4    | 20 00 00 00 | ??? |
 | 0x14   | 4    | 00 00 00 00 | 0 |
