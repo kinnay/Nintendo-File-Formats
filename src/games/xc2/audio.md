@@ -17,6 +17,7 @@ The audio duration **(in ms)** can be guessed by these formulas :
 * *number of **frames** / sample **duration** = x / 0,02*
 
 ## File Header
+
 | Offset | Size | Description |
 | ---    | ---  | --- |
 |0x00    | 4    | `73 61 64 66` = Sadf |
@@ -65,6 +66,7 @@ The difference between 2 offsets consecutives give the byte length of an audio p
 
 ## Opus Header
 ###### (first frame, offset is reset for simplicity)
+
 | Offset | Size | Description | 
 | ---    | ---  | ---         |
 | 0x00   | 4    | `01 00 00 80` magic |
@@ -80,11 +82,10 @@ The difference between 2 offsets consecutives give the byte length of an audio p
 
 ## Opus Stream
 
-00 00 ?? ?? = frame length (Big Endian)
-
-?? ?? ?? ?? = metadata ?
-
-?? = config byte
+| Size | Description |
+| 4    | `00 00 ?? ??` Frame length (Big Endian) |
+| 4    | Metadata ? |
+| 2    | Config byte |
 
 00 00 00 03 01 00 00 00 FC FF FE = 1 frame of silence, can vary a little
 
