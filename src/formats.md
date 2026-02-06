@@ -129,5 +129,5 @@ XLINK files have the file extension `.bslnk` or `.belnk`.
 * [ROM files](games/snes-nso/rom.md)
 * [Break files](games/snes-nso/break.md)
 
-## Xenoblade 2 {#xb2}
-* [Audio files](games/xb2/audio.md)
+## Xenoblade Chronicles 2 {#xc2}
+* [Audio files](games/xc2/audio.md)
