@@ -1,4 +1,4 @@
-## [XBC 2](../../formats.md#xc2) > Audio Files
+## [XBC 2](../../formats.md#xbc2) > Audio Files
 
 This page describes the `.nop` (Nintendo OPus) file format, which is based on the opus format but with a custom header.
 
