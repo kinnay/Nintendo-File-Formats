@@ -6,20 +6,10 @@ All level files have the same size in Super Mario Maker 2:
 | --- | --- | --- |
 | 0x0 | 0x10 | [File header](#file-header) |
 | 0x10 | 0x5BFC0 | [File body](#file-body) ([encrypted](#encryption)) |
-| 0x5BFD0 | 0x30 | [Crypto parameters](#encryption) |
+| 0x5BFD0 | 0x30 | [Crypto footer](#encryption) |
 
 ## Encryption
-The [file body](#file-body) is encrypted with AES-CBC. The following structure is stored at the end of the level file:
-
-| Offset | Size | Description |
-| --- | --- | --- |
-| 0x0 | 16 | Initialization vector |
-| 0x10 | 4 x 4 | Random number generator state |
-| 0x20 | 16 | AES-CMAC of decrypted data |
-
-The [ENL key generation algorithm](https://github.com/Kinnay/NintendoClients/wiki/ENL-Key-Generation) is used to generate the keys. However, instead of initializing the random number generator by seed, its internal state is initialized directly with the values from the structure above. Two keys are generated (with the same random number generator):
-1. A 16-byte key to decrypt the [file body](#file-body)
-2. A 16-byte key to calculate or verify the CMAC
+Details about the encryption algorithm are [described here](encryption.md).
 
 The following integer table is passed to the key generation algorithm:
 
@@ -82,5 +72,5 @@ The header is not encrypted.
 | 0x28 | 0xC0 | Unknown |
 | 0xF0 | 1 | Unknown |
 | 0xF1 | 3 | Unknown |
-| 0xF4 | 0x20 | Level name (utf16) |
+| 0xF4 | 0x20 | Level name (UTF-16) |
 | 0x114 | 0xEC | Unknown |

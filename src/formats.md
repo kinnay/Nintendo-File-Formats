@@ -124,6 +124,7 @@ XLINK files have the file extension `.bslnk` or `.belnk`.
 ## Super Mario Maker 2 {#smm2}
 * [Level files](games/smm2/level.md)
 * [Ninji ghost files](games/smm2/ghost.md)
+* [Save data](games/smm2/savedata.md)
 
 ## SNES - Nintendo Switch Online {#snes-nso}
 * [ROM files](games/snes-nso/rom.md)
