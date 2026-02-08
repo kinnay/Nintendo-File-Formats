@@ -42,7 +42,7 @@ The header is not encrypted.
 | 0x0 | 4 | Always 1 |
 | 0x4 | 2 | Always 16 |
 | 0x6 | 2 | Always 1 |
-| 0x8 | 4 | CRC32 of decrypted [file body](#file-body) |
+| 0x8 | 4 | CRC-32 of decrypted [file body](#file-body) |
 | 0xC | 4 | Magic number (always `SCDL`) |
 
 ## File Body

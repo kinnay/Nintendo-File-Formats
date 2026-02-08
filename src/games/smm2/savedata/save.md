@@ -41,7 +41,7 @@ The header is not encrypted.
 | --- | --- | --- |
 | 0x0 | 4 | Always 1 |
 | 0x4 | 4 | Always 11 |
-| 0x8 | 4 | CRC32 of decrypted [file body](#file-body) |
+| 0x8 | 4 | CRC-32 of first 0xB910 bytes of decrypted [file body](#file-body) |
 | 0xC | 4 | Always 0 |
 
 ## File Body
@@ -57,5 +57,10 @@ The header is not encrypted.
 | 0xA8 | 16 | UUIDv4, generated once during save data creation |
 | 0xB8 | 360 | Unknown |
 | 0x220 | 8 | Save data creation timestamp |
-| 0x228 | 0xBD98 | Unknown |
+| 0x228 | 0xB6E8 | Unknown |
+| 0xB910 | 4 | Always 2 |
+| 0xB914 | 4 | Always 0 |
+| 0xB918 | 4 | CRC-32 from offset 0xB920 until the end of the file body |
+| 0xB91C | 4 | Always 0 |
+| 0xB920 | 0x6A0 | Unknown |
 | 0xBFC0 | --- | End |

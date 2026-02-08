@@ -41,7 +41,7 @@ The header is not encrypted.
 | --- | --- | --- |
 | 0x0 | 4 | Always 1 |
 | 0x4 | 4 | Always 8 |
-| 0x8 | 4 | CRC32 of decrypted [file body](#file-body) |
+| 0x8 | 4 | CRC-32 of decrypted [file body](#file-body) |
 | 0xC | 4 | Always 0 |
 
 ## File Body
