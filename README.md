@@ -7,7 +7,7 @@ https://nintendo-formats.com.
 ### Goals
 This repository documents various file formats that are seen in Nintendo games. It is meant for people that want to build tools, create mods, mine data, or are simply curious about what's inside.
 
-The information is provided for free and can be used for any purpose. However, consider adding a link to this repository to your credits or leaving a [donation](https://ko-fi.com/yannikmarchand).
+The information is provided for free and can be used for any purpose. However, consider adding a link to this repository to your credits or becoming a [sponsor](https://github.com/sponsors/kinnay).
 
 The scope of the documentation includes all file formats that are seen in games that are published by Nintendo and exclusively available on Nintendo systems. Older systems may be added to the documentation as well.
 
