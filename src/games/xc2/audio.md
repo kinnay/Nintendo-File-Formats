@@ -6,6 +6,8 @@ The file is encoded with little endian byte order.
 
 .nop files must be read with 16 bytes per columns.
 
+To listen to these files, you can use [Foobar2000](https://www.foobar2000.org/) with the [VGMstream plugin](https://vgmstream.org/) or the [VGMstream website](https://katiefrogs.github.io/vgmstream-web/) directly.
+
 | Offset | Size | Description                  |
 | :-:    | :-:  | ---                          |
 | 0x0    | 0x60 | [File Header](#file-header)  |
