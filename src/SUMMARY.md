@@ -112,7 +112,7 @@
 - [SNES (NSO)]()
 	- [ROM](games/snes-nso/rom.md)
 	- [Break](games/snes-nso/break.md)
-- [XBC 2]()
-	- [Audio](games/xbc2/audio.md)
+- [XC 2]()
+	- [Audio](games/xc2/audio.md)
 
 [Credits](credits.md)
