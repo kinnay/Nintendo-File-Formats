@@ -4,12 +4,14 @@ This page describes the `.nop` (Nintendo OPus) file format, which is based on th
 
 The file is encoded with little endian byte order.
 
+.nop files must be read with 16 bytes per columns.
+
 | Offset | Size | Description                  |
-| ---    | ---  | ---                          |
+| :-:    | :-:  | ---                          |
 | 0x0    | 0x60 | [File Header](#file-header)  |
 | 0x60   | 0x20 | Padding                      |
 | 0x80   | ?    | [Seek Table](#seek-table)    |
-| ?	     | ?    | [Opus Header](#opus-stream)  |
+| ?	     | 0x28 | [Opus Header](#opus-stream)  |
 | ?      | ?    | [Opus Stream](#audio-stream) |
 
 A frame is the work unit for the file format. One frame is 20 ms and approximately 960 samples
@@ -21,11 +23,11 @@ The audio duration **(in ms)** can be calculated with the following formulas:
 ## File Header
 
 | Offset | Size | Description |
-| ---    | ---  | --- |
+| :-:    | :-:  | --- |
 | 0x0    | 4    | Always `"sadf"` |
 | 0x4    | 4    | File size |
 | 0x8    | 4    | Always `"opus"` |
-| 0xC    | 4    | Always 1? |
+| 0xC    | 4    | Always 1 |
 | 0x10   | 4    | Always `"head"` |
 | 0x14   | 4    | Seek table position (`0x80`) |
 | 0x18   | 4    | Channel count (1 or 2) |
@@ -62,7 +64,7 @@ The size of a frame can be determined by calculating the difference between two 
 (first frame, offset is reset for simplicity)
 
 | Offset | Size | Description | 
-| ---    | ---  | ---         |
+| :-:    | :-:  | ---         |
 | 0x0    | 4    | `01 00 00 80` magic |
 | 0x4    | 4    | `18 00 00 00` = ? |
 | 0x8    | 1    | Unknown |
@@ -80,7 +82,7 @@ The size of a frame can be determined by calculating the difference between two 
 
 | Offset | Size | Description |
 | --- | ---  | --- |
-| 0x0 | 4    | `00 00 ?? ??` Frame length (big endian) |
+| 0x0 | 4    | Frame length (big endian) |
 | 0x4 | 4    | Metadata ? |
 | 0x8 | 2    | Config byte |
 
