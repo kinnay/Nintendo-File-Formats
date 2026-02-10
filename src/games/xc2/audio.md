@@ -4,12 +4,12 @@ This page describes the `.nop` (Nintendo OPus) file format, which is based on th
 
 The file is encoded with little endian byte order.
 
-.nop files must be read with 16 bytes per columns.
+If you open .nop files to read them, you must activate "display 16 bytes per columns" if possible because the paddings seems like to be .
 
 To listen to these files, you can use [Foobar2000](https://www.foobar2000.org/) with the [VGMstream plugin](https://vgmstream.org/) or the [VGMstream website](https://katiefrogs.github.io/vgmstream-web/) directly.
 
 | Offset | Size | Description                  |
-| :-:    | :-:  | ---                          |
+| ---    | ---  | ---                          |
 | 0x0    | 0x60 | [File Header](#file-header)  |
 | 0x60   | 0x20 | Padding                      |
 | 0x80   | ?    | [Seek Table](#seek-table)    |
@@ -20,12 +20,12 @@ A frame is the work unit for the file format. One frame is 20 ms and approximate
 
 The audio duration **(in ms)** can be calculated with the following formulas:
 * *number of **samples** / sample **rate** = x / 48 000*
-* *number of **frames** / sample **duration** = x / 0,02*
+* *number of **frames** / frame **duration** = x / 0,02*
 
 ## File Header
 
 | Offset | Size | Description |
-| :-:    | :-:  | --- |
+| ---    | ---  | --- |
 | 0x0    | 4    | Always `"sadf"` |
 | 0x4    | 4    | File size |
 | 0x8    | 4    | Always `"opus"` |
@@ -66,7 +66,7 @@ The size of a frame can be determined by calculating the difference between two 
 (first frame, offset is reset for simplicity)
 
 | Offset | Size | Description | 
-| :-:    | :-:  | ---         |
+| ---    | ---  | ---         |
 | 0x0    | 4    | `01 00 00 80` magic |
 | 0x4    | 4    | `18 00 00 00` = ? |
 | 0x8    | 1    | Unknown |
