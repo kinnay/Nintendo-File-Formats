@@ -18,10 +18,6 @@ To listen to these files, you can use [Foobar2000](https://www.foobar2000.org/) 
 
 A frame is the work unit for the file format. One frame is 20 ms and approximately 960 samples
 
-The audio duration **(in ms)** can be calculated with the following formulas:
-* *number of **samples** / sample **rate** = x / 48 000*
-* *number of **frames** / frame **duration** = x / 0,02*
-
 ## File Header
 
 | Offset | Size | Description |
