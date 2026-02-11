@@ -74,7 +74,7 @@ The size of a frame can be determined by calculating the difference between two 
 | 0x20   | 4    | `04 00 00 80` ? |
 | 0x24   | 4    | Length of the file's rest (without the padding) |
 
-The seek table is padded with 0xE8 until its size is a multiple of 16 bytes
+The seek table is padded with `0xE8` until its size is a multiple of 16 bytes
 
 ## Opus Stream
 
