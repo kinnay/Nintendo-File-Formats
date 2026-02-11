@@ -4,8 +4,6 @@ This page describes the `.nop` (Nintendo OPus) file format, which is based on th
 
 The file is encoded with little endian byte order.
 
-If you open .nop files to read them, you must activate "display 16 bytes per columns" if possible because the paddings seems like to be .
-
 To listen to these files, you can use [Foobar2000](https://www.foobar2000.org/) with the [VGMstream plugin](https://vgmstream.org/) or the [VGMstream website](https://katiefrogs.github.io/vgmstream-web/) directly.
 
 | Offset | Size | Description                  |
@@ -76,6 +74,8 @@ The size of a frame can be determined by calculating the difference between two 
 | 0x20   | 4    | `04 00 00 80` ? |
 | 0x24   | 4    | Length of the file's rest (without the padding) |
 
+The seek table is padded with 0xE8 until its size is a multiple of 16 bytes
+
 ## Opus Stream
 
 | Offset | Size | Description |
@@ -87,3 +87,5 @@ The size of a frame can be determined by calculating the difference between two 
 `00 00 00 03 01 00 00 00 FC FF FE` = 1 frame of silence, can vary a little
 
 To find a frame, search for `00 00` after the first frame, take note of the two following values, skip 4 bytes. Now, select the bytes until you see another 00 00. If the length corresponds to the value, it's a frame!
+
+Every opus stream is padded will null bytes until its size is a multiple of 16 bytes
