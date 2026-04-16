@@ -88,7 +88,7 @@ All entries in the action table have the following structure:
 | 0x14 | 4 | Unknown |
 
 ### Animation Table
-All entries in the action table have the following structure:
+All entries in the animation table have the following structure:
 
 | Offset | Size | Description |
 | --- | --- | --- |
