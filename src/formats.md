@@ -28,6 +28,11 @@ This is a first-party library that mostly deals with shaders and textures.
 
 The PMAA file format covers many different extensions such as `.baglenv` and `.bagldof`.
 
+## CAS
+This is a first-party library that implements an animation system.
+
+* [BAEV files (binary animation events)](libs/common/baev.md)
+
 ## GFD
 This is a tiny Wii U library that loads textures and shaders from gtx/gsh files.
 * [Gfx2 files (shaders and textures)](libs/gfd/gfx2.md)
