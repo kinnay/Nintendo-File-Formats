@@ -1,6 +1,6 @@
 ## [Misc](../../formats.md#misc) > Binary YAML
 
-These files are similar to regular YAML files, but are encoded in binary form. They usually have the file extension `.byml` or `.byaml`.
+These files are similar to regular YAML files, but are encoded in binary form. They usually have the file extension `.byml`, `.byaml` or `.bgyml`.
 
 A BYAML file contains a graph of nodes. Every node has a type and value. There are sequence types, such as arrays and dictionaries, and basic types such as strings and integers. The root node must always be an array or dictionary.
 
