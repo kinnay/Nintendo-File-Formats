@@ -31,7 +31,7 @@ The PMAA file format covers many different extensions such as `.baglenv` and `.b
 ## CAS
 This is a first-party library that implements an animation system.
 
-* [BAEV files (binary animation events)](libs/common/baev.md)
+* [BAEV files (binary animation events)](libs/cas/baev.md)
 
 ## GFD
 This is a tiny Wii U library that loads textures and shaders from gtx/gsh files.
