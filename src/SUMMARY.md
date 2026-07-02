@@ -69,6 +69,7 @@
 	- [BDF](libs/switch/bdf.md)
 	- [IMKV](libs/switch/imkv.md)
 	- [NAX0](libs/switch/nax0.md)
+	- [NSO0](libs/switch/nso0.md)
 	- [General](libs/switch/general.md)
 	- [System Save Data](libs/switch/systemsave.md)
 		- [8000000000000010](libs/switch/systemsave/8000000000000010.md)

@@ -95,6 +95,7 @@ XLINK files have the file extension `.bslnk` or `.belnk`.
 * [BDF files (TLS certificates)](libs/switch/bdf.md)
 * [IMKV files (key-value databases)](libs/switch/imkv.md)
 * [NAX0 files (SD card encryption)](libs/switch/nax0.md)
+* [NSO0 files (executables)](libs/switch/nso0.md)
 * [System save data](libs/switch/systemsave.md)
 
 ## Animal Crossing: New Horizons {#acnh}
