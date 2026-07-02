@@ -67,6 +67,7 @@
 - [Switch]()
 	- [Binary](libs/switch/binary.md)
 	- [BDF](libs/switch/bdf.md)
+	- [IMKV](libs/switch/imkv.md)
 	- [NAX0](libs/switch/nax0.md)
 	- [General](libs/switch/general.md)
 	- [System Save Data](libs/switch/systemsave.md)
