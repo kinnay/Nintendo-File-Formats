@@ -52,7 +52,9 @@ def calculate_hash(filename, multiplier):
 In Switch games, each byte of the filename is sign extended. This is important if the filename uses non-ascii characters.
 
 ### Filename Attributes
-If this field is zero, the archive contains exactly one file with the given hash and no filename is stored.
+Official files almost always contain filenames, even if only one file has a specific hash.
+
+If this field is zero, no filename is stored for the given file. This is only possible if exactly one file has the given hash.
 
 Otherwise, this field is stored as `0xAABBBBBB`. For a given hash, `AA` starts at 1 and is incremented on every FAT entry that has the same hash. In practice, `AA` is almost always 1 because the probability of hash collisions is quite low. `BBBBBB` is an offset into the [filename table](#filename-table) divided by 4.
 
