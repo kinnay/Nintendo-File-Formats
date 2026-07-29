@@ -76,6 +76,8 @@ The parameter type determines how the 4 byte parameter data will be parsed by th
 | 0x2 | 2 | Node identifier |
 | 0x4 | 4 | Unused |
 
+The node identifier allows a game to link the node to a specific action or condition.
+
 ### Entry Node
 | Offset | Size | Description |
 | --- | --- | --- |
