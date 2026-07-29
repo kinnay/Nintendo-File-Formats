@@ -26,7 +26,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 1 | [Node type](#node-types) |
-| 0x1 | 1|  [Parameter type](#parameter-type) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
+| 0x1 | 1 |  [Parameter type](#parameter-type) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
 | 0x2 | 2 | Reserved |
 | 0x4 | 4 | Parameter data |
 | 0x8 | 8 | Node data |
@@ -41,19 +41,17 @@ Actions defined within the FLW3 Section are done via nodes.
 | 5 | [Jump](#jump-node) | Jumps  to a different flowchart |
 
 #### Parameter Type
-Branch and event nodes may vary in their functionality depending on the parameter type. This type determines how the parameter data will be parsed by the game. Once the data has been
-interpreted, the values obtained are passed to the node as arguments.
+The parameter type determines how the 4 byte parameter data will be parsed by the game. Once the data has been interpreted, the values obtained are passed to the node as arguments.
 
-| Value | Arguments              | Description                                                                                              |
-|-------|------------------------|----------------------------------------------------------------------------------------------------------|
-| 0     | `s32`                  | Single node argument                                                                                     |
-| 1     | `s32`, `s32`           | Two node arguments                                                                                       |
-| 2     | `s16`, `s8`, `s8`      | Three node arguments                                                                                     |
-| 3     | `s8`, `s8`, `s16`      | Three node arguments (alternate argument layout)                                                         |
-| 4     | `s8`, `s8`, `s8`, `s8` | Four node arguments                                                                                      |
-| 5     | `string`               | String value. Stored as an offset from start of block to the string in the [string table](#string-table) |
-| 6     | `s32`                  | Single node argument                                                                                     |
-
+| Value | Arguments |
+| ---   | --- |
+| 0     | `s32` |
+| 1     | `s32`, `s32` | 
+| 2     | `s16`, `s8`, `s8` | 
+| 3     | `s8`, `s8`, `s16` | 
+| 4     | `s8`, `s8`, `s8`, `s8` | 
+| 5     | `str`  (offset from start of block to [string table](#string-table)) |
+| 6     | `s32` | 
 
 ### Message Node
 | Offset | Size | Description |
@@ -77,8 +75,6 @@ interpreted, the values obtained are passed to the node as arguments.
 | 0x0 | 2 | Next node index |
 | 0x2 | 2 | Node identifier |
 | 0x4 | 4 | Unused |
-
-The node identifier allows a game to link the node to a specific action or condition. 
 
 ### Entry Node
 | Offset | Size | Description |
