@@ -26,7 +26,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 1 | [Node type](#node-types) |
-| 0x1 | 1 |  [Parameter type](#parameter-type) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
+| 0x1 | 1 |  [Parameter types](#parameter-types) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
 | 0x2 | 2 | Reserved |
 | 0x4 | 4 | Parameter data |
 | 0x8 | 8 | Node data |
@@ -40,18 +40,18 @@ Actions defined within the FLW3 Section are done via nodes.
 | 4 | [Entry](#entry-node) | Node that acts as a starting point for a flowchart |
 | 5 | [Jump](#jump-node) | Jumps  to a different flowchart |
 
-#### Parameter Type
+#### Parameter Types
 The parameter type determines how the 4 byte parameter data will be parsed by the game. Once the data has been interpreted, the values obtained are passed to the node as arguments.
 
 | Value | Arguments |
-| ---   | --- |
-| 0     | `s32` |
-| 1     | `s32`, `s32` | 
-| 2     | `s16`, `s8`, `s8` | 
-| 3     | `s8`, `s8`, `s16` | 
-| 4     | `s8`, `s8`, `s8`, `s8` | 
-| 5     | `str`  (offset from start of block to [string table](#string-table)) |
-| 6     | `s32` | 
+| --- | --- |
+| 0 | `s32` |
+| 1 | `s32`, `s32` | 
+| 2 | `s16`, `s8`, `s8` | 
+| 3 | `s8`, `s8`, `s16` | 
+| 4 | `s8`, `s8`, `s8`, `s8` | 
+| 5 | `str` (offset from start of block to string in [string table](#string-table)) |
+| 6 | `s32` | 
 
 ### Message Node
 | Offset | Size | Description |
