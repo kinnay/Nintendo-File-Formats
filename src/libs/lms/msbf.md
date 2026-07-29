@@ -26,9 +26,9 @@ Actions defined within the FLW3 Section are done via nodes.
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 1 | [Node type](#node-types) |
-| 0x1 | 1|  [Parameter type](#parameter-types) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
+| 0x1 | 1 |  [Parameter types](#parameter-types) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
 | 0x2 | 2 | Reserved |
-| 0x4 | 4 | Parameter value |
+| 0x4 | 4 | Parameter data |
 | 0x8 | 8 | Node data |
 
 #### Node Types
@@ -41,17 +41,17 @@ Actions defined within the FLW3 Section are done via nodes.
 | 5 | [Jump](#jump-node) | Jumps  to a different flowchart |
 
 #### Parameter Types
-Parameter types dictate how parameter values may be passed into the node if it takes arguments. There may be more than one value passed into a node.
+The parameter type determines how the 4 byte parameter data will be parsed by the game. Once the data has been interpreted, the values obtained are passed to the node as arguments.
 
-| Value | Description |
+| Value | Arguments |
 | --- | --- |
-| 0 | Int32 value |
-| 1 | Pair of Int16 values |
-| 2 | Int16 value + pair of Int8 values | 
-| 3 | Pair of Int8 + Int16 value |
-| 4 | Int8 Array |
-| 5 | String value. Stored as an offset from start of block to the string in the [string table](#string-table) |
-| 6 | Int32 value |
+| 0 | `s32` |
+| 1 | `s32`, `s32` | 
+| 2 | `s16`, `s8`, `s8` | 
+| 3 | `s8`, `s8`, `s16` | 
+| 4 | `s8`, `s8`, `s8`, `s8` | 
+| 5 | `str` (offset from start of block to string in [string table](#string-table)) |
+| 6 | `s32` | 
 
 ### Message Node
 | Offset | Size | Description |
@@ -76,7 +76,7 @@ Parameter types dictate how parameter values may be passed into the node if it t
 | 0x2 | 2 | Node identifier |
 | 0x4 | 4 | Unused |
 
-The node identifier allows a game to link the node to a specific action or condition. 
+The node identifier allows a game to link the node to a specific action or condition.
 
 ### Entry Node
 | Offset | Size | Description |
