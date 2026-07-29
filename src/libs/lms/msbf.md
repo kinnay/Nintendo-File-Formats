@@ -41,7 +41,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | 5 | [Jump](#jump-node) | Jumps  to a different flowchart |
 
 #### Parameter Type
-Branch and event nodes may vary in how they function depending on the parameter type. This type determines how the parameter data will be parsed by the game. Once the data has been
+Branch and event nodes may vary in their functionality depending on the parameter type. This type determines how the parameter data will be parsed by the game. Once the data has been
 interpreted, the values obtained are passed to the node as arguments.
 
 | Value | Arguments              | Description                                                                                              |
@@ -49,7 +49,7 @@ interpreted, the values obtained are passed to the node as arguments.
 | 0     | `s32`                  | Single node argument                                                                                     |
 | 1     | `s32`, `s32`           | Two node arguments                                                                                       |
 | 2     | `s16`, `s8`, `s8`      | Three node arguments                                                                                     |
-| 3     | `s8`, `s8`, `s16`      | Three node arguments (alternate stream layout)                                                           |
+| 3     | `s8`, `s8`, `s16`      | Three node arguments (alternate argument layout)                                                         |
 | 4     | `s8`, `s8`, `s8`, `s8` | Four node arguments                                                                                      |
 | 5     | `string`               | String value. Stored as an offset from start of block to the string in the [string table](#string-table) |
 | 6     | `s32`                  | Single node argument                                                                                     |
