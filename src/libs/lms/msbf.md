@@ -52,7 +52,7 @@ interpreted, the values obtained are passed to the node as arguments.
 | 3     | `s8`, `s8`, `s16`      | Three node arguments (alternate stream layout)                                                           |
 | 4     | `s8`, `s8`, `s8`, `s8` | Four node arguments                                                                                      |
 | 5     | `string`               | String value. Stored as an offset from start of block to the string in the [string table](#string-table) |
-| 6     | `s32`                  | Single 32-bit signed integer argument                                                                    |
+| 6     | `s32`                  | Single node argument                                                                                     |
 
 
 ### Message Node
