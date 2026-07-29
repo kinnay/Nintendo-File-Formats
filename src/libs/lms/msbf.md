@@ -26,9 +26,9 @@ Actions defined within the FLW3 Section are done via nodes.
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 1 | [Node type](#node-types) |
-| 0x1 | 1|  [Parameter type](#parameter-types) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
+| 0x1 | 1|  [Parameter type](#parameter-type) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
 | 0x2 | 2 | Reserved |
-| 0x4 | 4 | Parameter value |
+| 0x4 | 4 | Parameter Stream |
 | 0x8 | 8 | Node data |
 
 #### Node Types
@@ -40,18 +40,20 @@ Actions defined within the FLW3 Section are done via nodes.
 | 4 | [Entry](#entry-node) | Node that acts as a starting point for a flowchart |
 | 5 | [Jump](#jump-node) | Jumps  to a different flowchart |
 
-#### Parameter Types
-Parameter types dictate how parameter values may be passed into the node if it takes arguments. There may be more than one value passed into a node.
+#### Parameter Type
+Branch and event nodes may vary in how they function depending on the parameter type. This type determines how the four byte parameter stream will be parsed by the game. Once the stream has been
+interpreted, the values obtained are passed to the node as arguments.
 
-| Value | Description |
-| --- | --- |
-| 0 | Int32 value |
-| 1 | Pair of Int16 values |
-| 2 | Int16 value + pair of Int8 values | 
-| 3 | Pair of Int8 + Int16 value |
-| 4 | Int8 Array |
-| 5 | String value. Stored as an offset from start of block to the string in the [string table](#string-table) |
-| 6 | Int32 value |
+| Value | Arguments              | Description                                                                                              |
+|-------|------------------------|----------------------------------------------------------------------------------------------------------|
+| 0     | `s32`                  | Single node argument                                                                                     |
+| 1     | `s32`, `s32`           | Two node arguments                                                                                       |
+| 2     | `s16`, `s8`, `s8`      | Three node arguments                                                                                     |
+| 3     | `s8`, `s8`, `s16`      | Three node arguments (alternate stream layout)                                                           |
+| 4     | `s8`, `s8`, `s8`, `s8` | Four node arguments                                                                                      |
+| 5     | `string`               | String value. Stored as an offset from start of block to the string in the [string table](#string-table) |
+| 6     | `s32`                  | Single 32-bit signed integer argument                                                                    |
+
 
 ### Message Node
 | Offset | Size | Description |
