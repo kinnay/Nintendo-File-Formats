@@ -28,7 +28,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | 0x0 | 1 | [Node type](#node-types) |
 | 0x1 | 1|  [Parameter type](#parameter-type) (Only for [Branch Nodes](#branch-node) and [Event Nodes](#event-node))|
 | 0x2 | 2 | Reserved |
-| 0x4 | 4 | Parameter Stream |
+| 0x4 | 4 | Parameter data |
 | 0x8 | 8 | Node data |
 
 #### Node Types
@@ -41,7 +41,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | 5 | [Jump](#jump-node) | Jumps  to a different flowchart |
 
 #### Parameter Type
-Branch and event nodes may vary in how they function depending on the parameter type. This type determines how the four byte parameter stream will be parsed by the game. Once the stream has been
+Branch and event nodes may vary in how they function depending on the parameter type. This type determines how the parameter data will be parsed by the game. Once the data has been
 interpreted, the values obtained are passed to the node as arguments.
 
 | Value | Arguments              | Description                                                                                              |
