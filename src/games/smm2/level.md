@@ -172,4 +172,4 @@ This field specifies the game version of the physics engine. The older the versi
 
 The following repositories provide more information about placing objects:
 * [SMM2-documentation](https://github.com/liamadvance/smm2-documentation/blob/master/Course%20Format.md)
-* [SMM2LevelViewer](https://github.com/JiXiaomai/SMM2LevelViewer)## [SMM 2](../../formats.md#smm2) > Level Files
+* [SMM2LevelViewer](https://github.com/JiXiaomai/SMM2LevelViewer)
