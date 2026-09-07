@@ -10,4 +10,4 @@ This file always uses big endian byte order, even on little endian platforms.
 | 0xC | 4 | Reserved (always 0) |
 | 0x10 | | Yaz0 compressed data |
 
-A good explanation of Yaz0 compression can be found here: http://www.amnoid.de/gc/yaz0.txt
+A good explanation of Yaz0 compression can be found here: [http://www.amnoid.de/gc/yaz0.txt](http://www.amnoid.de/gc/yaz0.txt).
