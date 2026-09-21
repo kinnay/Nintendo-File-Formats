@@ -69,10 +69,10 @@ The following node types may not be contained in an array or dictionary. They ar
 | --- | --- | --- |
 | 0xC2 | [String table](#string-table) | Any |
 | 0xC3 | [Binary data table](#binary-data-table) | MK8 |
+| 0xC5 | String table (new) | ? |
 
 ## Node Values
-
-To store values, arrays and dictionaries reserve 32 bits per element. Because not all node types fit into 32 bits, they are stored as follows:
+Arrays and dictionaries reserve 4 bytes per value. Because not all node types fit into 4 bytes, the values are encoded as follows:
 
 | Type | Value |
 | --- | --- |
@@ -92,7 +92,7 @@ If the number of elements is not a multiple of 4, additional null bytes are inse
 | 0x0 | 1 | [Node type](#node-types) (0xC0) |
 | 0x1 | 3 | Number of elements (N) |
 | 0x4 | N | Type table |
-| | 4 x N | Value table |
+| | 4 x N | [Value](#node-values) table |
 
 The type table contains one byte per element that indicates its [node type](#node-types). The format of a value depends on the node type ([see here](#node-values)).
 
