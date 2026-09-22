@@ -45,13 +45,13 @@ The parameter type determines how the 4 byte parameter data will be parsed by th
 
 | Value | Arguments |
 | --- | --- |
-| 0 | `s32` |
-| 1 | `s32`, `s32` | 
-| 2 | `s16`, `s8`, `s8` | 
-| 3 | `s8`, `s8`, `s16` | 
-| 4 | `s8`, `s8`, `s8`, `s8` | 
+| 0 | `u32` |
+| 1 | `u32`, `u32` | 
+| 2 | `u16`, `u8`, `u8` | 
+| 3 | `u8`, `u8`, `u16` | 
+| 4 | `u8`, `u8`, `u8`, `u8` | 
 | 5 | `str` (offset from start of block to string in [string table](#string-table)) |
-| 6 | `s32` | 
+| 6 | `u32` | 
 
 ### Message Node
 | Offset | Size | Description |
