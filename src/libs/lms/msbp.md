@@ -60,14 +60,14 @@ This block contains names for enum values. It is referenced by the [ATI2 block](
 | 0x4 | 4 per enum | Offsets to [enum declarations](#enum-declaration), relative to start of block |
 | | [Enum declarations](#enum-declaration) |
 
-The block is padded until it has a multiple of 4 bytes.
-
 ### Enum Declaration
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 4 | Number of enum member names |
 | 0x4 | 4 per enum | Offsets to enum member names, relative to start of enum declaration |
 | | | Null-terminated enum member names |
+
+Every enum declaration is padded until its size is a multiple of 4 bytes.
 
 ## TGG2 Block
 This block defines control tag groups for [MSBT files](msbt.md). 
