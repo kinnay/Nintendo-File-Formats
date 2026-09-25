@@ -30,7 +30,7 @@ A message string may contain control tags, which may for example change the styl
 | 0x4 | 2 | Size of parameters |
 | 0x6 | | Parameters |
 
-Character 0xF marks the end of a region that is affected by a control tag. This character always takes up exactly 6 bytes (including the 0xF character), regardless of the character encoding.
+Character 0xF may mark the end of a region that is affected by a control tag. This character always takes up exactly 6 bytes (including the 0xF character), regardless of the character encoding. This marker is almost never seen in official files.
 
 All tags and their parameters are defined in the [TGG2 block](msbp.md#tgg2-block) of the MSBP file.
 
@@ -39,14 +39,15 @@ Tag group 0 (called 'System') contains predefined tags, while all other tag grou
 
 | Tag | Name | Parameters |
 | --- | --- | --- |
-| 0 | Ruby | `rt` |
-| 1 | Font | `face` |
-| 2 | Size | `percent` |
-| 3 | Color | `r`, `g`, `b` and `a` |
+| 0 | Ruby | `rt` (string) |
+| 1 | Font | `face` (string) |
+| 2 | Size | `percent` (uint8), `size` (string) |
+| 3 | Color | `r` (int8), `g` (int8), `b` (int8), `a` (int8), `name` (string) |
 | 4 | PageBreak | None |
+| 5 | Reference | `mstxt` (string), `label` (string), `lang` (string) |
 
 ## ATR1 Block
-This block contains attributes for each message. The format of the attributes is game-specific. Depending on the game, the attributes may contain offsets to strings that are stored behind the attribute table.
+This block contains attributes for each message. The format of the attributes is game-specific, but may be declared in an [MSBP file](msbp.md). Depending on the game, the attributes may contain offsets to strings that are stored behind the attribute table.
 
 | Offset | Size | Description |
 | --- | --- | --- |
@@ -56,6 +57,8 @@ This block contains attributes for each message. The format of the attributes is
 | | | Strings |
 
 ## TSY1 Block
+If the TSY1 block is present, it contains a style index for each message.
+
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 4 per message | Style index in [MSBP file](msbp.md) |

@@ -10,7 +10,7 @@ This page describes file format version 3 and 4.
 | `CLB1` | [Color labels](#clb1-block) |
 | `ATI2` | [Attributes](#ati2-block) |
 | `ALB1` | [Attribute labels](#alb1-block) |
-| `ALI2` | [Attribute string lists](#ali2-block) |
+| `ALI2` | [Attribute enum labels](#ali2-block) |
 | `TGG2` | [Tag groups](#tgg2-block) |
 | `TAG2` | [Tags](#tag2-block) |
 | `TGP2` | [Tag parameters](#tgp2-block) |
@@ -31,39 +31,43 @@ All blocks are optional.
 This block contains [labels](overview.md#hash-tables) for the CLR1 block.
 
 ## ATI2 Block
+This block defines the layout of a global attribute structure.
+
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 4 | Number of attributes |
 | 0x4 | 8 per attribute | [Attributes](#attribute) |
 
 ### Attribute
-The list index refers to the ALI2 block and is only valid if the type is 9.
+If the attribute type is an enum, the enum id is an index into the [ALI2 block](#ali2-block).
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 1 | Type |
+| 0x0 | 1 | [Type](#value-types) |
 | 0x1 | 1 | Padding |
-| 0x2 | 2 | List index |
+| 0x2 | 2 | Enum id |
 | 0x4 | 4 | Offset |
 
 ## ALB1 Block
 This block contains [labels](overview.md#hash-tables) for the ATI2 block.
 
 ## ALI2 Block
+This block contains names for enum values. It is referenced by the [ATI2 block](#ati2-block).
+
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 4 | Number of lists |
-| 0x4 | 4 per list | Offsets to [attribute lists](#attribute-list) |
-| | Attribute lists |
+| 0x0 | 4 | Number of enums |
+| 0x4 | 4 per enum | Offsets to [enum declarations](#enum-declaration), relative to start of block |
+| | [Enum declarations](#enum-declaration) |
 
-The block is padded until it has a multiple of 4 bytes.
-
-### Attribute List
+### Enum Declaration
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 4 | Number of list items |
-| 0x4 | 4 per list item | Offsets to list item names |
-| | | Null-terminated list item names |
+| 0x0 | 4 | Number of enum member names |
+| 0x4 | 4 per enum | Offsets to enum member names, relative to start of enum declaration |
+| | | Null-terminated enum member names |
+
+Every enum declaration is padded until its size is a multiple of 4 bytes.
 
 ## TGG2 Block
 This block defines control tag groups for [MSBT files](msbt.md). 
@@ -74,7 +78,7 @@ Control tags allow developers to apply modifiers (such as bold or cursive) and i
 | --- | --- | --- |
 | 0x0 | 2 | Number of tag groups |
 | 0x2 | 2 | Padding |
-| 0x4 | 4 per group | Offsets to [tag groups](#tag-group) |
+| 0x4 | 4 per group | Offsets to [tag groups](#tag-group), relative to start of block |
 | | | Tag groups |
 
 ### Tag Group
@@ -104,7 +108,7 @@ Every tag group is padded so that its size is a multiple of 4.
 | --- | --- | --- |
 | 0x0 | 2 | Number of tags |
 | 0x2 | 2 | Padding |
-| 0x4 | 4 per tag | Offsets to [tags](#tag) |
+| 0x4 | 4 per tag | Offsets to [tags](#tag), relative to start of block |
 
 ### Tag
 | Offset | Size | Description |
@@ -120,37 +124,38 @@ Every tag is padded so that its size is a multiple of 4.
 | --- | --- | --- |
 | 0x0 | 2 | Number of parameters |
 | 0x2 | 2 | Padding |
-| 0x4 | 4 per parameter | Offsets to [parameters](#tag-parameter) |
+| 0x4 | 4 per parameter | Offsets to [parameters](#tag-parameter), relative to start of block |
 
 ### Tag Parameter
-| Offset | Size | Description |
-| --- | --- | --- |
-| 0x0 | 1 | Parameter type |
-
-If type is not 9:
+If the parameter type is not an enum:
 
 | Offset | Size | Description |
 | --- | --- | --- |
+| 0x0 | 1 | [Parameter type](#value-types) |
 | 0x1 | | Null terminated parameter name |
 
-If type is 9:
+If the parameter type is an enum:
 
 | Offset | Size | Description |
 | --- | --- | --- |
+| 0x0 | 1 | [Parameter type](#value-types) |
+| 0x1 | | Null terminated parameter name |
 | 0x1 | 1 | Padding |
-| 0x2 | 2 | Number of strings |
-| 0x4 | 2 per list item | String indices (in TGL2 block) |
+| 0x2 | 2 | Number of enum members |
+| 0x4 | 2 per list item | Enum member name indices (in TGL2 block) |
 | | | Null terminated parameter name |
 
 Every tag parameter is padded so that its size is a multiple of 4.
 
 ## TGL2 Block
+This block defines enum member names for tag parameters.
+
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Number of strings |
+| 0x0 | 2 | Number of enum member names |
 | 0x2 | 2 | Padding |
-| 0x4 | 4 per list item | Offsets to strings |
-| | | Null-terminated strings |
+| 0x4 | 4 per list item | Offsets to enum member names, relative to start of block |
+| | | Null-terminated enum member names |
 
 ## SYL3 Block
 | Offset | Size | Description |
@@ -170,10 +175,26 @@ Every tag parameter is padded so that its size is a multiple of 4.
 This block contains [labels](overview.md#hash-tables) for the SYL3 block.
 
 ## CTI1 Block
-This block contains the names of the source files that the [MSBT files](msbt.md) were generated from. The source files have the `.mstxt` extension.
+This block contains the names of the source files that the [MSBT](msbt.md) and [MSBF](msbf.md) files were generated from. The source files often have the `.mstxt` or `.msflw` extension.
 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 4 | Number of filenames |
 | 0x4 | 4 per filename | Offsets to filename strings | 
-| | | Null-terminated filename strings |
+| | | Null-terminated filename strings | 
+
+## Value Types
+The following type ids are used by [attributes](#ati2-block) and [tag parameters](#tgp2-block).
+
+| ID | Description |
+| --- | --- |
+| 0 | Int8 |
+| 1 | Uint8 |
+| 2 | Int16 |
+| 3 | Uint16 |
+| 4 | Int32 |
+| 5 | Uint32 |
+| 6 | Float |
+| 7 | Double |
+| 8 | String |
+| 9 | Enum |

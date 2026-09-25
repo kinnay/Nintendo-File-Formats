@@ -29,7 +29,9 @@ The following file formats are used by LMS:
 | 0x10 | | Block data |
 
 ## Hash Tables
-Many items (such as messages in [msbt files](msbt.md) or colors in [msbp files](msbp.md)) are looked up by label. The labels are looked up with a hash table and are stored in a different block than the items themselves. In official files the hash table always has a fixed number of buckets (101 in [msbt files](msbt.md), 29 in [msbp files](msbp.md)), even if it contains only a few labels.
+Many items (such as messages in [MSBT files](msbt.md) or colors in [MSBP files](msbp.md)) are looked up by label. The labels are looked up with a hash table and are stored in a different block than the items themselves.
+
+The number of may be arbitrary. Official MSBP files always seem to use 29 buckets, even if less labels are defined. Official MSBT files seem have either 101 buckets, or a prime number of buckets lower than 101.
 
 The following hash algorithm is used:
 
