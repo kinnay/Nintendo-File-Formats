@@ -77,7 +77,7 @@ MSBT file index refers to the position of a file in an archive or folder.
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | Next node ID |
-| 0x2 | 2 | Action identifier |
+| 0x2 | 2 | Event identifier |
 | 0x4 | 4 | Unused |
 
 The node identifier allows a game to link the node to a specific action or condition.
