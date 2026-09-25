@@ -2,6 +2,8 @@
 
 This file is identified by the magic number `MsgFlwBn`. The format holds flowcharts.
 
+This page describes file format version 3.
+
 | Type | Description |
 | --- | --- |
 | `FLW3` | [Nodes](#flw3-block) |
