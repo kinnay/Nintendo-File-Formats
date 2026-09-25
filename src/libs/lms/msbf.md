@@ -63,6 +63,8 @@ The parameter type determines how the 4 byte parameter data will be parsed by th
 | 0x4 | 2 | Message index into [TXT2](msbt.md#txt2-block) |
 | 0x6 | 2 | Unused |
 
+MSBT file index refers to the position of a file in an archive or folder.
+
 ### Branch Node 
 | Offset | Size | Description |
 | --- | --- | --- |
