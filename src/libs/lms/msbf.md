@@ -11,7 +11,7 @@ This page describes file format version 3.
 | `REF1` | ? |
 
 ## FLW3 Block
-This section holds all the [nodes](#nodes).
+This section is stores a global pool of all [nodes](#nodes) in the file.
 
 | Offset | Size | Description |
 | --- | --- | --- |
