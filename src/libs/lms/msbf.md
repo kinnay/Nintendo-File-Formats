@@ -11,12 +11,12 @@ This page describes file format version 3.
 | `REF1` | ? |
 
 ## FLW3 Block
-This section is stores a global pool of all [nodes](#nodes) in the file.
+This section stores a global pool of all [nodes](#nodes) in the file.
 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2  | Node count |
-| 0x2 | 2  | Branch table ID count |
+| 0x2 | 2  | Branch table index count |
 | 0x4 | 12 | Padding |
 | 0x10 | 16 per node | [Nodes](#nodes)
 | | 2 per ID | [Branch table](#branch-table) |
@@ -58,7 +58,7 @@ The parameter type determines how the 4 byte parameter data will be parsed by th
 ### Message Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Next node ID |
+| 0x0 | 2 | Next node index |
 | 0x2 | 2 | [MSBT](msbt.md) file index |
 | 0x4 | 2 | Message index into [TXT2](msbt.md#txt2-block) |
 | 0x6 | 2 | Unused |
@@ -76,7 +76,7 @@ MSBT file index refers to the position of a file in an archive or folder.
 ### Event Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Next node ID |
+| 0x0 | 2 | Next node index |
 | 0x2 | 2 | Event identifier |
 | 0x4 | 4 | Unused |
 
@@ -85,24 +85,24 @@ The node identifier allows a game to link the node to a specific action or condi
 ### Entry Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Next node ID |
+| 0x0 | 2 | Next node index |
 | 0x2 | 6 | Unused |
 
 ### Jump Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | [Entry node](#entry-node) ID |
+| 0x0 | 2 | [Entry node](#entry-node) index |
 | 0x2 | 2 | Unknown value |
 | 0x4 | 4 | Unused |
 
-The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. The next node for a jump node must refer to the ID of the entry node for another flowchart.
+The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. The next node for a jump node must refer to the index of the entry node for another flowchart.
 
 ### Branch Table
 Nodes that are branch will jump to a specific case based on a condition. These function like switch statements.
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 || List of node IDs |
+| 0x0 || List of node indicies |
 
 ### String Table 
 | Offset | Size | Description |
