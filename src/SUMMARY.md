@@ -74,6 +74,7 @@
 	- [System Save Data](libs/switch/systemsave.md)
 		- [8000000000000010](libs/switch/systemsave/8000000000000010.md)
 		- [8000000000000011](libs/switch/systemsave/8000000000000011.md)
+		- [8000000000000040](libs/switch/systemsave/8000000000000040.md)
 		- [8000000000000043](libs/switch/systemsave/8000000000000043.md)
 		- [8000000000000110](libs/switch/systemsave/8000000000000110.md)
 		- [8000000000000210](libs/switch/systemsave/8000000000000210.md)
