@@ -15,6 +15,7 @@ The scope of the documentation includes all file formats that are seen in games 
 Feel free to open a pull request on [GitHub](https://github.com/kinnay/Nintendo-File-Formats). Please try to follow the current style as much as possible. Here are some guidelines:
 * Offset / size / description tables are the preferred way to document a file format.
 * Type / description tables may be used when they are more natural for the given file format, such as when the file format has many fields with a variable length.
+* In Markdown files, always surround table cells by exactly one space. Do not add additional spaces for alignment.
 * The documentation should be mostly technical. It is okay to add context or textual explanations, as long as it helps people that want to write tools.
 * Every page should have a title that includes a link to the library or game that the page is related to.
 
