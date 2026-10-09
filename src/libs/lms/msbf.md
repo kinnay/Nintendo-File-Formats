@@ -96,7 +96,7 @@ The node identifier allows a game to link the node to a specific action or condi
 
 The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. The next node for a jump node must refer to the index of the entry node for another flowchart.
 
-When the external file index is marked as `0xFFFF`, the jump node is referencing a flowchart in the current file.
+When the MSBF file index is marked as `0xFFFF`, the jump node is referencing a flowchart in the current file.
 
 ### Branch Table
 Nodes that are branch will jump to a specific case based on a condition. These function like switch statements.
