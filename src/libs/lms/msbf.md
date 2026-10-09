@@ -36,7 +36,7 @@ Actions defined within the FLW3 Section are done via nodes.
 #### Node Types
 | Value | Type | Description |
 | --- | --- | --- |
-| 1 | [Message](#message-node) | Prompts a message from an MSBT file |
+| 1 | [Message](#message-node) | Prompts a message from an [MSBT](msbt.md) file |
 | 2 | [Branch](#branch-node) | Branches to a different node depending on a specific condition |
 | 3 | [Event](#event-node) | Executes a specific action or game event | 
 | 4 | [Entry](#entry-node) | Node that acts as a starting point for a flowchart |
