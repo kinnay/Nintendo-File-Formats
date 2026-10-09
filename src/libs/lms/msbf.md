@@ -48,7 +48,7 @@ The parameter type determines how the 4 byte parameter data will be parsed by th
 | Value | Arguments |
 | --- | --- |
 | 0 | `u32` |
-| 1 | `u32`, `u32` | 
+| 1 | `u16`, `u16` | 
 | 2 | `u16`, `u8`, `u8` | 
 | 3 | `u8`, `u8`, `u16` | 
 | 4 | `u8`, `u8`, `u8`, `u8` | 
