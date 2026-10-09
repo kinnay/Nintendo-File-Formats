@@ -2,6 +2,8 @@
 
 This file is identified by the magic number `MsgFlwBn`. The format holds flowcharts.
 
+This page describes file format version 3.
+
 | Type | Description |
 | --- | --- |
 | `FLW3` | [Nodes](#flw3-block) |
@@ -9,12 +11,12 @@ This file is identified by the magic number `MsgFlwBn`. The format holds flowcha
 | `REF1` | ? |
 
 ## FLW3 Block
-This section holds all the [nodes](#nodes).
+This section stores a global pool of all [nodes](#nodes) in the file.
 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2  | Node count |
-| 0x2 | 2  | Branch table ID count |
+| 0x2 | 2  | Branch table index count |
 | 0x4 | 12 | Padding |
 | 0x10 | 16 per node | [Nodes](#nodes)
 | | 2 per ID | [Branch table](#branch-table) |
@@ -34,38 +36,39 @@ Actions defined within the FLW3 Section are done via nodes.
 #### Node Types
 | Value | Type | Description |
 | --- | --- | --- |
-| 1 | [Message](#message-node) | Prompts a message from a MSBT file |
+| 1 | [Message](#message-node) | Prompts a message from an [MSBT](msbt.md) file |
 | 2 | [Branch](#branch-node) | Branches to a different node depending on a specific condition |
 | 3 | [Event](#event-node) | Executes a specific action or game event | 
 | 4 | [Entry](#entry-node) | Node that acts as a starting point for a flowchart |
-| 5 | [Jump](#jump-node) | Jumps  to a different flowchart |
+| 5 | [Jump](#jump-node) | Jumps to a different flowchart in the current file or an external MSBF |
 
 #### Parameter Types
-The parameter type determines how the 4 byte parameter data will be parsed by the game. Once the data has been interpreted, the values obtained are passed to the node as arguments.
+The parameter type determines how the 4 byte parameter data will be parsed by the game. Once the data has been interpreted, the values obtained are passed to the node as arguments. 
 
 | Value | Arguments |
 | --- | --- |
-| 0 | `s32` |
-| 1 | `s32`, `s32` | 
-| 2 | `s16`, `s8`, `s8` | 
-| 3 | `s8`, `s8`, `s16` | 
-| 4 | `s8`, `s8`, `s8`, `s8` | 
+| 0 | `u32` |
+| 1 | `u16`, `u16` | 
+| 2 | `u16`, `u8`, `u8` | 
+| 3 | `u8`, `u8`, `u16` | 
+| 4 | `u8`, `u8`, `u8`, `u8` | 
 | 5 | `str` (offset from start of block to string in [string table](#string-table)) |
-| 6 | `s32` | 
+| 6 | `u32` | 
 
 ### Message Node
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | Next node index |
-| 0x2 | 2 | [MSBT](msbt.md) file index |
+| 0x2 | 2 | [MSBT](msbt.md) file index into the [CTI1](msbp.md#cti1-block) block of an [MSBP](msbp.md) |
 | 0x4 | 2 | Message index into [TXT2](msbt.md#txt2-block) |
 | 0x6 | 2 | Unused |
+
 
 ### Branch Node 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | `0xFFFF`|
-| 0x2 | 2 | Node Identifier |
+| 0x2 | 2 | Condition identifier |
 | 0x4 | 2 | Branch table case count |
 | 0x6 | 2 | Starting index into the branch table |
 
@@ -73,7 +76,7 @@ The parameter type determines how the 4 byte parameter data will be parsed by th
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | Next node index |
-| 0x2 | 2 | Node identifier |
+| 0x2 | 2 | Event identifier |
 | 0x4 | 4 | Unused |
 
 The node identifier allows a game to link the node to a specific action or condition.
@@ -87,17 +90,20 @@ The node identifier allows a game to link the node to a specific action or condi
 ### Jump Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | Flowchart index |
-| 0x2 | 6 | Unused |
+| 0x0 | 2 | [Entry node](#entry-node) index |
+| 0x2 | 2 | MSBF file index into the [CTI1](msbp.md#cti1-block) block of an [MSBP](msbp.md) |
+| 0x4 | 4 | Unused |
 
 The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. The next node for a jump node must refer to the index of the entry node for another flowchart.
 
+When the MSBF file index is marked as `0xFFFF`, the jump node is referencing a flowchart in the current file.
+
 ### Branch Table
-Nodes that are branch will jump to a specifc case based on a condition. These function like switch statements.
+Nodes that are branch will jump to a specific case based on a condition. These function like switch statements.
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 || List of node IDs |
+| 0x0 || List of node indices |
 
 ### String Table 
 | Offset | Size | Description |
