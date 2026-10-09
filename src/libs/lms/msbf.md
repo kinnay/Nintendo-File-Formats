@@ -40,7 +40,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | 2 | [Branch](#branch-node) | Branches to a different node depending on a specific condition |
 | 3 | [Event](#event-node) | Executes a specific action or game event | 
 | 4 | [Entry](#entry-node) | Node that acts as a starting point for a flowchart |
-| 5 | [Jump](#jump-node) | Jumps to a different flowchart |
+| 5 | [Jump](#jump-node) | Jumps to a different flowchart in the current file or an external MSBF |
 
 #### Parameter Types
 The parameter type determines how the 4 byte parameter data will be parsed by the game. Once the data has been interpreted, the values obtained are passed to the node as arguments. 
