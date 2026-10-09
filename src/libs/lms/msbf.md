@@ -36,7 +36,7 @@ Actions defined within the FLW3 Section are done via nodes.
 #### Node Types
 | Value | Type | Description |
 | --- | --- | --- |
-| 1 | [Message](#message-node) | Prompts a message from a MSBT file |
+| 1 | [Message](#message-node) | Prompts a message from an MSBT file |
 | 2 | [Branch](#branch-node) | Branches to a different node depending on a specific condition |
 | 3 | [Event](#event-node) | Executes a specific action or game event | 
 | 4 | [Entry](#entry-node) | Node that acts as a starting point for a flowchart |
@@ -59,11 +59,10 @@ The parameter type determines how the 4 byte parameter data will be parsed by th
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | Next node index |
-| 0x2 | 2 | [MSBT](msbt.md) file index |
+| 0x2 | 2 | [MSBT](msbt.md) file index into the [CTI1](msbp.md#cti1-block) block of an [MSBP](msbp.md) |
 | 0x4 | 2 | Message index into [TXT2](msbt.md#txt2-block) |
 | 0x6 | 2 | Unused |
 
-MSBT file index refers to the position of a file in an archive or folder.
 
 ### Branch Node 
 | Offset | Size | Description |
@@ -92,17 +91,19 @@ The node identifier allows a game to link the node to a specific action or condi
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | [Entry node](#entry-node) index |
-| 0x2 | 2 | Unknown value |
+| 0x2 | 2 | MSBF file index into the [CTI1](msbp.md#cti1-block) block of an [MSBP](msbp.md) |
 | 0x4 | 4 | Unused |
 
 The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. The next node for a jump node must refer to the index of the entry node for another flowchart.
+
+When the external file index is marked as `0xFFFF`, the jump node is referencing a flowchart in the current file.
 
 ### Branch Table
 Nodes that are branch will jump to a specific case based on a condition. These function like switch statements.
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 || List of node indicies |
+| 0x0 || List of node indices |
 
 ### String Table 
 | Offset | Size | Description |
