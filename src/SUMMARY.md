@@ -35,6 +35,8 @@
 - [NW]()
 	- [Effect]()
 		- [PTCL](libs/nw/ptcl.md)
+			- [Wii U](libs/nw/ptcl/wiiu.md)
+			- [Switch](libs/nw/ptcl/switch.md)
 	- [Model]()
 		- [BFRES](libs/nw/bfres.md)
 	- [Layout]()
