@@ -84,9 +84,11 @@ This is the structure of a single frame.
 
 | Offset | Size | Description |
 | ---    | ---  | --- |
-| 0x0    | 4    | Frame length, excluding this field and the checksum (big endian) |
+| 0x0    | 4    | Frame data size |
 | 0x4    | 4    | Frame checksum |
-| 0x8    | 1    | `FC` Frame start|
+| 0x8    | 1    | Frame data |
+
+Frame data starts with the byte `FC`.
 
 `00 00 00 03 01 00 00 00 FC FF FE` = 1 frame of silence, may vary slightly.
 
