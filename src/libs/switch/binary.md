@@ -1,12 +1,14 @@
-The Nintendo Switch SDK provides basic binary file parsing functions under the `nn::util` namespace. This is used by various Switch libraries, such as the [Bezel engine](../../formats.md#nw).
-
-In general, the files have the following structure:
-
-* [File header](#file-header)
-* [File blocks](#block-header)
-* [Relocation table](#relocation-table)
+The Nintendo Switch SDK provides basic binary file parsing functions under the `nn::util` namespace. This is used by various Switch libraries, especially by [NintendoWare](../../formats.md#nw).
 
 ## File Header
+If the magic number of a file format is shorter than 8 characters, the remaining part is padded with spaces.
+
+The alignment value specifies the number of bits. For example, if the alignment has the value 12, then the file must be aligned to `1 << 12 = 4096` bytes.
+
+The address size field specifies the number of bits in a pointer. This is usually 64.
+
+The relocation flag indicates whether a [relocation table](#relocation-table) is present and needs to be applied. If there is no relocation table, the relocation table offset is 0.
+
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 8 | Magic number |
@@ -17,16 +19,13 @@ In general, the files have the following structure:
 | 0xE | 1 | Alignment |
 | 0xF | 1 | Address size |
 | 0x10 | 4 | Filename offset |
-| 0x14 | 2 | Flags:<br>1 - Is relocated |
-| 0x16 | 2 | [First block](#first-block) offset |
+| 0x14 | 2 | Flags:<br>1 - Has relocation table |
+| 0x16 | 2 | Offset to first block or section |
 | 0x18 | 4 | [Relocation table](#relocation-table) offset |
 | 0x1C | 4 | Filesize |
-| 0x20 | | Depends on file format |
 
 ## Block Header
 The block size is usually the same as the offset to the next block, but in the last block the offset is set to 0.
-
-Most blocks depend on the file format, but there is one block that is always present: the [string pool](#string-pool). This block is stored behind the format-specific blocks.
 
 | Offset | Size | Description |
 | --- | --- | --- |
