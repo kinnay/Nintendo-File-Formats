@@ -78,6 +78,8 @@
 		- [8000000000000011](libs/switch/systemsave/8000000000000011.md)
 		- [8000000000000040](libs/switch/systemsave/8000000000000040.md)
 		- [8000000000000043](libs/switch/systemsave/8000000000000043.md)
+		- [80000000000000E1](libs/switch/systemsave/tickets.md)
+		- [80000000000000E2]()
 		- [8000000000000110](libs/switch/systemsave/8000000000000110.md)
 		- [8000000000000210](libs/switch/systemsave/8000000000000210.md)
 - [AC:NH]()

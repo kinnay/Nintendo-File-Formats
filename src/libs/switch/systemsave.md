@@ -10,6 +10,8 @@ The following save data archives are documented here:
 | [`8000000000000011`](systemsave/8000000000000011.md) | `account` | ID generation |
 | [`8000000000000040`](systemsave/8000000000000040.md) | `ns` | Application records |
 | [`8000000000000043`](systemsave/8000000000000043.md) | `ns` | SD card encryption |
+| [`80000000000000E1`](systemsave/80000000000000e1.md) | `es` | Common tickets |
+| [`80000000000000E2`](systemsave/80000000000000e2.md) | `es` | Personalized tickets |
 | [`8000000000000110`](systemsave/8000000000000110.md) | `npns` | Push notification service storage |
 | [`8000000000000210`](systemsave/8000000000000210.md) | `account` | DAuth / AAuth token cache |
 
