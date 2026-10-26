@@ -30,12 +30,12 @@ Body:
 | 0x8 | 1 | Type (0=Wave, 1=Stream) |
 | 0x9 | 1 | Total number of channels |
 | 0xA | 1 | Number of stream tracks (up to 8) |
-| 0xB | 1 | Flags:<br>1 = unknown<br>2 = unknown<br>4 = is looped<br>8 = unknown<br>16 = unknown |
-| 0xC | 4 | Unknown (float) |
+| 0xB | 1 | Flags:<br>1 = is stream<br>2 = prefetch<br>4 = is looped<br>16 = is opus |
+| 0xC | 4 | RMS amplitude  |
 | 0x10 | 4 | Sample rate |
 | 0x14 | 4 | Loop start sample |
 | 0x18 | 4 | Number of samples |
-| 0x1C | 4 | Volume in decibel (float). This is always negative. Calculate the real volume as follows: `10 ** (value / 20)`. |
+| 0x1C | 4 | Loudness (float, LKFS) |
 | 0x20 | 8 * 8 | [Stream tracks](#stream-track) |
 | 0x60 | 4 | Amplitude peak value (float). *Only present in version 4.0* |
 

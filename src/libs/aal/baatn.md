@@ -1,6 +1,6 @@
 ## [AAL](../../formats.md#aal) > Audio Attenuator (BAATN)
 
-This is an audio attenuator file.
+This is an audio attenuator file. Audio attenuation describes how the distance between the player and the audio source affects the audio output.
 
 | Offset | Size | Description |
 | --- | --- | --- |
