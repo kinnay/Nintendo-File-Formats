@@ -55,6 +55,8 @@
 		- [BFSEQ](libs/nw/bfseq.md)
 		- [BFSTM](libs/nw/bfstm.md)
 		- [BFSTP](libs/nw/bfstp.md)
+	- [Texture]()
+		- [BNTX](libs/nw/bntx.md)
 	- [Bezel]()
 		- [BEA](libs/nw/bea.md)
 - [SEAD]()

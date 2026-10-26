@@ -71,6 +71,9 @@ NintendoWare is a middleware library for audio, ui, and model rendering.
 * [BFSTM files (stream sounds)](libs/nw/bfstm.md)
 * [BFSTP files (stream sound prefetch)](libs/nw/bfstp.md)
 
+`nn::gfx`:
+* [BNTX files (textures)](libs/nw/bntx.md)
+
 `nn::bezel`:
 * [BEA files (bezel archives)](libs/nw/bea.md)
 
