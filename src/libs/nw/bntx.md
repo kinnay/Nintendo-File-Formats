@@ -11,4 +11,4 @@ This is the texture format that is used on the Nintendo Switch and Switch 2. Thi
 | | | [Relocation table](../switch/binary.md#relocation-table) |
 
 ### String Pool
-This is a standard [string pool section](../switch/binary.md#string-pool), except there is a [dictionary](../switch/binary.md#dictionary) embedded in the string pool section behind the string.
+This is a standard [string pool section](../switch/binary.md#string-pool), except there is a [dictionary](../switch/binary.md#dictionary) embedded in the string pool section behind the strings.
