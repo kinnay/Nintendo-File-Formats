@@ -7,7 +7,7 @@ This is the texture format that is used on the Nintendo Switch and Switch 2. Thi
 | 0x0 | 32 | [Binary file header](../switch/binary.md#file-header) (`BNTX\0\0\0\0`) |
 | 0x20 | 4 | Platform (`NX  ` or `OUNC`) |
 | 0x24 | | Unknown |
-| 0x1A8 | [String pool](#string-pool) |
+| 0x1A8 | | [String pool](#string-pool) |
 | | | [Relocation table](../switch/binary.md#relocation-table) |
 
 ### String Pool
