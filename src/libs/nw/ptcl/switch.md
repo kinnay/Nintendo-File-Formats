@@ -6,7 +6,7 @@ This file format does not use relocation tables.
 
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 32 | [Binary file header](../../switch/binary.md#file-header) (`VFXB`) |
+| 0x0 | 32 | [Binary file header](../../switch/binary.md#file-header) (`VFXB    `) |
 | 0x20 | 32 | Filename ("Particle") |
 | 0x40 | | Top-level sections |
 
@@ -15,7 +15,7 @@ Every section starts with a [section header](#section-header) that indicates its
 | Type | Description |
 | --- | --- |
 | `ESTA` | [Emitter set array](#emitter-set-array) |
-| `GRTF` | Graphics resource texture files |
+| `GRTF` | [Graphics resource texture files](#graphics-resource-texture-files) |
 | `PRMA` | Primitive array |
 | `G3PR` | 3D models |
 | `GRSN` | Shader binary array |
@@ -63,4 +63,10 @@ Whether the section data starts with a child section or other data depends on th
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 32 | [Section header](#section-header) (`EMTR`) |
+| 0x20 | | Unknown |
+
+## Graphics Resource Texture Files
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 32 | [Section header](#section-header) (`GRTF`) |
 | 0x20 | | Unknown |
