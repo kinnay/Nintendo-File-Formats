@@ -39,7 +39,7 @@ If a table is empty, the offest in the header is 0.
 | v2 | Unsigned integers were added (**0xD3**). |
 | v3 | 64-bit values were added (**0xD4 - 0xD6**). |
 | v4 | Binary data was added again (**0xA1**), but without binary data table (**0xC3**). |
-| v5 | Binary data with param (**0xA2**) was added. |
+| v5 | Aligned binary data (**0xA2**) was added. |
 | v6 or v7 | Hashmaps (**0x20 - 0x3F**) and ordered dictionaries (**0xC4**) were added. |
 | v8 to v10 | Unknown |
 
@@ -50,7 +50,7 @@ If a table is empty, the offest in the header is 0.
 | 0x30&nbsp;&#x2011;&nbsp;0x3F | Ordered hash map | (6 or 7)+ |
 | 0xA0 | String | Any |
 | 0xA1 | Binary data | 4+ and MK8 |
-| 0xA2 | Binary data with param | 5+ |
+| 0xA2 | Aligned binary data | 5+ |
 | 0xC0 | [Array](#array) | Any |
 | 0xC1 | [Dictionary](#dictionary) | Any |
 | 0xC4 | [Ordered dictionary](#ordered-dictionary) | (6 or 7)+ |
@@ -78,7 +78,7 @@ Arrays and dictionaries reserve 4 bytes per value. Because not all node types fi
 | --- | --- |
 | 0xA0 | An index into the string table (see [header](#header)). |
 | 0xA1 | An absolute offset to a binary blob. The blob is prefixed by a 32-bit integer that holds its size. MK8 stores an index into the binary data table instead (see [header](#header)). |
-| 0xA2 | An absolute offset to a binary blob. The blob is prefixed by a 32-bit integer that holds its size and another 32-bit integer with application-specific information. |
+| 0xA2 | An absolute offset to a binary blob. The blob is prefixed by a 32-bit integer that holds its size and another 32-bit integer that indicates the required alignment. |
 | 0xC0&nbsp;&#x2011;&nbsp;0xC4 | An absolute offset to the node. |
 | 0xD0&nbsp;&#x2011;&nbsp;0xD3 | Simply the value. |
 | 0xD4&nbsp;&#x2011;&nbsp;0xD6 | An absolute offset to the value. |
