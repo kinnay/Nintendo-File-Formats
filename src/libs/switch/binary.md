@@ -54,7 +54,7 @@ Every string is null-terminated. If the string contains an odd number of bytes, 
 ## Dictionary
 The dictionary contains a binary search tree that allows programs to efficiently find the index of a given string.
 
-> **Note:** not all strings are included in the dictionary. Which strings are included the dictionary depends on the file format.
+> **Note:** not all strings of the [string pool](#string-pool) are included in the dictionary. Which strings are included the dictionary depends on the file format.
 
 | Offset | Size | Description |
 | --- | --- | --- |
