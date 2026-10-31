@@ -8,4 +8,6 @@ The following projects have made the reverse engineering a lot easier:
 * [https://github.com/Atmosphere-NX/Atmosphere](https://github.com/Atmosphere-NX/Atmosphere)
 * [https://switchbrew.org/wiki/Main_Page](https://switchbrew.org/wiki/Main_Page)
 
+When an external website was used as an information source for a page, this website is linked in the references section at the bottom of the page.
+
 For additional contributions, check out the list of [pull requests](https://github.com/kinnay/Nintendo-File-Formats/pulls?q=is%3Apr+is%3Aclosed) on GitHub.
