@@ -30,7 +30,12 @@ A message string may contain control tags, which may for example change the styl
 | 0x4 | 2 | Size of parameters |
 | 0x6 | | Parameters |
 
-Character 0xF may mark the end of a region that is affected by a control tag. This character always takes up exactly 6 bytes (including the 0xF character), regardless of the character encoding. This marker is almost never seen in official files.
+Character 0xF may mark the end of a region that is affected by a control tag. This marker is optional and rarely seen in official files. If present, the 0xF character is followed by:
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 2 | Tag group id |
+| 0x2 | 2 | Tag index |
 
 All tags and their parameters are defined in the [TGG2 block](msbp.md#tgg2-block) of the MSBP file.
 
