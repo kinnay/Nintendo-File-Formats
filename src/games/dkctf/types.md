@@ -97,18 +97,20 @@ Some file formats ignore byte boundaries and read individual bits from a file. W
 | --- | --- |
 | [CFourCC](#cfourcc) | Identifier ("RFRM") |
 | Uint64 | Data size |
-| Uint64 | Unknown |
+| Uint64 | Always 0 |
 | [CFourCC](#cfourcc) | Form type |
 | Uint32 | Version number |
 | Uint32 | Version number |
 | ... | Form data |
 
 ## CChunkDescriptor
+Typically, the offset is zero and the data directly follows the `CChunkDescriptor` header.
+
 | Type | Description |
 | --- | --- |
 | [CFourCC](#cfourcc) | Chunk type |
 | Uint64 | Data size |
-| Uint32 | Unknown |
+| Uint32 | Version number |
 | Uint64 | Data offset |
 
 ## CVector3f
