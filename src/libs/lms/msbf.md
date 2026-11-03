@@ -40,7 +40,7 @@ Actions defined within the FLW3 Section are done via nodes.
 | 2 | [Branch](#branch-node) | Branches to a different node depending on a specific condition |
 | 3 | [Event](#event-node) | Executes a specific action or game event | 
 | 4 | [Entry](#entry-node) | Node that acts as a starting point for a flowchart |
-| 5 | [Jump](#jump-node) | Jumps to a different flowchart in the current file or an external MSBF |
+| 5 | [Jump](#jump-node) | Jumps to a node in the current file or an external MSBF |
 
 #### Parameter Types
 The parameter type determines how the 4 byte parameter data will be parsed by the game. Once the data has been interpreted, the values obtained are passed to the node as arguments. 
@@ -90,13 +90,13 @@ The node identifier allows a game to link the node to a specific action or condi
 ### Jump Node
 | Offset | Size | Description |
 | --- | --- | --- |
-| 0x0 | 2 | [Entry node](#entry-node) index |
+| 0x0 | 2 | Next node index |
 | 0x2 | 2 | MSBF file index into the [CTI1](msbp.md#cti1-block) block of an [MSBP](msbp.md) |
 | 0x4 | 4 | Unused |
 
-The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. The next node for a jump node must refer to the index of the entry node for another flowchart.
+In most cases, jump nodes point to another flowchart's [entry node](#entry-node). However, some games utilize these nodes to jump to any node.
 
-When the MSBF file index is marked as `0xFFFF`, the jump node is referencing a flowchart in the current file.
+The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. When the MSBF file index is marked as `0xFFFF`, the jump node is referencing a node in the current file.
 
 ### Branch Table
 Nodes that are branch will jump to a specific case based on a condition. These function like switch statements.
