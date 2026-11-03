@@ -7,7 +7,7 @@ This page describes version 1 and 2 of the file format.
 | 0x0 | 4 | Magic number (`AROC`) |
 | 0x4 | 2 | BOM (always 0xFEFF) |
 | 0x6 | 2 | Version number (1 or 2) |
-| 0x8 | 4 | Roll off model |
+| 0x8 | 4 | [Roll off model](#roll-off-model) |
 | 0xC | 4 | Ref distance (float) |
 | 0x10 | 4 | Max distance (float) |
 | 0x14 | 4 | Roll off factor (float) |
@@ -19,3 +19,10 @@ Only present in version 2:
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x20 | 4 | Culling start distance (float) |
+
+### Roll Off Model
+| Value | Description |
+| --- | --- |
+| 1 | Inv |
+| 2 | Linear |
+| 3 | Exp |
