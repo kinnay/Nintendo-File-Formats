@@ -23,6 +23,7 @@ Only present in version 2:
 ### Roll Off Model
 | Value | Description |
 | --- | --- |
-| 1 | Inv |
+| 0 | None |
+| 1 | Inverse |
 | 2 | Linear |
 | 3 | Exp |
