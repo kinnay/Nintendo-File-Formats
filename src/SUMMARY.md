@@ -96,6 +96,7 @@
 	- [TXTR](games/dkctf/txtr.md)
 	- [MTRL](games/dkctf/mtrl.md)
 	- [CAUD](games/dkctf/caud.md)
+	- [CSMP](games/dkctf/csmp.md)
 	- [LDTA](games/dkctf/ldta.md)
 	- [Replay](games/dkctf/replay.md)
 	- [Types](games/dkctf/types.md)
