@@ -53,6 +53,8 @@ The offset is relative to the offset field itself.
 | [CObjectId] | File id |
 | Uint32 | File offset |
 
+The metadata is prefixed by a 32-bit integer that indicates its size.
+
 ### STRG Chunk
 This chunk contains filenames. Most files in the archive are referenced by object id and don't have a filename however.
 

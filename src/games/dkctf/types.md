@@ -99,8 +99,8 @@ Some file formats ignore byte boundaries and read individual bits from a file. W
 | Uint64 | Data size |
 | Uint64 | Always 0 |
 | [CFourCC](#cfourcc) | Form type |
-| Uint32 | Version number |
-| Uint32 | Version number |
+| Uint32 | Reader version |
+| Uint32 | Writer version |
 | ... | Form data |
 
 ## CChunkDescriptor
