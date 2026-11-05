@@ -25,3 +25,14 @@ When a new page is created, it must be added to [SUMMARY.md](https://github.com/
 A Discord server can be found here: https://discord.gg/x8np6Hhxwk.
 
 Alternatively, feel free to open a [discussion](https://github.com/kinnay/Nintendo-File-Formats/discussions) on GitHub. 
+
+### AI Policy
+Feel free to use AI assistance during reverse engineering, as long as you validate the results by hand. The documentation should always be written by a human.
+
+The following prompt is fine:
+
+> In the `smbwonder.i64` database that is open in IDA, where can I find the function that parses the header of BWAV files?
+
+The following is not:
+
+> Document the BWAV file format in Markdown and create a pull request.
