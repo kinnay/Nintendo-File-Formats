@@ -55,6 +55,8 @@ Enums:
 | 0x40 | 4 * 13 | Mip level offsets |
 
 ## GX2Texture
+A texture is similar to a surface, but contains additional fields that are passed to the shader.
+
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 116 | [Surface](#gx2surface) |
@@ -62,8 +64,25 @@ Enums:
 | 0x78 | 4 | View num mips |
 | 0x7C | 4 | View first slice |
 | 0x80 | 4 | View num slices |
-| 0x84 | 4 | Comp map |
+| 0x84 | 4 | [Component map](#component-map) |
 | 0x88 | 4 * 5 | Registers |
+
+### Component Map
+The component map defines the values that are given to the R, G, B and A channels when accessed by a shader. A given channel can either be mapped to a different channel, or be given a constant value. The component map is encoded as `(red << 24) | (green << 16) | (blue << 8) | alpha`. The following component map values are defined:
+
+| Value | Description |
+| --- | --- |
+| 0 | Red |
+| 1 | Green |
+| 2 | Blue |
+| 3 | Alpha |
+| 4 | Constant zero |
+| 5 | Constant one |
+
+Examples:
+* `0x00010203`: Normal RGBA texture
+* `0x00000005`: Grayscale image with brightness encoded in the R channel
+* `0x05050500`: White image with transparency encoded in the R channel
 
 ## GX2VertexShader
 | Offset | Size | Description |
@@ -420,3 +439,6 @@ This is a bitfield.
 | `0x400000` | `GX2R_RESOURCE_LOCKED_READ_ONLY` |
 | `0x20000000` | `GX2R_RESOURCE_GX2R_ALLOCATED` |
 | `0x40000000` | `GX2R_RESOURCE_LOCKED` |
+
+## References
+* [https://github.com/decaf-emu/decaf-emu](https://github.com/decaf-emu/decaf-emu)
