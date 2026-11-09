@@ -104,6 +104,8 @@ Version: 14
 | Uint32 | Compressed size |
 | Uint32 | Offset |
 
+Texture data is compressed with LZSS.
+
 [List]: types.md#list
 [CFormDescriptor]: types.md#cformdescriptor
 [CChunkDescriptor]: types.md#cchunkdescriptor
