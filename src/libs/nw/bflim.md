@@ -35,35 +35,35 @@ Contains information about the image.
 | 0xF | 1 | `value & 31`: Tile mode<br>`value >> 5`: Swizzle |
 
 ### Image Formats
-| ID  | Format |
-| ---  | --- |
-| 0 | `UNORM` `R8` |
-| 1 | `UNORM` `R8` |
-| 2 | `UNORM` `R4` `G4` |
-| 3 | `UNORM` `R8` `G8` |
-| 4 | `UNORM` `R8` `G8` |
-| 5 | `UNORM` `R5` `G6` `B5` |
-| 6 | Invalid |
-| 7 | `UNORM` `R5` `G5` `B5` `A1` |
-| 8 | `UNORM` `R4` `G4` `B4` `A4` |
-| 9 | `UNORM` `R8` `G8` `B8` `A8` |
-| 10 | Invalid |
-| 11 | Invalid |
-| 12 | `UNORM` `BC1` |
-| 13 | `UNORM` `BC2` |
-| 14 | `UNORM` `BC3` |
-| 15 | `UNORM` `BC4` |
-| 16 | `UNORM` `BC4` |
-| 17 | `UNORM` `BC5` |
-| 18 | Invalid |
-| 19 | Invalid |
+| ID  | Format | Compmap | Description |
+| ---  | --- | --- | --- |
+| 0 | `UNORM` `R8` | `RRR1` | Grayscale |
+| 1 | `UNORM` `R8` | `111R` | Transparency |
+| 2 | `UNORM` `R4` `G4` | `RRRG` | Grayscale with transparency |
+| 3 | `UNORM` `R8` `G8` | `RRRG` | Grayscale with transparency |
+| 4 | `UNORM` `R8` `G8` | `RG01` | Red and green |
+| 5 | `UNORM` `R5` `G6` `B5` | `BGR1` | Blue, green, red |
+| 6 | Invalid | `RGB1` | |
+| 7 | `UNORM` `R5` `G5` `B5` `A1` | `RGBA` | RGBA |
+| 8 | `UNORM` `R4` `G4` `B4` `A4` | `ABGR` | RGBA |
+| 9 | `UNORM` `R8` `G8` `B8` `A8` | `RGBA` | RGBA |
+| 10 | Invalid | `RGB1` | |
+| 11 | Invalid | `RGBA` | |
+| 12 | `UNORM` `BC1` | `RGBA` | RGBA |
+| 13 | `UNORM` `BC2` | `RGBA` | RGBA |
+| 14 | `UNORM` `BC3` | `RGBA` | RGBA |
+| 15 | `UNORM` `BC4` | `RRR1` | Grayscale |
+| 16 | `UNORM` `BC4` | `111R` | Transparency |
+| 17 | `UNORM` `BC5` | `RRRG` | Grayscale with transparency |
+| 18 | Invalid | `RRR1` |
+| 19 | Invalid | `000R` |
 
 Version 3.3.0.0:
 
-| ID | Type |
-| --- | --- |
-| 20 | `SRGB` `R8` `G8` `B8` `A8` |
-| 21 | `SRGB` `BC1` |
-| 22 | `SRGB` `BC2` |
-| 23 | `SRGB` `BC3` |
-| 24 | `UNORM` `R10` `G10` `B10` `A2` |
+| ID  | Format | Compmap | Description |
+| ---  | --- | --- | --- |
+| 20 | `SRGB` `R8` `G8` `B8` `A8` | `RGBA` | RGBA |
+| 21 | `SRGB` `BC1` | `RGBA` | RGBA |
+| 22 | `SRGB` `BC2` | `RGBA` | RGBA |
+| 23 | `SRGB` `BC3` | `RGBA` | RGBA |
+| 24 | `UNORM` `R10` `G10` `B10` `A2` | `RGBA` | RGBA |

@@ -309,6 +309,8 @@ This structure is only used internally and always cleared in files.
 | `0x820` | `GX2_SURFACE_FORMAT_FLOAT_R16_G16_B16_A16` |
 | `0x823` | `GX2_SURFACE_FORMAT_FLOAT_R32_G32_B32_A32` |
 
+A good description of BCn compression can be found [here](https://www.reedbeta.com/blog/understanding-bcn-texture-compression-formats).
+
 ## GX2AAMode
 | Value | Description |
 | --- | --- |
