@@ -70,11 +70,11 @@ Every node is stored as follows:
 | 0x0 | 4 | Bit index |
 | 0x4 | 2 | Left child index (when bit is 0) |
 | 0x6 | 2 | Right child index (when bit is 1) |
-| 0x8 | 8 | Offset to string in [string pool](#string-pool), relative to start of file |
+| 0x8 | 8 | Address of string in [string pool](#string-pool) ([relocated](#relocation-table)) |
 
-In the root node, the bit index is -1, the left index points to the actual root node, the right index is 0, and the offset points to the empty string of the [string pool](#string-pool).
+In the root node, the bit index is -1, the left index points to the actual root node, the right index is 0, and the address points to the empty string of the [string pool](#string-pool).
 
-In other nodes, the offset refers to a string in the [string pool](#string-pool). If this string does not equal the search string, the search continues at one of its children. Which child is chosen depends on whether a specific bit in the search string is 0 or 1.
+In other nodes, the address refers to a non-empty string in the [string pool](#string-pool). If this string does not equal the search string, the search continues at one of its children. Which child is chosen depends on whether a specific bit in the search string is 0 or 1.
 
 Bit index 0 refers to the least significant (right-most) bit of the string.
 
@@ -108,7 +108,7 @@ The address field is a placeholder that is filled in at runtime. It is always 0 
 ### Relocation Entry
 The word size is specified in the [header](#file-header) in the address size field. In most Switch games, a word consists of 8 bytes.
 
-Every chunk consists of a number of relocated words, followed by a number of non-relocated words. Relocated words contains an offset in the file and are replaced by a pointer at runtime. Non-relocated words are left unchanged.
+Every chunk consists of a number of relocated words, followed by a number of non-relocated words. Relocated words contains an offset in the file and are replaced by a pointer at runtime. Non-relocated words are left unchanged. All offsets are absolute.
 
 | Offset | Size | Description |
 | --- | --- | --- |
