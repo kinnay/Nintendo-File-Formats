@@ -1,4 +1,4 @@
-## [NW](../../formats.md#nw) > [Particle File](../ptcl.md) > Wii U
+## [NW](../../../formats.md#nw) > [Particle File](../ptcl.md) > Wii U
 
 This file contains resources for particle effects. This page describes version 0x41 of the file format.
 

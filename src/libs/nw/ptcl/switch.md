@@ -1,4 +1,4 @@
-## [NW](../../formats.md#nw) > [Particle File](../ptcl.md) > Switch
+## [NW](../../../formats.md#nw) > [Particle File](../ptcl.md) > Switch
 
 A `.ptcl` file contains graphical effects. This page describes the `.ptcl` file format as seen in Nintendo Switch games. This page describes version 22.4.0 of the file format.
 
