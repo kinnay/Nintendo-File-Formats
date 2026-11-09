@@ -116,4 +116,7 @@ This contains information about a texture. There is one `nn::gfx::ResTexture` bl
 | 5 | Alpha |
 
 ### Texture Data Block
-This section contains the raw texture data.
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 16 | [Block header](../switch/binary.md#block-header) (`BRTD`) |
+| 0x10 | | Raw texture data |
