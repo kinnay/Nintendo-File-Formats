@@ -148,7 +148,7 @@ The image format is encoded as <code>([channel_format](#nngfxchannelformat) << 8
 | 29 | `RGTC1` |
 | 30 | `RGTC2` |
 | 31 | `BPTC_FLOAT` |
-| 32 | `BGTC_UNORM` |
+| 32 | `BPTC_UNORM` |
 | 45 | `RGBA_ASTC_4x4` |
 | 46 | `RGBA_ASTC_5x4` |
 | 47 | `RGBA_ASTC_5x5` |
