@@ -21,6 +21,8 @@ This page describes file format version 3 and 4.
 
 All blocks are optional.
 
+> **Note:** additional block types can be found in [Mario Kart World](msbp/mkworld.md).
+
 ## CLR1 Block
 | Offset | Size | Description |
 | --- | --- | --- |

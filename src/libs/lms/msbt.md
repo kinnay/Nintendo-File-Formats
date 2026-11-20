@@ -9,8 +9,10 @@ This file is identified by the magic number `MsgStdBn`. It contains text strings
 | `ATR1` | [Attributes](#atr1-block) |
 | `TSY1` | [Text style](#tsy1-block) |
 
+> **Note:** additional block types can be found in [Mario Kart World](msbt/mkworld.md).
+
 ## LBL1 Block
-This block contains [labels](overview.md#hash-tables) for the TXT2, ATR1 and TSY1 blocks.
+This block contains [labels](overview.md#hash-tables) for the other blocks.
 
 ## TXT2 Block
 This block contains the actual text strings.
