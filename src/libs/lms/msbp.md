@@ -177,13 +177,15 @@ This block defines enum member names for tag parameters.
 This block contains [labels](overview.md#hash-tables) for the SYL3 block.
 
 ## CTI1 Block
-This block contains the names of the source files that the [MSBT](msbt.md) and [MSBF](msbf.md) files were generated from. The source files often have the `.mstxt` or `.msflw` extension.
+This block contains the names of the source files that the [MSBT](msbt.md) and [MSBF](msbf.md) files were generated from. The source files often have the `.mstxt` or `.msflow` extension.
 
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 4 | Number of filenames |
 | 0x4 | 4 per filename | Offsets to filename strings | 
 | | | Null-terminated filename strings | 
+
+In most games, CTI1 is not used. However, some games may use it to look up message and flowchart files by index, mapping `mstxt` and `msflow` into `msbt` and `msbf` paths that can be resolved. 
 
 ## Value Types
 The following type ids are used by [attributes](#ati2-block) and [tag parameters](#tgp2-block).

@@ -59,10 +59,11 @@ The parameter type determines how the 4 byte parameter data will be parsed by th
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | Next node index |
-| 0x2 | 2 | [MSBT](msbt.md) file index into the [CTI1](msbp.md#cti1-block) block of an [MSBP](msbp.md) |
+| 0x2 | 2 | [MSBT](msbt.md) file index |
 | 0x4 | 2 | Message index into [TXT2](msbt.md#txt2-block) |
 | 0x6 | 2 | Unused |
 
+The MSBT file index refers to a file in the [CTI1](msbp.md#cti1-block) block of an [MSBP](msbp.md) fiile or a game-specific mapping. 
 
 ### Branch Node 
 | Offset | Size | Description |
@@ -79,7 +80,7 @@ The parameter type determines how the 4 byte parameter data will be parsed by th
 | 0x2 | 2 | Event identifier |
 | 0x4 | 4 | Unused |
 
-The node identifier allows a game to link the node to a specific action or condition.
+The node identifier allows a game to link the node to a specific action or condition. Duplicate identifiers can exist, it is up to the game to determine how these route to their own functionality. 
 
 ### Entry Node
 | Offset | Size | Description |
@@ -91,12 +92,12 @@ The node identifier allows a game to link the node to a specific action or condi
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | Next node index |
-| 0x2 | 2 | MSBF file index into the [CTI1](msbp.md#cti1-block) block of an [MSBP](msbp.md) |
+| 0x2 | 2 | MSBF file index (`0xFFFF` for current file) |
 | 0x4 | 4 | Unused |
 
-In most cases, jump nodes point to another flowchart's [entry node](#entry-node). However, some games utilize these nodes to jump to any node.
+The MSBF file index refers to a file in the [CTI1](msbp.md#cti1-block) block of an [MSBP](msbp.md) file or a game-specific mapping. 
 
-The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node. When the MSBF file index is marked as `0xFFFF`, the jump node is referencing a node in the current file.
+The next node index when marked as `0xFFFF` is the end of a flowchart unless it is a branch node.
 
 ### Branch Table
 Nodes that are branch will jump to a specific case based on a condition. These function like switch statements.
