@@ -235,10 +235,10 @@ Meta data: [NModelFormat::SMetaData](#nmodelformatsmetadata)
 | Type | Description |
 | --- | --- |
 | Uint32 | Flags |
-| Uint32 | [Texture filter](enums.md#texture-filter) |
-| Uint32 | [Texture wrap (x)](enums.md#texture-wrap) |
-| Uint32 | [Texture wrap (y)](enums.md#texture-wrap)|
-| Uint32 | [Texture wrap (z)](enums.md#texture-wrap)|
+| Uint32 | [Texture filter](enums.md#etexturefilter) |
+| Uint32 | [Texture wrap (x)](enums.md#etexturewrap) |
+| Uint32 | [Texture wrap (y)](enums.md#etexturewrap)|
+| Uint32 | [Texture wrap (z)](enums.md#etexturewrap)|
 
 #### CMaterialColorData
 | Type | Description |
@@ -295,7 +295,7 @@ Meta data: [NModelFormat::SMetaData](#nmodelformatsmetadata)
 | Uint32 | Offset |
 | Uint32 | Stride |
 | Uint32 | [Format](#attribute-format) |
-| Uint32 | [Type](enums.md#vertex-component) |
+| Uint32 | [Type](enums.md#evertexcomponent) |
 
 #### Attribute Format
 | Value | GX2AttribFormat |

@@ -1,5 +1,7 @@
 ## [DKC:TF](../../formats.md#dkctf) > Archive (PAK)
 
+PAK files are encoded in big-endian byte order, regardless of the platform.
+
 | Type | Description |
 | --- | --- |
 | [CFormDescriptor] | [PACK form](#pack-form) |
@@ -63,10 +65,19 @@ This chunk contains filenames. Most files in the archive are referenced by objec
 | [List]&lt;[IResourceCollection::CNameTagEntry](#iresourcecollectioncnametagentry)&gt; | 
 
 #### IResourceCollection::CNameTagEntry
+Wii U:
+
 | Type | Description |
 | --- | --- |
 | [CObjectTag] | Object tag |
 | [CString] | Filename |
+
+Switch:
+
+| Type | Description |
+| --- | --- |
+| [CObjectTag] | Object tag |
+| [String] | Filename |
 
 [CFormDescriptor]: types.md#cformdescriptor
 [CChunkDescriptor]: types.md#cchunkdescriptor
@@ -74,4 +85,5 @@ This chunk contains filenames. Most files in the archive are referenced by objec
 [CObjectId]: types.md#cobjectid
 [CObjectTag]: types.md#cobjecttag
 [List]: types.md#list
+[String]: types.md#string
 [CString]: types.md#cstring

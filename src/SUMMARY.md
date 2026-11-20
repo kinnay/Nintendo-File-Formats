@@ -106,6 +106,7 @@
 	- [Structs](games/dkctf/structs.md)
 	- [Components](games/dkctf/components.md)
 	- [Properties](games/dkctf/properties.md)
+	- [Compression](games/dkctf/compression.md)
 - [MK8]()
 	- [Replay](games/mk8/replay.md)
 - [NSMBU]()

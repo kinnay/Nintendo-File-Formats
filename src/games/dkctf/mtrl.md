@@ -127,7 +127,7 @@ The first 6 offsets in the table below are relative to the start of the data buf
 #### SShaderVertexLayoutEntry
 | Type | Description |
 | --- | --- |
-| Uint32 | [Vertex component](enums.md#vertex-component) |
+| Uint32 | [Vertex component](enums.md#evertexcomponent) |
 | Uint32 | Unknown |
 
 #### ECachedGraphicsTransform

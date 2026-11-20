@@ -2,22 +2,23 @@
 
 This page lists enums used by more than one file format.
 
-## Texture Filter
-| ETextureFilter | GX2TexXYFilterMode |
+## ETextureFilter
+| Value | Description |
 | --- | --- |
-| 0 | GX2_TEX_XY_FILTER_MODE_POINT |
-| 1 | GX2_TEX_XY_FILTER_MODE_LINEAR |
+| 0 | Point |
+| 1 | Linear |
 
-## Texture Wrap
-| ETextureWrap | GX2TexClampMode |
+## ETextureWrap
+| Value | Description |
 | --- | --- |
-| 0 | GX2_TEX_CLAMP_MODE_CLAMP |
-| 1 | GX2_TEX_CLAMP_MODE_WRAP |
-| 2 | GX2_TEX_CLAMP_MODE_MIRROR |
-| 3 | GX2_TEX_CLAMP_MODE_MIRROR_ONCE |
+| 0 | Clamp to edge |
+| 1 | Repeat |
+| 2 | Mirror repeat |
+| 3 | Mirror once |
+| 4 | Clamp to border |
 
-## Vertex Component
-| EVertexComponent | Name |
+## EVertexComponent
+| Value | Name |
 | --- | --- |
 | 0 | in_position |
 | 1 | in_normal |
