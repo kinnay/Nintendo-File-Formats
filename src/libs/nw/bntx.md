@@ -191,3 +191,4 @@ The block header is placed so that the raw texture data is aligned on the requir
 
 ### References
 * [https://github.com/Tyulis/3DSkit/blob/master/doc/BNTX.md](https://github.com/Tyulis/3DSkit/blob/master/doc/BNTX.md)
+* [https://code.botw.link/uking/uking/lib/NintendoSDK/include/nvn/nvn.h.html](https://code.botw.link/uking/uking/lib/NintendoSDK/include/nvn/nvn.h.html)
