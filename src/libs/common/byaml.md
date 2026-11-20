@@ -2,7 +2,7 @@
 
 These files are similar to regular YAML files, but are encoded in binary form. They usually have the file extension `.byml`, `.byaml` or `.bgyml`.
 
-A BYAML file contains a graph of nodes. Every node has a type and value. There are sequence types, such as arrays and dictionaries, and basic types such as strings and integers. The root node must always be an array or dictionary.
+A BYAML file contains a graph of nodes. Every node has a type and value. There are sequence types, such as arrays and dictionaries, and basic types such as strings and integers. The root node must always be an array, dictionary or hash map.
 
 BYAML files are used to store all kinds of data, such as configuration data and levels.
 
@@ -17,7 +17,7 @@ In most games, the header looks as follows:
 | 0x2 | 2 | [Version number](#changelog) |
 | 0x4 | 4 | Offset to [dictionary key table](#string-table) |
 | 0x8 | 4 | Offset to [string table](#string-table) |
-| 0xC | 4 | Offset to root node ([array](#array) or [dictionary](#dictionary)) |
+| 0xC | 4 | Offset to root node |
 
 Only in Mario Kart 8, an additional binary data table is used:
 
@@ -28,7 +28,7 @@ Only in Mario Kart 8, an additional binary data table is used:
 | 0x4 | 4 | Offset to [dictionary key table](#string-table) |
 | 0x8 | 4 | Offset to [string table](#string-table) |
 | 0xC | 4 | Offset to [binary data table](#binary-data-table) |
-| 0x10 | 4 | Offset to root node ([array](#array) or [dictionary](#dictionary)) |
+| 0x10 | 4 | Offset to root node |
 
 If a table is empty, the offest in the header is 0.
 
@@ -46,8 +46,8 @@ If a table is empty, the offest in the header is 0.
 ## Node Types
 | ID | Type | Version |
 | --- | --- | --- |
-| 0x20&nbsp;&#x2011;&nbsp;0x2F | Hash map | (6 or 7)+ |
-| 0x30&nbsp;&#x2011;&nbsp;0x3F | Ordered hash map | (6 or 7)+ |
+| 0x20&nbsp;&#x2011;&nbsp;0x2F | [Hash map](#hash-map) | (6 or 7)+ |
+| 0x30&nbsp;&#x2011;&nbsp;0x3F | [Ordered hash map](#ordered-hash-map) | (6 or 7)+ |
 | 0xA0 | String | Any |
 | 0xA1 | Binary data | 4+ and MK8 |
 | 0xA2 | Aligned binary data | 5+ |
@@ -102,7 +102,7 @@ A dictionary contains key / value pairs. The pairs must be sorted by their keys,
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 1 | [Node type](#node-types) (0xC1) |
-| 0x1 | 3 | Number of element (N) |
+| 0x1 | 3 | Number of elements (N) |
 | 0x4 | 8 x N | Element table |
 
 Every element is stored as follows:
@@ -112,6 +112,95 @@ Every element is stored as follows:
 | 0x0 | 3 | Index into dictionary key table (see [header](#header)) |
 | 0x3 | 1 | [Node type](#node-types) |
 | 0x4 | 4 | [Value](#node-values) |
+
+## Ordered Dictionary
+[Dictionary](#dictionary) elements are always stored in alphabetical order. To restore the original order, ordered dictionaries store an array of indices behind the element table.
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 1 | [Node type](#node-types) (0xC4) |
+| 0x1 | 3 | Number of elements (N) |
+| 0x4 | 8 x N | Element table |
+| | | Index table |
+
+Every element is stored as follows:
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 3 | Index into dictionary key table (see [header](#header)) |
+| 0x3 | 1 | [Node type](#node-types) |
+| 0x4 | 4 | [Value](#node-values) |
+
+The index table contains a list of indices into the element table. The size of each index depends on the number of elements (N):
+* If there are less than 256 elements, the index table contains one byte per element.
+* If there are less than 65536 elements, the index table contains two bytes per element.
+* Otherwise, the index table contains 4 bytes per element.
+
+## Hash Map
+A hash map is like a [dictionary](#dictionary), except that its keys are hashes instead of strings. The size of the hash depends on the node type:
+
+| Type | Hash size |
+| --- | --- |
+| `0x20` | 4 bytes |
+| `0x21` | 8 bytes |
+| ... | ... |
+| `0x2F` | 64 bytes |
+
+For a given hash size H, the hash map has the following structure:
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 1 | [Node type](#node-types) (0x20 - 0x2F) |
+| 0x1 | 3 | Number of elements (N) |
+| 0x4 | (H + 4) x N | Element table |
+| | N | Type table |
+
+Every element is stored as follows:
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | H | Hash |
+| H | 4 | [Value](#node-value) |
+
+The type table contains one byte per element that indicates its [node type](#node-types).
+
+The elements must be sorted by their hash (or the reverse hash if the file uses little-endian byte order), because a binary search is used to look them up.
+
+## Ordered Hash Map
+In a [hash map](#hash-map), the elements are stored sorted by their hash. An ordered hash map stores an index table behind the element and type table. This makes it possible to assign a custom ordering to hash map elements.
+
+The size of the hash depends on the node type:
+
+| Type | Hash size |
+| --- | --- |
+| `0x30` | 4 bytes |
+| `0x31` | 8 bytes |
+| ... | ... |
+| `0x3F` | 64 bytes |
+
+For a given hash size H, an ordered hash map has the following structure:
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | 1 | [Node type](#node-types) (0x30 - 0x3F) |
+| 0x1 | 3 | Number of elements (N) |
+| 0x4 | (H + 4) x N | Element table |
+| | N | Type table |
+| | | Index table |
+
+Every element is stored as follows:
+
+| Offset | Size | Description |
+| --- | --- | --- |
+| 0x0 | H | Hash |
+| H | 4 | [Value](#node-value) |
+
+The type table contains one byte per element that indicates its [node type](#node-types).
+
+The index table contains a list of indices into the element table. The size of each index depends on the number of elements (N):
+* If there are less than 256 elements, the index table contains one byte per element.
+* If there are less than 65536 elements, the index table contains two bytes per element.
+* Otherwise, the index table contains 4 bytes per element.
 
 ## String Table
 | Offset | Size | Description |
@@ -137,25 +226,5 @@ The address table contains offsets to the binary data, relative to the start of 
 
 The address table must be sorted, because the size of a binary blob is calculated from the difference between two offsets.
 
-## Ordered Dictionary
-Dictionary elements are always stored in alphabetical order. To restore the original order, ordered dictionaries store an array of indices behind the element table.
-
-| Offset | Size | Description |
-| --- | --- | --- |
-| 0x0 | 1 | [Node type](#node-types) (0xC4) |
-| 0x1 | 3 | Number of elements (N) |
-| 0x4 | 8 x N | Element table |
-| | | Index table |
-
-Every element is stored as follows:
-
-| Offset | Size | Description |
-| --- | --- | --- |
-| 0x0 | 3 | Index into dictionary key table (see [header](#header)) |
-| 0x3 | 1 | [Node type](#node-types) |
-| 0x4 | 4 | [Value](#node-values) |
-
-The index table contains a list of indices into the element table. The size of each index depends on the number of elements (N):
-* If there are less than 256 elements, the index table contains one byte per element.
-* If there are less than 65536 elements, the index table contains two bytes per element.
-* Otherwise, the index table contains 4 bytes per element.
+## References
+* [https://epd.zeldamods.org/wiki/Byaml](https://epd.zeldamods.org/wiki/Byaml)
