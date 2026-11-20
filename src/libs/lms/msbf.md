@@ -59,7 +59,7 @@ The parameter type determines how the 4 byte parameter data will be parsed by th
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 2 | Next node index |
-| 0x2 | 2 | [MSBT](msbt.md) file index into the [CTI1](msbp.md#cti1-block) block of an [MSBP](msbp.md) |
+| 0x2 | 2 | [MSBT](msbt.md) file index |
 | 0x4 | 2 | Message index into [TXT2](msbt.md#txt2-block) |
 | 0x6 | 2 | Unused |
 
