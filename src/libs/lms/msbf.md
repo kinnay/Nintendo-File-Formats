@@ -80,7 +80,7 @@ The MSBT file index refers to a file in the [CTI1](msbp.md#cti1-block) block of 
 | 0x2 | 2 | Event identifier |
 | 0x4 | 4 | Unused |
 
-The node identifier allows a game to link the node to a specific action or condition.
+The node identifier allows a game to link the node to a specific action or condition. Duplicate identifiers can exist, it is up to the game to determine how these route to their own functionality. 
 
 ### Entry Node
 | Offset | Size | Description |
