@@ -114,9 +114,10 @@ The image format is encoded as <code>([channel_format](#nngfxchannelformat) << 8
 | 2 | `SNORM` |
 | 3 | `UINT` |
 | 4 | `SINT` |
-| 5 | `SINGLE` |
+| 5 | `FLOAT` |
 | 6 | `SRGB` |
-| 7 | `UHALF` |
+| 7 | `DEPTH_STENCIL` |
+| 10 | `UFLOAT` |
 
 #### nn::gfx::ChannelFormat
 | Value | Description |
