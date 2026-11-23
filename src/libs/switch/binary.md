@@ -72,11 +72,11 @@ Every node is stored as follows:
 | 0x6 | 2 | Right child index (when bit is 1) |
 | 0x8 | 8 | Address of string in [string pool](#string-pool) ([relocated](#relocation-table)) |
 
-In the root node, the bit index is -1, the left index points to the actual root node, the right index is 0, and the address points to the empty string of the [string pool](#string-pool).
+In the root node, the bit index is -1, the left index points to the actual root node, the right index is 0, and the address points to the empty string of the [string pool](#string-pool). In other nodes, the address refers to a non-empty string in the [string pool](#string-pool).
 
-In other nodes, the address refers to a non-empty string in the [string pool](#string-pool). If this string does not equal the search string, the search continues at one of its children. Which child is chosen depends on whether a specific bit in the search string is 0 or 1.
+The search starts at the root node and continues until a node is discovered whose bit index is lower than or equal to the previous node that was visited. This node is considered the leaf. This is generally a node that was visited earlier during the search.
 
-Bit index 0 refers to the least significant (right-most) bit of the string.
+During the search, which child is chosen depends on whether a specific bit in the search string is 0 or 1. Bit index 0 refers to the least significant (right-most) bit of the string.
 
 Node index 0 refers to the root node. Node index 1 refers to the first node after the root node. If there are no further children, the node index refers to the node itself or one of its parents.
 
