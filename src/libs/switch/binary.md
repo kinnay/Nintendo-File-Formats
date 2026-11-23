@@ -39,7 +39,7 @@ The block size is usually the same as the offset to the next block, but in the l
 | Offset | Size | Description |
 | --- | --- | --- |
 | 0x0 | 16 | [Block header](#block-header) (`_STR`) |
-| 0x10 | 4 | String count, excluding empty string |
+| 0x10 | 4 | String count, including empty string |
 | 0x14 | 4 | Empty string |
 | 0x18 | | [Strings](#string) |
 
