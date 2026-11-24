@@ -52,7 +52,7 @@ Every string is null-terminated. If the string contains an odd number of bytes, 
 | 0x2 | | Null-terminated string |
 
 ## Dictionary
-The dictionary contains a [threaded](https://en.wikipedia.org/wiki/Threaded_binary_tree) [patricia trie](https://en.wikipedia.org/wiki/Radix_tree) that allows programs to efficiently find the index of a given string.
+The dictionary contains a [patricia trie](https://en.wikipedia.org/wiki/Radix_tree) that allows programs to efficiently find the index of a given string. The concept is described in more detail in section [here](https://www.cs.princeton.edu/courses/archive/spr10/cos226/handouts/Algs3Ch15.pdf), especially in section 15.3.
 
 > **Note:** not all strings of the [string pool](#string-pool) are included in the dictionary. Which strings are included the dictionary depends on the file format.
 
