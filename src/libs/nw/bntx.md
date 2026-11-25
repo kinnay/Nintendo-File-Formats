@@ -166,6 +166,8 @@ The image format is encoded as <code>([channel_format](#nngfxchannelformat) << 8
 | 58 | `ASTC_12x12` |
 | 59 | `BGR5A1` |
 
+An excellent explanation of BC1 - BC5 compression can be found [here](https://learn.microsoft.com/en-us/windows/win32/direct3d10/d3d10-graphics-programming-guide-resources-block-compression).
+
 #### nn::gfx::TileMode
 | Value | Description |
 | --- | --- |
